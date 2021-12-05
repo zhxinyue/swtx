@@ -1,569 +1,868 @@
 {
-    "cnArea":{
-        "title":"贵司与四维图新合作的领域是：",
-        "list":["核心地图","高精度地图","核心地图+高精度地图"]
-    },
-    "enArea":{
-        "title":"In which areas that your company have cooperated with NavInfo?",
-        "list":["SD Map","HD Map","SD Map+HD Map"]
-    },
-    "cnTitle1":"核心地图",
-    "enTitle1":"SD Map",
-    "cnTitle2":"高精度地图",
-    "enTitle2":"HD Map",
-    "cnDialog":"您还没有完整填写，请继续完成！",
-    "enDialog":"It has not been completed yet, please continue.",
-    "cnPerTitle":"个人信息填写",
-    "enPerTitle":"Personal Information",
-    "cnPerTip":"感谢您的反馈！请留下您的联系方式，我们会 为您寄送精美礼品哦~",
-    "enPerTip":"Thanks for your feedback! If possible, please leave your information, thank you again~",
-    "cnTel":"请填写正确手机号码",
-    "enTel":"Please enter phone number in correct format",
-    "cnPerlist":{
-        "suCompany":"公司名称",
-        "suBumen":"部门名称",
-        "suName":"姓名",
-        "suTelephone":"手机号码",
-        "suAddress":"邮寄地址"
-    },
-    "enPerlist":{
-        "suCompany":"Company",
-        "suBumen":"Dept.",
-        "suName":"Name",
-        "suTelephone":"Phone No.",
-        "suAddress":"Address"
-    },
-    "cnThanks1":"您已提交成功，再次感谢您的反馈！",
-    "cnThanks2":"我们会委托快递小哥将礼品寄送到您的手中",
-    "enThanks1":"You have submitted successfully",
-    "enThanks2":"thank you again for your feedback!",
-    "cnBtn":"开始问卷＞＞",
-    "enBtn":"Begin＞＞",
-"cnErrorMsg":"不可以重复提交问卷",
-"enErrorMsg":"It is not allowed to submit the questionnaire repeatedly",
-    "cnConfirm":"确认",
-    "enConfirm":"Continue",
-"cnSelect":"请选择合作领域",
-"enSelect":"Please choose the cooperate area",
-"cnQueTip":"此题为必答题",
-"enQueTip":"",
-    "cn":{
-        "SD1":"贵司目前与四维图新在地图方面合作的产品是以下哪些？（可多选）",
-        "SD2":"您对四维图新导航地图数据在<i class='text_underline'>数据准确性</i>方面满意程度如何？",
-        "SD3":"您对四维图新导航地图数据在<i class='text_underline'>数据丰富度</i>方面满意程度如何？",
-        "SD4":"在过去一年的导航地图项目合作中，是否发生过对贵司影响重大的<i class='text_underline'>数据品质</i>问题？满意程度如何？",
-        "SD5":"在过去一年的项目合作中，贵司选择的<i class='text_underline'>数据更新频率</i>是多久？满意程度如何？",
-        "SD6":"贵司是以什么形式接收地图产品的呢？对此您的满意程度如何？",
-        "SD7":"您对四维图新地图产品<i class='text_underline'>在线服务发布的稳定性</i>的满意度如何？",
-        "SD8":"您对四维图新导航地图的<i class='text_underline'>产品交付及时性</i>的满意程度如何？",
-        "SD9":"您对四维图新导航地图的<i class='text_underline'>问联响应速度</i>的满意程度如何？",
-        "SD10":"您对四维图新导航地图的<i class='text_underline'>问联答复内容</i>的满意程度如何？",
-        "SD11":"您对四维图新导航地图的<i class='text_underline'>现有质量管理体系</i>的满意程度如何？",
-        "SD12":"在<i class='text_underline'>项目接洽</i>过程中，您对四维图新对应团队人员的满意程度如何？",
-        "SD13":"在<i class='text_underline'>需求沟通</i>过程中，您对四维图新对应团队人员的满意程度如何？",
-        "SD14":"在<i class='text_underline'>项目执行</i>过程中，您对四维图新对应团队人员的满意程度如何？",
-        "SD15":"您认为四维图新的导航地图产品和服务在哪些方面值得认可？哪些方面还需要改进？",
-        "SD16":"与其他公司同类产品相比，您对四维图新导航地图产品及服务价格的满意程度如何？",
-        "SD17":"您是否能够及时收到四维图新最新产品和服务信息？",
-        "SD18":"您是通过以下哪些途径获得四维图新的最新产品和服务信息的？（可多选）",
-        "SD19":"以下四维图新产品和服务中，您认为可能与贵司建立合作的领域有哪些？（可多选）",
-        "SD20":"写给我们的悄悄话：",
-        "HD1":"您对四维图新高精度地图数据在<i class='text_underline'>数据准确性</i>方面满意程度如何？",
-        "HD2":"您对四维图新高精度地图数据在<i class='text_underline'>数据丰富度</i>方面满意程度如何？",
-        "HD3":"在过去一年的高精度地图项目合作中，是否发生过对贵司影响重大的<i class='text_underline'>数据品质</i>问题？满意程度如何？",
-        "HD4":"您对四维图新高精度地图的<i class='text_underline'>产品设计</i>的满意程度如何？",
-        "HD5":"您对四维图新高精度地图的<i class='text_underline'>产品功能</i>的满意程度如何？",
-        "HD6":"您对四维图新高精度地图的<i class='text_underline'>产品安全</i>的满意程度如何？",
-        "HD7":"您对四维图新高精度地图的<i class='text_underline'>产品交付及时性</i>的满意程度如何？",
-        "HD8":"您对四维图新高精度地图<i class='text_underline'>运维响应速度</i>的满意程度如何？",
-        "HD9":"您对四维图新高精度地图<i class='text_underline'>运维系统监控</i>的满意程度如何？",
-        "HD10":"您对四维图新高精度地图<i class='text_underline'>产品维护更新</i>的满意程度如何？",
-        "HD11":"您对四维图新高精度地图<i class='text_underline'>产品推送下载</i>的满意程度如何？",
-        "HD12":"您对四维图新高精度地图项目团队的<i class='text_underline'>问联响应速度</i>的满意程度如何？",
-        "HD13":"您对四维图新高精度地图项目团队的<i class='text_underline'>问联答复内容</i>的满意程度如何？",
-        "HD14":"您对四维图新高精度地图的<i class='text_underline'>现有质量管理体系</i>的满意程度如何？",
-        "HD15":"您对四维图新高精度地图的<i class='text_underline'>质量体系改进</i>的满意程度如何？",
-        "HD19":"您认为四维图新的高精度地图产品和服务在哪些方面值得认可？哪些方面还需要改进？",
-        "HD20":"您对四维图新的<i class='text_underline'>现有质量管理体系</i>的满意程度如何？",
-        "HD21":"您对四维图新的<i class='text_underline'>质量体系改进</i>的满意程度如何？",
-        "HD22":"与其他公司同类产品相比，您对四维图新高精度地图产品及服务价格的满意程度如何？",
-        "answer1":[{
-            "name":"A",
-            "text":"A.日更新地图产品"
-        },{
-            "name":"B",
-            "text":"B.ADAS Map产品"
-        },{
-            "name":"C",
-            "text":"C.三维地图产品"
-        },{
-            "name":"D",
-            "text":"D.停车场产品"
-        },{
-            "name":"E",
-            "text":"E.充电站（桩）产品"
-        },{
-            "name":"F",
-            "text":"F.限行限号信息产品"
-        },{
-            "name":"G",
-            "text":"G.高速收费信息产品"
-        },{
-            "name":"H",
-            "text":"H.道路施工信息产品"
-        },{
-            "name":"I",
-            "text":"I.其他"
-        }],
-        "answer2":[{
-            "img":"imgicon1.png",
-            "score":"5",
-            "text":"非常满意"
-        },{
-            "img":"imgicon2.png",
-            "score":"4",
-            "text":"满意"
-        },{
-            "img":"imgicon3.png",
-            "score":"3",
-            "text":"一般"
-        },{
-            "img":"imgicon4.png",
-            "score":"2",
-            "text":"不满意"
-        },{
-            "img":"imgicon5.png",
-            "score":"1",
-            "text":"非常不满意"
-        },{
-            "img":"imgicon6.png",
-            "score":"?",
-            "text":"不清楚"
-        }],
-        "answer3":[{
-            "img":"imgicon1.png",
-            "score":"5",
-            "text":"未发生过且非常满意"
-        },{
-            "img":"imgicon2.png",
-            "score":"4",
-            "text":"未发生过且满意"
-        },{
-            "img":"imgicon3.png",
-            "score":"3",
-            "text":"未发生且一般"
-        },{
-            "img":"imgicon4.png",
-            "score":"2",
-            "text":"发生过且不满意"
-        },{
-            "img":"imgicon5.png",
-            "score":"1",
-            "text":"发生过且非常不满意"
-        },{
-            "img":"imgicon6.png",
-            "score":"?",
-            "text":"不清楚"
-        }],
-        "answer4":[{
-            "name":"A",
-            "text":"A.季度更新"
-        },{
-            "name":"B",
-            "text":"B.月更新"
-        },{
-            "name":"C",
-            "text":"C.日更新"
-        },{
-            "name":"D",
-            "text":"D.其他"
-        }],
-        "answer5":[{
-            "name":"A",
-            "text":"A.数据包形式"
-        },{
-            "name":"B",
-            "text":"B.在线服务形式"
-        },{
-            "name":"C",
-            "text":"C.数据包+在线服务形式"
-        }],
-        "answer6":[{
-            "name":"A",
-            "text":"A.是"
-        },{
-            "name":"B",
-            "text":"B.否"
-        }],
-        "answer7":[{
-            "name":"A",
-            "text":"A.线上活动"
-        },{
-            "name":"B",
-            "text":"B.公司产品宣传册"
-        },{
-            "name":"C",
-            "text":"C.公司介绍"
-        },{
-            "name":"D",
-            "text":"D.用户大会"
-        },{
-            "name":"E",
-            "text":"E.产品赏鉴会"
-        },{
-            "name":"F",
-            "text":"F.Workshop/Tech Day"
-        },{
-            "name":"G",
-            "text":"G.企业间访问参观"
-        },{
-            "name":"H",
-            "text":"H.专业展会"
-        },{
-            "name":"I",
-            "text":"I.Newsletter"
-        },{
-            "name":"J",
-            "text":"J.微信/微博"
-        },{
-            "name":"K",
-            "text":"K.第三方媒体渠道"
-        },{
-            "name":"L",
-            "text":"L.客户经理告知"
-        },{
-            "name":"M",
-            "text":"M.其他"
-        }],
-        "answer8":[{
-            "name":"A",
-            "text":"A.导航地图"
-        },{
-            "name":"B",
-            "text":"B.导航软件"
-        },{
-            "name":"C",
-            "text":"C.新能源汽车智能出行解决方案"
-        },{
-            "name":"D",
-            "text":"D.乘用车车联网服务"
-        },{
-            "name":"E",
-            "text":"E.商用车车联网服务"
-        },{
-            "name":"F",
-            "text":"F.动态交通信息"
-        },{
-            "name":"G",
-            "text":"G.位置大数据平台"
-        },{
-            "name":"H",
-            "text":"H.语音产品及服务"
-        },{
-            "name":"I",
-            "text":"I.ADAS地图"
-        },{
-            "name":"J",
-            "text":"J.ADASIS"
-        },{
-            "name":"K",
-            "text":"K.高精度地图"
-        },{
-            "name":"L",
-            "text":"L.自动驾驶综合解决方案"
-        },{
-            "name":"M",
-            "text":"M.自动代客泊车解决方案"
-        },{
-            "name":"N",
-            "text":"N.自动驾驶模拟仿真"
-        },{
-            "name":"O",
-            "text":"O.V2X解决方案"
-        },{
-            "name":"P",
-            "text":"P.高精度定位"
-        },{
-            "name":"Q",
-            "text":"Q.高精度融合定位"
-        },{
-            "name":"R",
-            "text":"R.芯片产品及服务"
-        },{
-            "name":"S",
-            "text":"S.其他"
-        }],
-        "answer9":"值得认可：",
-        "answer10":"需要改进：",
-        "answer11":"原因&合作项目",
-        "answer12":"请输入",
-        "answer13":[{
-            "name":"A",
-            "text":"A.未发生过"
-        },{
-            "name":"B",
-            "text":"B.发生过"
-        }]
+  "cnArea": {
+    "title": "贵司与四维图新合作的领域是：",
+    "list": ["核心地图", "高精度地图", "核心地图+高精度地图"]
+  },
+  "enArea": {
+    "title": "In which areas that your company have cooperated with NavInfo?",
+    "list": ["SD Map", "HD Map", "SD Map+HD Map"]
+  },
+  "cnTitle1": "调查内容",
+  "enTitle1": "SD Map",
+  "cnTitle2": "高精度地图",
+  "enTitle2": "HD Map",
+  "cnDialog": "您还没有完整填写，请继续完成！",
+  "enDialog": "It has not been completed yet, please continue.",
+  "cnPerTitle": "个人信息填写",
+  "enPerTitle": "Personal Information",
+  "cnPerTip": "感谢您的反馈！请留下您的联系方式，我们会 为您寄送精美礼品哦~",
+  "enPerTip": "Thanks for your feedback! If possible, please leave your information, thank you again~",
+  "cnTel": "请填写正确手机号码",
+  "enTel": "Please enter phone number in correct format",
+  "cnPerlist": {
+    "suCompany": "公司名称",
+    "suBumen": "部门名称",
+    "suName": "姓名",
+    "suTelephone": "手机号码",
+    "suAddress": "邮寄地址"
+  },
+  "enPerlist": {
+    "suCompany": "Company",
+    "suBumen": "Dept.",
+    "suName": "Name",
+    "suTelephone": "Phone No.",
+    "suAddress": "Address"
+  },
+  "cnThanks1": "您已提交成功，再次感谢您的反馈！",
+  "cnThanks2": "我们会委托快递小哥将礼品寄送到您的手中",
+  "enThanks1": "You have submitted successfully",
+  "enThanks2": "thank you again for your feedback!",
+  "cnBtn": "开始问卷＞＞",
+  "enBtn": "Begin＞＞",
+  "cnErrorMsg": "不可以重复提交问卷",
+  "enErrorMsg": "It is not allowed to submit the questionnaire repeatedly",
+  "cnConfirm": "确认",
+  "enConfirm": "Continue",
+  "cnSelect": "请选择合作领域",
+  "enSelect": "Please choose the cooperate area",
+  "cnQueTip": "此题为必答题",
+  "enQueTip": "",
+  "cn": {
+    "SD1": "目前贵司与四维图新合作的产品及服务是以下哪些？（可多选）",
+    "SD2": "您对四维图新目前产品及服务的满意度如何？（5分为非常满意，1分为非常不满意）",
+    "SD3": "您印象中四维图新是一家什么样的公司？（单选）",
+    "SD4": "在与四维图新的合作中，您最看中公司产品的哪些方面？（可多选）",
+    "SD5": "您对四维图新产品及服务的评价是？（5分为非常满意，1分为非常不满意）",
+    "SD6": "在过去一年的项目合作中，是否发生过对贵司影响重大的产品品质问题？ （单选）",
+    "SD7": "在合作中，您对四维图新对应团队人员的满意程度如何？",
+    "SD8": "在智能驾驶系统研发过程中，您认为最重要的3个方面是：（选3个）",
+    "SD9": "您认为下一代智能驾驶平台亮点定义中最重要的三项是：（选3个）",
+    "SD10": "贵司对下一代高平台智能驾驶系统算力方向的计划是：（单选）",
+    "SD11": "您认为四维图新的产品和服务在哪些方面值得认可？哪些方面还需要改进？（必填）",
+    "SD12": "您是否能够及时收到四维图新最新产品和服务信息？（单选）",
+    "SD13": "您是通过以下哪些途径获得四维图新的最新产品和服务信息的？（可多选）",
+    "SD14": "您希望能够通过以下哪些途径获得四维图新的最新产品和服务信息？（可多选）",
+    "SD15": "以下四维图新产品和服务中，您认为可能与贵司建立合作的领域有哪些？（可多选）",
+    "SD16": "您经常会通过哪些平台来获取汽车行业信息？（可多选）",
+    "SD17": "写给我们的悄悄话：",
+    "answer1": [{
+      "name": "A",
+      "text": "A.导航地图"
+    }, {
+      "name": "B",
+      "text": "B.导航软件"
+    }, {
+      "name": "C",
+      "text": "C.ADAS地图"
+    }, {
+      "name": "D",
+      "text": "D.高精度地图"
+    }, {
+      "name": "E",
+      "text": "E.高精度地图引擎"
+    }, {
+      "name": "F",
+      "text": "F.乘用车智能网联"
+    }, {
+      "name": "G",
+      "text": "G.商用车智能网联"
+    }, {
+      "name": "H",
+      "text": "H.新能源汽车智能出行解决方案"
+    }, {
+      "name": "I",
+      "text": "I.动态交通信息"
+    }, {
+      "name": "J",
+      "text": "J.位置大数据平台"
+    }, {
+      "name": "K",
+      "text": "K.自动驾驶解决方案"
+    }, {
+      "name": "L",
+      "text": "L.自动代客泊车解决方案"
+    }, {
+      "name": "M",
+      "text": "M.数据合规服务"
+    }, {
+      "name": "N",
+      "text": "N.V2X解决方案"
+    }, {
+      "name": "O",
+      "text": "O.高精度定位"
+    }, {
+      "name": "P",
+      "text": "P.语音产品及服务"
+    }, {
+      "name": "Q",
+      "text": "Q.芯片"
+    }, {
+      "name": "R",
+      "text": "R.其他"
+    }],
+    "answer2": [{
+      "img": "imgicon1.png",
+      "score": "5",
+      "text": "非常满意"
+    }, {
+      "img": "imgicon2.png",
+      "score": "4",
+      "text": "满意"
+    }, {
+      "img": "imgicon3.png",
+      "score": "3",
+      "text": "一般"
+    }, {
+      "img": "imgicon4.png",
+      "score": "2",
+      "text": "不满意"
+    }, {
+      "img": "imgicon5.png",
+      "score": "1",
+      "text": "非常不满意"
+    }, {
+      "img": "imgicon6.png",
+      "score": "?",
+      "text": "不清楚"
+    }],
+    "answer3": [{
+      "name": "A",
+      "text": "A.地图公司"
+    }, {
+      "name": "B",
+      "text": "B.智能驾驶科技公司"
+    }, {
+      "name": "C",
+      "text": "C.地图+位置大数据服务商"
+    }, {
+      "name": "D",
+      "text": "D.其他"
+    }, {
+      "name": "E",
+      "text": "E.不清楚"
+    }],
+    "answer4": [{
+      "name": "A",
+      "text": "A.产品品质"
+    }, {
+      "name": "B",
+      "text": "B.产品丰富度"
+    }, {
+      "name": "C",
+      "text": "C.品牌知名度"
+    }, {
+      "name": "D",
+      "text": "D.技术研发能力"
+    }, {
+      "name": "E",
+      "text": "E.定制化能力"
+    }, {
+      "name": "F",
+      "text": "F.价格"
+    }, {
+      "name": "G",
+      "text": "G.项目人员配合度"
+    }, {
+      "name": "H",
+      "text": "H.项目人员专业度"
+    }, {
+      "name": "I",
+      "text": "I.售后服务支持"
+    }, {
+      "name": "J",
+      "text": "J.其他"
+    }],
+    "answer5": [{
+      "name": "A",
+      "text": "A.待定"
+    }],
+    "answer6": [{
+      "name": "A",
+      "text": "A.未发生过"
+    }, {
+      "name": "B",
+      "text": "B.发生过"
+    }],
+    "answer7": [{
+      "name": "A",
+      "text": "A.待定"
+    }],
+    "answer8": [{
+      "name": "A",
+      "text": "A.系统的技术先进性"
+    }, {
+      "name": "B",
+      "text": "B.系统的安全稳定性"
+    }, {
+      "name": "C",
+      "text": "C.法规或行业认可的标准"
+    }, {
+      "name": "D",
+      "text": "D.研发成本"
+    }, {
+      "name": "E",
+      "text": "E.竞品情况"
+    }, {
+      "name": "F",
+      "text": "F.售后反馈"
+    }, {
+      "name": "G",
+      "text": "G.其他"
+    }, {
+      "name": "H",
+      "text": "H.不清楚"
+    }],
+    "answer9": [{
+      "name": "A",
+      "text": "A.高超的算力"
+    }, {
+      "name": "B",
+      "text": "B.高级别传感器的引入"
+    }, {
+      "name": "C",
+      "text": "C.更多场景的覆盖"
+    }, {
+      "name": "D",
+      "text": "D.自动驾驶等级的提升"
+    }, {
+      "name": "E",
+      "text": "E.相同自动驾驶等级下功能，全新的体验"
+    }, {
+      "name": "F",
+      "text": "F.现有功能客户体验的提升"
+    }, {
+      "name": "G",
+      "text": "G.数据中心的搭建，数据回流"
+    }, {
+      "name": "H",
+      "text": "H.更优性价比，降低成本"
+    }, {
+      "name": "I",
+      "text": "I.其他"
+    }, {
+      "name": "J",
+      "text": "J.不清楚"
+    }],
+    "answer10": [{
+      "name": "A",
+      "text": "A.小于200 TOPS（含200）"
+    }, {
+      "name": "B",
+      "text": "B.200~300 TOPS （含300）"
+    }, {
+      "name": "C",
+      "text": "C.300~500TOPS （含500）"
+    }, {
+      "name": "D",
+      "text": "D.500~1000TOPS (含1000)"
+    }, {
+      "name": "E",
+      "text": "E.大于1000TOPS"
+    }, {
+      "name": "F",
+      "text": "F.其他"
+    }, {
+      "name": "G",
+      "text": "G.不清楚"
+    }],
+    "answer12": [{
+      "name": "A",
+      "text": "A.是"
+    }, {
+      "name": "B",
+      "text": "B.否"
+    }],
+    "answer13": [{
+      "name": "A",
+      "text": "A.线上信息推送"
+    }, {
+      "name": "B",
+      "text": "B.线上产品直播"
+    }, {
+      "name": "C",
+      "text": "C.公司官网"
+    }, {
+      "name": "D",
+      "text": "D.公司产品宣传册"
+    }, {
+      "name": "E",
+      "text": "E.公司介绍PPT"
+    }, {
+      "name": "F",
+      "text": "F.Workshop/TechDay"
+    }, {
+      "name": "G",
+      "text": "G.企业间访问参观"
+    }, {
+      "name": "H",
+      "text": "H.专业展会"
+    }, {
+      "name": "I",
+      "text": "I.企业自媒体平台（例如：微信/微博/抖音/视频号等）"
+    }, {
+      "name": "J",
+      "text": "J.第三方媒体渠道"
+    }, {
+      "name": "K",
+      "text": "K.客户经理告知"
+    }, {
+      "name": "L",
+      "text": "L.其他"
+    }],
+    "answer14": [{
+      "name": "A",
+      "text": "A.线上信息推送"
+    }, {
+      "name": "B",
+      "text": "B.线上产品直播"
+    }, {
+      "name": "C",
+      "text": "C.公司官网"
+    }, {
+      "name": "D",
+      "text": "D.公司产品宣传册"
+    }, {
+      "name": "E",
+      "text": "E.公司介绍PPT"
+    }, {
+      "name": "F",
+      "text": "F.邮件"
+    }, {
+      "name": "G",
+      "text": "G.用户大会"
+    }, {
+      "name": "H",
+      "text": "H.产品赏鉴会"
+    }, {
+      "name": "I",
+      "text": "I.Workshop/TechDay"
+    }, {
+      "name": "J",
+      "text": "J.企业间访问参观"
+    }, {
+      "name": "K",
+      "text": "K.专业展会"
+    }, {
+      "name": "L",
+      "text": "L.企业自媒体平台（例如：微信/微博/抖音/视频号等"
+    }, {
+      "name": "M",
+      "text": "M.第三方媒体渠道"
+    }, {
+      "name": "N",
+      "text": "N.客户经理告知"
+    }, {
+      "name": "O",
+      "text": "O.其他"
+    }],
+    "answer15": [{
+      "name": "A",
+      "text": "A.导航地图"
+    }, {
+      "name": "B",
+      "text": "B.导航软件"
+    }, {
+      "name": "C",
+      "text": "C.ADAS 地图"
+    }, {
+      "name": "D",
+      "text": "D.高精度地图"
+    }, {
+      "name": "E",
+      "text": "E.高精度地图引擎"
+    }, {
+      "name": "F",
+      "text": "F.乘用车智能网联"
+    }, {
+      "name": "G",
+      "text": "G.商用车智能网联"
+    }, {
+      "name": "H",
+      "text": "H.新能源汽车智能出行解决方案"
+    }, {
+      "name": "I",
+      "text": "I.动态交通信息"
+    }, {
+      "name": "J",
+      "text": "J.位置大数据平台"
+    }, {
+      "name": "K",
+      "text": "K.自动驾驶解决方案"
+    }, {
+      "name": "L",
+      "text": "L.自动代客泊车解决方案"
+    }, {
+      "name": "M",
+      "text": "M.数据合规服务"
+    }, {
+      "name": "N",
+      "text": "N.V2X解决方案"
+    }, {
+      "name": "O",
+      "text": "O.高精度定位"
+    }, {
+      "name": "P",
+      "text": "P.语音产品及服务"
+    }, {
+      "name": "Q",
+      "text": "Q.芯片"
+    }, {
+      "name": "R",
+      "text": "R.其他"
+    }],
+    "answer16": [{
+      "name": "A",
+      "text": "A.专业公众号"
+    }, {
+      "name": "B",
+      "text": "B.专业杂志、期刊"
+    }, {
+      "name": "C",
+      "text": "C.企业直播课程"
+    }, {
+      "name": "D",
+      "text": "D.新闻资讯类平台"
+    }, {
+      "name": "E",
+      "text": "E.主流社交平台"
+    }, {
+      "name": "F",
+      "text": "F.其他"
+    }],
+    "answer11": "值得认可：",
+    "answer111": "需要改进：",
+    "answer1111": "原因&合作项目",
+    "answer20": "请输入"
+ 
 
 
-    },
-    "en":{
-        "SD1":"With which navigation map product that your company has cooperated with NavInfo? (Multiple choice)",
-        "SD2":"How satisfied are you with the accuracy of NavInfo’s navigation map data?",
-        "SD3":"How satisfied are you with the feature richness of NavInfo’s navigation map data?",
-        "SD4":"In the past year’s cooperation with NavInfo’s navigation map, were there any serious data quality issues that had a major impact on your company? How satisfied are you with it?",
-        "SD5":"In the past year’s cooperation with NavInfo’s navigation map, which type of data update frequency do your company choose? How satisfied are you with it?",
-        "SD6":"How does your company receive NavInfo’s navigation map products? How satisfied are you with it?",
-        "SD7":"How satisfied are you with the stability of online publishing service of NavInfo’s navigation map product?",
-        "SD8":"How satisfied are you with the timely delivery of NavInfo’s navigation map product?",
-        "SD9":"How satisfied are you with customer issues response speed in navigation map cooperation of NavInfo?",
-        "SD10":"How satisfied are you with the reply of customer issues in navigation map cooperation of NavInfo?",
-        "SD11":"How satisfied are you with the current product quality management system of NavInfo?",
-        "SD12":"In the beginning of business negotiation, how satisfied are you with the team of NavInfo?",
-        "SD13":"During the requirement communication process, how satisfied are you with the team of NavInfo?",
-        "SD14":"During project execution process, how satisfied are you with the team of NavInfo?",
-        "SD15":"What aspects of NavInfo navigation map product do you think deserve being recognized? And what aspects need to be improved?",
-        "SD16":"Compared with similar products of other companies, how satisfied are you with the price of NavInfo’s navigation map product?",
-        "SD17":"Do you think it is timely to receive the latest product and service information of NavInfo?",
-        "SD18":"How do you get the latest product and service information of NavInfo? (Multiple choice)",
-        "SD19":"Which of the following NavInfo products and services do you think would establish cooperation with your company?(Multiple choice)",
-        "SD20":"Whisper to us：",
-        "HD1":"How satisfied are you with the accuracy of NavInfo’s HD map data?",
-        "HD2":"How satisfied are you with the feature richness of NavInfo’s HD map data?",
-        "HD3":"In the past year's cooperation with NavInfo in HD map, were there any data quality issues that had a major impact on your company? How satisfied are you with it?",
-        "HD4":"How satisfied are you with the product design of NavInfo’s HD map?",
-        "HD5":"How satisfied are you with the product functions of NavInfo’s HD map?",
-        "HD6":"How satisfied are you with the product safety of NavInfo’s HD map?",
-        "HD7":"How satisfied are you with the timely delivery of NavInfo’s HD map?",
-        "HD8":"How satisfied are you with the operation and maintenance response speed of NavInfo’s HD map?",
-        "HD9":"How satisfied are you with the operation and maintenance system monitoring of NavInfo’s HD map?",
-        "HD10":"How satisfied are you with the maintenance and update of NavInfo’s HD map?",
-        "HD11":"How satisfied are you with the push and download of NavInfo’s HD map?",
-        "HD12":"How satisfied are you with the customer issue response speed in HD map cooperation with NavInfo?",
-        "HD13":"How satisfied are you with the answers to customer issues in HD map cooperation with NavInfo?",
-        "HD14":"How satisfied are you with the current quality management system of NavInfo?",
-        "HD15":"How satisfied are you with the improvement of quality management system of NavInfo?",
-        "HD19":"What aspects of NavInfo HD map product do you think deserve being recognized? And what aspects need to be improved?",
-        "HD20":"How satisfied are you with the current quality management system of NavInfo?",
-        "HD21":"How satisfied are you with the improvement of quality management system of NavInfo?",
-        "HD22":"Compared with similar products of other companies, how satisfied are you with the price of NavInfo HD map product?",
-        "answer1":[{
-            "name":"A",
-            "text":"A.Daily update service"
-        },{
-            "name":"B",
-            "text":"B.ADAS map"
-        },{
-            "name":"C",
-            "text":"C.3D map"
-        },{
-            "name":"D",
-            "text":"D.Parking navigation map"
-        },{
-            "name":"E",
-            "text":"E.Charging station&Charging pile"
-        },{
-            "name":"F",
-            "text":"F.Vehicle restriction information service"
-        },{
-            "name":"G",
-            "text":"G.Toll cost information service"
-        },{
-            "name":"H",
-            "text":"H.Construction information service"
-        },{
-            "name":"I",
-            "text":"I.Others"
-        }],
-        "answer2":[{
-            "img":"imgicon1.png",
-            "score":"5",
-            "text":"Very satisfied"
-        },{
-            "img":"imgicon2.png",
-            "score":"4",
-            "text":"Satisfied"
-        },{
-            "img":"imgicon3.png",
-            "score":"3",
-            "text":"Neutral"
-        },{
-            "img":"imgicon4.png",
-            "score":"2",
-            "text":"Dissatisfied"
-        },{
-            "img":"imgicon5.png",
-            "score":"1",
-            "text":"Very dissatisfied"
-        },{
-            "img":"imgicon6.png",
-            "score":"?",
-            "text":"Not clear"
-        }],
-        "answer3":[{
-            "img":"imgicon1.png",
-            "score":"5",
-            "text":"NO & Very satisfied"
-        },{
-            "img":"imgicon2.png",
-            "score":"4",
-            "text":"NO & Satisfied"
-        },{
-            "img":"imgicon3.png",
-            "score":"3",
-            "text":"NO & Neutral"
-        },{
-            "img":"imgicon4.png",
-            "score":"2",
-            "text":"YES & Dissatisfied"
-        },{
-            "img":"imgicon5.png",
-            "score":"1",
-            "text":"YES & Very dissatisfied"
-        },{
-            "img":"imgicon6.png",
-            "score":"?",
-            "text":"Not clear"
-        }],
-        "answer4":[{
-            "name":"A",
-            "text":"A.Quarterly update"
-        },{
-            "name":"B",
-            "text":"B.Monthly update"
-        },{
-            "name":"C",
-            "text":"C.Daily update"
-        },{
-            "name":"D",
-            "text":"D.Others"
-        }],
-        "answer5":[{
-            "name":"A",
-            "text":"A.Data packet"
-        },{
-            "name":"B",
-            "text":"B.Online service"
-        },{
-            "name":"C",
-            "text":"C.Data packet + Online service"
-        }],
-        "answer6":[{
-            "name":"A",
-            "text":"A.Yes"
-        },{
-            "name":"B",
-            "text":"B.No"
-        }],
-        "answer7":[{
-            "name":"A",
-            "text":"A.Online activity"
-        },{
-            "name":"B",
-            "text":"B.NavInfo product brochure"
-        },{
-            "name":"C",
-            "text":"C.NavnIfo introduction PPT"
-        },{
-            "name":"D",
-            "text":"D.NavInfo User Group"
-        },{
-            "name":"E",
-            "text":"E.NavInfo product event"
-        },{
-            "name":"F",
-            "text":"F.Workshop/TechDay"
-        },{
-            "name":"G",
-            "text":"G.Visit between enterprises"
-        },{
-            "name":"H",
-            "text":"H.Professional exhibition"
-        },{
-            "name":"I",
-            "text":"I.Newsletter"
-        },{
-            "name":"J",
-            "text":"J.WeChat/Weibo"
-        },{
-            "name":"K",
-            "text":"K.3rd party media channels"
-        },{
-            "name":"L",
-            "text":"L.Account manager informed"
-        },{
-            "name":"M",
-            "text":"M.Others"
-        }],
-        "answer8":[{
-            "name":"A",
-            "text":"A.SD map"
-        },{
-            "name":"B",
-            "text":"B.Navigation software"
-        },{
-            "name":"C",
-            "text":"C.EV smart mobility solution --EV charger"
-        },{
-            "name":"D",
-            "text":"D.Passenger vehicle connected vehicle service"
-        },{
-            "name":"E",
-            "text":"E.Commercial vehicle connected vehicle service"
-        },{
-            "name":"F",
-            "text":"F.Dynamic traffic information"
-        },{
-            "name":"G",
-            "text":"G.Location big data platform"
-        },{
-            "name":"H",
-            "text":"H.Voice product and service"
-        },{
-            "name":"I",
-            "text":"I.ADAS map"
-        },{
-            "name":"J",
-            "text":"J.ADASIS"
-        },{
-            "name":"K",
-            "text":"K.HD map"
-        },{
-            "name":"L",
-            "text":"L.Autonomous driving system solution"
-        },{
-            "name":"M",
-            "text":"M.Automatic valet parking solution"
-        },{
-            "name":"N",
-            "text":"N.Autonomous driving simulation"
-        },{
-            "name":"O",
-            "text":"O.V2X solution"
-        },{
-            "name":"P",
-            "text":"P.HD-GNSS"
-        },{
-            "name":"Q",
-            "text":"Q.Integrated HD-Localization"
-        },{
-            "name":"R",
-            "text":"R.Automotive chips"
-        },{
-            "name":"S",
-            "text":"S.Others"
-        }],
-        "answer9":"Being recognized：",
-        "answer10":"To be improved：",
-        "answer11":"Reasons & Cooperation projects",
-        "answer12":"Please type...",
-        "answer13":[{
-            "name":"A",
-            "text":"A.Yes"
-        },{
-            "name":"B",
-            "text":"B.No"
-        }]
-        
-    }
+  },
+  "en": {
+    "SD1": "With which of the following product/service has your company cooperated with NavInfo? (Multiple choice)",
+    "SD2": "How satisfied are you with the product/service that NavInfo has provided to your company? （‘5’ means ‘very satisfied’ and ‘1’ means ‘Very dissatisfied’）",
+    "SD3": "What kind of company is NavInfo in your impression? (Single choice)",
+    "SD4": "In your cooperation with Navinfo, which of the following aspects do you think is the most important? (Multiple choice)  ",
+    "SD5": "How satisfied are you with the following product/service of NavInfo? （‘5’ means ‘very satisfied’ and ‘1’ means ‘Very dissatisfied’）",
+    "SD6": "In the past year’s cooperation with NavInfo, were there any serious product quality issues that caused major impacts to your company?",
+    "SD7": "During the cooperation, how satisfied are you with the project team of NavInfo?",
+    "SD8": "During the development of the autonomous driving system, which of the following aspects do you think is the most important? (Choose 3 options)",
+    "SD9": "For the next-generation autonomous driving platform, which of the following highlights do you think is the most important? (Choose 3 options)",
+    "SD10": "For the next generation of high-platform autonomous driving systems, what is your company’s plan for computing power? (Single choice)",
+    "SD11": "What aspects of NavInfo product&service do you think deserve being recognized? And what aspects need to be improved?",
+    "SD12": "Do you think it is timely to receive the latest product and service information of NavInfo? (Single choice)",
+    "SD13": "How do you get the latest product and service information of NavInfo? (Multiple choice)",
+    "SD14": "In which of the following ways do you hope to obtain NavInfo's latest product and service information? (Multiple choice)",
+    "SD15": "Which of the following NavInfo products and services do you think would establish potential cooperation with your company in the future? (Multiple choice)",
+    "SD16": "Which platforms do you often use to obtain information about the automotive industry? (Multiple choice)",
+    "SD17": "What else would you like to tell us: ",
+    "answer1": [{
+      "name": "A",
+      "text": "A.SD map"
+    }, {
+      "name": "B",
+      "text": "B.Navigation software"
+    }, {
+      "name": "C",
+      "text": "C.ADAS map"
+    }, {
+      "name": "D",
+      "text": "D.HD map"
+    }, {
+      "name": "E",
+      "text": "E.HD map engine"
+    }, {
+      "name": "F",
+      "text": "F.Passenger vehicle connected vehicle service"
+    }, {
+      "name": "G",
+      "text": "G.Commercial vehicle connected vehicle service"
+    }, {
+      "name": "H",
+      "text": "H.EV smart mobility solution -- EV charger"
+    }, {
+      "name": "I",
+      "text": "I.Dynamic traffic information"
+    }, {
+      "name": "J",
+      "text": "J.Location big data platform"
+    }, {
+      "name": "K",
+      "text": "K.Autonomous driving system solution"
+    }, {
+      "name": "L",
+      "text": "L.Automatic valet parking solution"
+    }, {
+      "name": "M",
+      "text": "M.Data compliance service"
+    }, {
+      "name": "N",
+      "text": "N.V2X solution"
+    }, {
+      "name": "O",
+      "text": "O.HD-GNSS"
+    }, {
+      "name": "P",
+      "text": "P.Voice product and service"
+    }, {
+      "name": "Q",
+      "text": "Q.Automotive chips"
+    }, {
+      "name": "R",
+      "text": "R.Others"
+    }],
+    "answer2": [{
+      "img": "imgicon1.png",
+      "score": "5",
+      "text": "Very satisfied"
+    }, {
+      "img": "imgicon2.png",
+      "score": "4",
+      "text": "Satisfied"
+    }, {
+      "img": "imgicon3.png",
+      "score": "3",
+      "text": "Neutral"
+    }, {
+      "img": "imgicon4.png",
+      "score": "2",
+      "text": "Dissatisfied"
+    }, {
+      "img": "imgicon5.png",
+      "score": "1",
+      "text": "Very dissatisfied"
+    }, {
+      "img": "imgicon6.png",
+      "score": "?",
+      "text": "Not clear"
+    }],
+    "answer3": [{
+      "name": "A",
+      "text": "A.Map company"
+    }, {
+      "name": "B",
+      "text": "B.Autonomous driving technology company"
+    }, {
+      "name": "C",
+      "text": "C.Map & location big data service provider"
+    }, {
+      "name": "D",
+      "text": "D.Others"
+    }, {
+      "name": "E",
+      "text": "E.Not clear"
+    }],
+    "answer4": [{
+      "name": "A",
+      "text": "A.Product quality"
+    }, {
+      "name": "B",
+      "text": "B.Product diversity"
+    }, {
+      "name": "C",
+      "text": "C.Company reputation"
+    }, {
+      "name": "D",
+      "text": "D.Technology and R & D capability"
+    }, {
+      "name": "E",
+      "text": "E.Customization capabilities"
+    }, {
+      "name": "F",
+      "text": "F.Price"
+    }, {
+      "name": "G",
+      "text": "G.Personnel cooperation"
+    }, {
+      "name": "H",
+      "text": "H.Personnel professionalism"
+    }, {
+      "name": "I",
+      "text": "I.After-sales service"
+    }, {
+      "name": "J",
+      "text": "J.Others"
+    }],
+    "answer5": [{
+      "name": "A",
+      "text": "A.待定"
+    }],
+    "answer6": [{
+      "name": "A",
+      "text": "A.Never happened"
+    }, {
+      "name": "B",
+      "text": "B.happened"
+    }],
+    "answer7": [{
+      "name": "A",
+      "text": "A.待定"
+    }],
+    "answer8": [{
+      "name": "A",
+      "text": "A.Technological advancement of the system"
+    }, {
+      "name": "B",
+      "text": "B.Security and stability of the system"
+    }, {
+      "name": "C",
+      "text": "C.Regulations or industry-recognized standards"
+    }, {
+      "name": "D",
+      "text": "D.R&D costs"
+    }, {
+      "name": "E",
+      "text": "E.Competitive products"
+    }, {
+      "name": "F",
+      "text": "F.After-sales feedback"
+    }, {
+      "name": "G",
+      "text": "G.Other"
+    }, {
+      "name": "H",
+      "text": "H.Not clear"
+    }],
+    "answer9": [{
+      "name": "A",
+      "text": "A.Advanced computing power"
+    }, {
+      "name": "B",
+      "text": "B.Incorporation of high-level sensors  "
+    }, {
+      "name": "C",
+      "text": "C.Coverage of more scenes"
+    }, {
+      "name": "D",
+      "text": "D.Improvement of autonomous driving level"
+    }, {
+      "name": "E",
+      "text": "E.Innovative functional experience at the same autonomous driving level"
+    }, {
+      "name": "F",
+      "text": "F.Improvement of customer experience with existing functions"
+    }, {
+      "name": "G",
+      "text": "G.Construction of data center and data backflow"
+    }, {
+      "name": "H",
+      "text": "H.Optimized cost efficiency, lower cost"
+    }, {
+      "name": "I",
+      "text": "I.Others"
+    }, {
+      "name": "J",
+      "text": "J.Not clear"
+    }],
+    "answer10": [{
+      "name": "A",
+      "text": "A.Less than 200 TOPS (including 200)"
+    }, {
+      "name": "B",
+      "text": "B.200~300 TOPS (including 300)"
+    }, {
+      "name": "C",
+      "text": "C.300~500TOPS (including 500)"
+    }, {
+      "name": "D",
+      "text": "D.500~1000TOPS (including 1000)"
+    }, {
+      "name": "E",
+      "text": "E.More than 1000TOPS"
+    }, {
+      "name": "F",
+      "text": "F.Others"
+    }, {
+      "name": "G",
+      "text": "G.Not clear"
+    }],
+    "answer12": [{
+      "name": "A",
+      "text": "A.Yes"
+    }, {
+      "name": "B",
+      "text": "B.No"
+    }],
+    "answer13": [{
+      "name": "A",
+      "text": "A.Push Notifications"
+    }, {
+      "name": "B",
+      "text": "B.Online live streaming of products"
+    }, {
+      "name": "C",
+      "text": "C.NavInfo’s official website"
+    }, {
+      "name": "D",
+      "text": "D.NavInfo product brochure"
+    }, {
+      "name": "E",
+      "text": "E.NavInfo introduction PPT"
+    }, {
+      "name": "F",
+      "text": "F.Workshop/TechDay"
+    }, {
+      "name": "G",
+      "text": "G.Inter-corporate visits"
+    }, {
+      "name": "H",
+      "text": "H.Professional exhibitions"
+    }, {
+      "name": "I",
+      "text": "I.NavInfo’s social media platform (Wechat official account/Weibo/ TikTok/ WeChat video channel…)"
+    }, {
+      "name": "J",
+      "text": "J.Third party media channels"
+    }, {
+      "name": "K",
+      "text": "K.Informed by account managers "
+    }, {
+      "name": "L",
+      "text": "L.Others"
+    }],
+    "answer14": [{
+      "name": "A",
+      "text": "A.Push Notifications"
+    }, {
+      "name": "B",
+      "text": "B.Online live streaming of products"
+    }, {
+      "name": "C",
+      "text": "C.Company official website"
+    }, {
+      "name": "D",
+      "text": "D.NavInfo product brochure"
+    }, {
+      "name": "E",
+      "text": "E.NavInfo introduction PPT"
+    }, {
+      "name": "F",
+      "text": "F.Email"
+    }, {
+      "name": "G",
+      "text": "G.NavInfo User Group"
+    }, {
+      "name": "H",
+      "text": "H.NavInfo product event"
+    }, {
+      "name": "I",
+      "text": "I.Workshop/TechDay"
+    }, {
+      "name": "J",
+      "text": "J.Inter-corporate visits"
+    }, {
+      "name": "K",
+      "text": "K.Professional exhibitions"
+    }, {
+      "name": "L",
+      "text": "L.NavInfo’s social media platform (Wechat official account/Weibo/TikTok/ WeChat video channel…)"
+    }, {
+      "name": "M",
+      "text": "M.Third party social media channels"
+    }, {
+      "name": "N",
+      "text": "N.Informed by account managers"
+    }, {
+      "name": "O",
+      "text": "O.Others"
+    }],
+    "answer15": [{
+      "name": "A",
+      "text": "A.SD map"
+    }, {
+      "name": "B",
+      "text": "B.Navigation software"
+    }, {
+      "name": "C",
+      "text": "C.ADAS map"
+    }, {
+      "name": "D",
+      "text": "D.HD map"
+    }, {
+      "name": "E",
+      "text": "E.HD map engine"
+    }, {
+      "name": "F",
+      "text": "F.Passenger vehicle connected vehicle service"
+    }, {
+      "name": "G",
+      "text": "G.Commercial vehicle connected vehicle service"
+    }, {
+      "name": "H",
+      "text": "H.EV smart mobility solution -- EV charger"
+    }, {
+      "name": "I",
+      "text": "I.Dynamic traffic information"
+    }, {
+      "name": "J",
+      "text": "J.Location big data platform"
+    }, {
+      "name": "K",
+      "text": "K.Autonomous driving system solution"
+    }, {
+      "name": "L",
+      "text": "L.Automatic valet parking solution"
+    }, {
+      "name": "M",
+      "text": "M.Data Compliance Service"
+    }, {
+      "name": "N",
+      "text": "N.V2X solution"
+    }, {
+      "name": "O",
+      "text": "O.HD-GNSS"
+    }, {
+      "name": "P",
+      "text": "P.Voice product and service"
+    }, {
+      "name": "Q",
+      "text": "Q.Automotive chips"
+    }, {
+      "name": "R",
+      "text": "R.Others"
+    }],
+    "answer16": [{
+      "name": "A",
+      "text": "A.Official Accounts"
+    }, {
+      "name": "B",
+      "text": "B.Professional magazines and periodicals"
+    }, {
+      "name": "C",
+      "text": "C.Online classes held by enterprise"
+    }, {
+      "name": "D",
+      "text": "D.News information platform"
+    }, {
+      "name": "E",
+      "text": "E.Social platforms"
+    }, {
+      "name": "F",
+      "text": "F.Others"
+    }],
+    "answer11": "Being recognized：",
+    "answer111": "To be improved：",
+    "answer1111": "Reasons & Cooperation projects",
+    "answer20": "Please type..."
+
+  }
 }

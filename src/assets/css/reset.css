@@ -136,7 +136,7 @@ img { border: none; vertical-align: middle;}
 /* ===============
    自定义页面样式
    =============== */
-body { background-color: #fff;}
+body {background: #F3F3F3}
 a { color: #a6a6a6; text-decoration: none;}
 a:hover, a:active { color: #000; text-decoration: underline;}
 

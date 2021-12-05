@@ -1,19 +1,29 @@
 <template>
   <div id="question_wrap" class="question1">
-    <img src="../assets/img/icon3.png" alt="" class="top_img" />
+    <!-- <img src="../assets/img/icon3.png" alt="" class="top_img" /> -->
     <div class="question_content">
       <div class="question_title">{{ title }}</div>
       <div class="question_box">
-        <div :class="[lanIdx == 1 ? 'box_title' : 'box_title3']" >
+        <div :class="[lanIdx == 1 ? 'box_title' : 'box_title3']">
           <span class="box_num">01</span>
-          <div class="box_text" :style="(emptyFlag && optionVal1=='') || (emptyFlag && (causeFlag1 && inputVal1 == '')) ? 'color: red' : 'color:#000'">{{ dataList.SD1 }}</div>
+          <div
+            class="box_text"
+            :style="
+              (emptyFlag && optionVal1 == '') ||
+              (emptyFlag && causeFlag1 && inputVal1 == '')
+                ? 'color: red'
+                : 'color:#000'
+            "
+          >
+            {{ dataList.SD1 }}
+          </div>
         </div>
-        
+
         <van-checkbox-group
           v-model="result1"
           class="box_checkbox_group"
           direction="horizontal"
-          @change="checkboxChange(1, 'I')"
+          @change="checkboxChange(1, 'R')"
         >
           <van-checkbox
             v-for="(item, index) in dataList.answer1"
@@ -26,15 +36,32 @@
           type="text"
           v-model="inputVal1"
           class="box_dec"
-          :placeholder="dataList.answer12"
+          :placeholder="dataList.answer20"
           v-if="causeFlag1"
         />
-        <div class="errortip" v-if="(emptyFlag && optionVal1=='') || (emptyFlag && (causeFlag1 && inputVal1 == ''))">{{queTip}}</div>
+        <div
+          class="errortip"
+          v-if="
+            (emptyFlag && optionVal1 == '') ||
+              (emptyFlag && causeFlag1 && inputVal1 == '')
+          "
+        >
+          {{ queTip }}
+        </div>
       </div>
       <div class="question_box">
         <div class="box_title">
           <span class="box_num">02</span>
-          <div class="box_text" v-html="dataList.SD2" :style="(emptyFlag && optionVal2=='') || (emptyFlag && (causeFlag2 && inputVal2 == '')) ? 'color: red' : 'color:#000'"></div>
+          <div
+            class="box_text"
+            v-html="dataList.SD2"
+            :style="
+              (emptyFlag && optionVal2 == '') ||
+              (emptyFlag && causeFlag2 && inputVal2 == '')
+                ? 'color: red'
+                : 'color:#000'
+            "
+          ></div>
         </div>
         <div class="box_div">
           <div
@@ -42,12 +69,16 @@
             :key="index"
             :class="[
               activeIndex2 == item.score ? 'box_options_on' : '',
-              'box_options',
+              'box_options'
             ]"
             @click="chooseLevel(item.score, 2)"
           >
-            <img :src="require('../assets/img/'+item.img)" alt="" class="box_img" />
-            
+            <img
+              :src="require('../assets/img/' + item.img)"
+              alt=""
+              class="box_img"
+            />
+
             <em class="box_em">{{ item.text }}</em>
           </div>
         </div>
@@ -58,12 +89,29 @@
           :placeholder="dataList.answer11"
           v-if="causeFlag2"
         />
-        <div class="errortip" v-if="(emptyFlag && optionVal2=='') || (emptyFlag && (causeFlag2 && inputVal2 == ''))">{{queTip}}</div>
+        <div
+          class="errortip"
+          v-if="
+            (emptyFlag && optionVal2 == '') ||
+              (emptyFlag && causeFlag2 && inputVal2 == '')
+          "
+        >
+          {{ queTip }}
+        </div>
       </div>
       <div class="question_box">
         <div class="box_title">
           <span class="box_num">03</span>
-          <div class="box_text" v-html="dataList.SD3" :style="(emptyFlag && optionVal3=='') || (emptyFlag && (causeFlag3 && inputVal3 == '')) ? 'color: red' : 'color:#000'"></div>
+          <div
+            class="box_text"
+            v-html="dataList.SD3"
+            :style="
+              (emptyFlag && optionVal3 == '') ||
+              (emptyFlag && causeFlag3 && inputVal3 == '')
+                ? 'color: red'
+                : 'color:#000'
+            "
+          ></div>
         </div>
         <div class="box_div">
           <div
@@ -71,12 +119,16 @@
             :key="index"
             :class="[
               activeIndex3 == item.score ? 'box_options_on' : '',
-              'box_options',
+              'box_options'
             ]"
             @click="chooseLevel(item.score, 3)"
           >
-            <img :src="require('../assets/img/'+item.img)" alt="" class="box_img" />
-            
+            <img
+              :src="require('../assets/img/' + item.img)"
+              alt=""
+              class="box_img"
+            />
+
             <em class="box_em">{{ item.text }}</em>
           </div>
         </div>
@@ -87,14 +139,32 @@
           :placeholder="dataList.answer11"
           v-if="causeFlag3"
         />
-        <div class="errortip" v-if="(emptyFlag && optionVal3=='') || (emptyFlag && (causeFlag3 && inputVal3 == ''))">{{queTip}}</div>
+        <div
+          class="errortip"
+          v-if="
+            (emptyFlag && optionVal3 == '') ||
+              (emptyFlag && causeFlag3 && inputVal3 == '')
+          "
+        >
+          {{ queTip }}
+        </div>
       </div>
       <div class="question_box">
         <div :class="[lanIdx == 1 ? 'box_title2' : 'box_title4']">
           <span class="box_num">04</span>
-          <div class="box_text" v-html="dataList.SD4" :style="(emptyFlag && radioValue4=='') ||(emptyFlag && optionVal4=='') || (emptyFlag && (causeFlag4 && inputVal4 == '')) ? 'color: red' : 'color:#000'"></div>
+          <div
+            class="box_text"
+            v-html="dataList.SD4"
+            :style="
+              (emptyFlag && radioValue4 == '') ||
+              (emptyFlag && optionVal4 == '') ||
+              (emptyFlag && causeFlag4 && inputVal4 == '')
+                ? 'color: red'
+                : 'color:#000'
+            "
+          ></div>
         </div>
-         <van-radio-group
+        <van-radio-group
           v-model="radioValue4"
           direction="horizontal"
           class="box_checkbox_group"
@@ -106,22 +176,25 @@
             >{{ item.text }}</van-radio
           >
         </van-radio-group>
-      <div class="box_div">
+        <div class="box_div">
           <div
             v-for="(item, index) in dataList.answer2"
             :key="index"
             :class="[
               activeIndex4 == item.score ? 'box_options_on' : '',
-              'box_options',
+              'box_options'
             ]"
             @click="chooseLevel(item.score, 4)"
           >
-            <img :src="require('../assets/img/'+item.img)" alt="" class="box_img" />
-            
+            <img
+              :src="require('../assets/img/' + item.img)"
+              alt=""
+              class="box_img"
+            />
+
             <em class="box_em">{{ item.text }}</em>
           </div>
         </div>
-       
 
         <input
           type="text"
@@ -130,12 +203,32 @@
           :placeholder="dataList.answer11"
           v-if="causeFlag4"
         />
-        <div class="errortip" v-if="(emptyFlag && radioValue4=='') ||(emptyFlag && optionVal4=='') || (emptyFlag && (causeFlag4 && inputVal4 == ''))">{{queTip}}</div>
+        <div
+          class="errortip"
+          v-if="
+            (emptyFlag && radioValue4 == '') ||
+              (emptyFlag && optionVal4 == '') ||
+              (emptyFlag && causeFlag4 && inputVal4 == '')
+          "
+        >
+          {{ queTip }}
+        </div>
       </div>
       <div class="question_box">
         <div :class="[lanIdx == 1 ? 'box_title' : 'box_title4']">
           <span class="box_num">05</span>
-          <div class="box_text" v-html="dataList.SD5" :style="(emptyFlag && radioValue5=='') ||(emptyFlag && optionVal5=='') || (emptyFlag && (causeFlag5 && inputVal5 == '')) || (emptyFlag && (radioFlag5 && radioVal5 == '')) ? 'color: red' : 'color:#000'"></div>
+          <div
+            class="box_text"
+            v-html="dataList.SD5"
+            :style="
+              (emptyFlag && radioValue5 == '') ||
+              (emptyFlag && optionVal5 == '') ||
+              (emptyFlag && causeFlag5 && inputVal5 == '') ||
+              (emptyFlag && radioFlag5 && radioVal5 == '')
+                ? 'color: red'
+                : 'color:#000'
+            "
+          ></div>
         </div>
         <van-radio-group
           v-model="radioValue5"
@@ -153,7 +246,7 @@
         <input
           type="text"
           class="box_dec"
-          :placeholder="dataList.answer12"
+          :placeholder="dataList.answer20"
           v-if="radioFlag5"
           v-model="radioVal5"
         />
@@ -164,12 +257,16 @@
             :key="index"
             :class="[
               activeIndex5 == item.score ? 'box_options_on' : '',
-              'box_options',
+              'box_options'
             ]"
             @click="chooseLevel(item.score, 5)"
           >
-            <img :src="require('../assets/img/'+item.img)" alt="" class="box_img" />
-            
+            <img
+              :src="require('../assets/img/' + item.img)"
+              alt=""
+              class="box_img"
+            />
+
             <em class="box_em">{{ item.text }}</em>
           </div>
         </div>
@@ -180,13 +277,33 @@
           :placeholder="dataList.answer11"
           v-if="causeFlag5"
         />
-      <div class="errortip" v-if="(emptyFlag && radioValue5=='') ||(emptyFlag && optionVal5=='') || (emptyFlag && (causeFlag5 && inputVal5 == '')) || (emptyFlag && (radioFlag5 && radioVal5 == ''))">{{queTip}}</div>
-
+        <div
+          class="errortip"
+          v-if="
+            (emptyFlag && radioValue5 == '') ||
+              (emptyFlag && optionVal5 == '') ||
+              (emptyFlag && causeFlag5 && inputVal5 == '') ||
+              (emptyFlag && radioFlag5 && radioVal5 == '')
+          "
+        >
+          {{ queTip }}
+        </div>
       </div>
       <div class="question_box">
         <div :class="[lanIdx == 1 ? 'box_title' : 'box_title3']">
           <span class="box_num">06</span>
-          <div class="box_text" :style="(emptyFlag && radioValue6=='') ||(emptyFlag && optionVal6=='')|| (emptyFlag && (causeFlag6 && inputVal6 == '')) ? 'color: red' : 'color:#000'">{{ dataList.SD6 }}</div>
+          <div
+            class="box_text"
+            :style="
+              (emptyFlag && radioValue6 == '') ||
+              (emptyFlag && optionVal6 == '') ||
+              (emptyFlag && causeFlag6 && inputVal6 == '')
+                ? 'color: red'
+                : 'color:#000'
+            "
+          >
+            {{ dataList.SD6 }}
+          </div>
         </div>
         <van-radio-group
           v-model="radioValue6"
@@ -208,12 +325,16 @@
             :key="index"
             :class="[
               activeIndex6 == item.score ? 'box_options_on' : '',
-              'box_options',
+              'box_options'
             ]"
             @click="chooseLevel(item.score, 6)"
           >
-            <img :src="require('../assets/img/'+item.img)" alt="" class="box_img" />
-            
+            <img
+              :src="require('../assets/img/' + item.img)"
+              alt=""
+              class="box_img"
+            />
+
             <em class="box_em">{{ item.text }}</em>
           </div>
         </div>
@@ -224,12 +345,30 @@
           v-if="causeFlag6"
           v-model="inputVal6"
         />
-         <div class="errortip" v-if="(emptyFlag && radioValue6=='') ||(emptyFlag && optionVal6=='')|| (emptyFlag && (causeFlag6 && inputVal6 == ''))">{{queTip}}</div>
+        <div
+          class="errortip"
+          v-if="
+            (emptyFlag && radioValue6 == '') ||
+              (emptyFlag && optionVal6 == '') ||
+              (emptyFlag && causeFlag6 && inputVal6 == '')
+          "
+        >
+          {{ queTip }}
+        </div>
       </div>
       <div class="question_box">
         <div :class="[lanIdx == 1 ? 'box_title' : 'box_title3']">
           <span class="box_num">07</span>
-          <div class="box_text" v-html="dataList.SD7" :style="(emptyFlag && optionVal7=='') || (emptyFlag && (causeFlag7 && inputVal7 == '')) ? 'color: red' : 'color:#000'"></div>
+          <div
+            class="box_text"
+            v-html="dataList.SD7"
+            :style="
+              (emptyFlag && optionVal7 == '') ||
+              (emptyFlag && causeFlag7 && inputVal7 == '')
+                ? 'color: red'
+                : 'color:#000'
+            "
+          ></div>
         </div>
         <div class="box_div">
           <div
@@ -237,12 +376,16 @@
             :key="index"
             :class="[
               activeIndex7 == item.score ? 'box_options_on' : '',
-              'box_options',
+              'box_options'
             ]"
             @click="chooseLevel(item.score, 7)"
           >
-            <img :src="require('../assets/img/'+item.img)" alt="" class="box_img" />
-            
+            <img
+              :src="require('../assets/img/' + item.img)"
+              alt=""
+              class="box_img"
+            />
+
             <em class="box_em">{{ item.text }}</em>
           </div>
         </div>
@@ -253,12 +396,29 @@
           v-if="causeFlag7"
           v-model="inputVal7"
         />
-         <div class="errortip" v-if="(emptyFlag && optionVal7=='') || (emptyFlag && (causeFlag7 && inputVal7 == ''))">{{queTip}}</div>
+        <div
+          class="errortip"
+          v-if="
+            (emptyFlag && optionVal7 == '') ||
+              (emptyFlag && causeFlag7 && inputVal7 == '')
+          "
+        >
+          {{ queTip }}
+        </div>
       </div>
       <div class="question_box">
-        <div  :class="[lanIdx == 1 ? 'box_title' : 'box_title2']">
+        <div :class="[lanIdx == 1 ? 'box_title' : 'box_title2']">
           <span class="box_num">08</span>
-          <div class="box_text" v-html="dataList.SD8" :style="(emptyFlag && optionVal8=='') || (emptyFlag && (causeFlag8 && inputVal8 == '')) ? 'color: red' : 'color:#000'"></div>
+          <div
+            class="box_text"
+            v-html="dataList.SD8"
+            :style="
+              (emptyFlag && optionVal8 == '') ||
+              (emptyFlag && causeFlag8 && inputVal8 == '')
+                ? 'color: red'
+                : 'color:#000'
+            "
+          ></div>
         </div>
         <div class="box_div">
           <div
@@ -266,12 +426,16 @@
             :key="index"
             :class="[
               activeIndex8 == item.score ? 'box_options_on' : '',
-              'box_options',
+              'box_options'
             ]"
             @click="chooseLevel(item.score, 8)"
           >
-            <img :src="require('../assets/img/'+item.img)" alt="" class="box_img" />
-            
+            <img
+              :src="require('../assets/img/' + item.img)"
+              alt=""
+              class="box_img"
+            />
+
             <em class="box_em">{{ item.text }}</em>
           </div>
         </div>
@@ -282,12 +446,29 @@
           v-if="causeFlag8"
           v-model="inputVal8"
         />
-         <div class="errortip" v-if="(emptyFlag && optionVal8=='') || (emptyFlag && (causeFlag8 && inputVal8 == ''))">{{queTip}}</div>
+        <div
+          class="errortip"
+          v-if="
+            (emptyFlag && optionVal8 == '') ||
+              (emptyFlag && causeFlag8 && inputVal8 == '')
+          "
+        >
+          {{ queTip }}
+        </div>
       </div>
       <div class="question_box">
         <div :class="[lanIdx == 1 ? 'box_title' : 'box_title3']">
           <span class="box_num">09</span>
-          <div class="box_text" v-html="dataList.SD9" :style="(emptyFlag && optionVal9=='') || (emptyFlag && (causeFlag9 && inputVal9 == '')) ? 'color: red' : 'color:#000'"></div>
+          <div
+            class="box_text"
+            v-html="dataList.SD9"
+            :style="
+              (emptyFlag && optionVal9 == '') ||
+              (emptyFlag && causeFlag9 && inputVal9 == '')
+                ? 'color: red'
+                : 'color:#000'
+            "
+          ></div>
         </div>
         <div class="box_div">
           <div
@@ -295,12 +476,16 @@
             :key="index"
             :class="[
               activeIndex9 == item.score ? 'box_options_on' : '',
-              'box_options',
+              'box_options'
             ]"
             @click="chooseLevel(item.score, 9)"
           >
-            <img :src="require('../assets/img/'+item.img)" alt="" class="box_img" />
-            
+            <img
+              :src="require('../assets/img/' + item.img)"
+              alt=""
+              class="box_img"
+            />
+
             <em class="box_em">{{ item.text }}</em>
           </div>
         </div>
@@ -311,12 +496,29 @@
           v-if="causeFlag9"
           v-model="inputVal9"
         />
-         <div class="errortip" v-if="(emptyFlag && optionVal9=='') || (emptyFlag && (causeFlag9 && inputVal9 == ''))">{{queTip}}</div>
+        <div
+          class="errortip"
+          v-if="
+            (emptyFlag && optionVal9 == '') ||
+              (emptyFlag && causeFlag9 && inputVal9 == '')
+          "
+        >
+          {{ queTip }}
+        </div>
       </div>
       <div class="question_box">
         <div :class="[lanIdx == 1 ? 'box_title' : 'box_title3']">
           <span class="box_num">10</span>
-          <div class="box_text" v-html="dataList.SD10" :style="(emptyFlag && optionVal10=='') || (emptyFlag && (causeFlag10 && inputVal10 == '')) ? 'color: red' : 'color:#000'"></div>
+          <div
+            class="box_text"
+            v-html="dataList.SD10"
+            :style="
+              (emptyFlag && optionVal10 == '') ||
+              (emptyFlag && causeFlag10 && inputVal10 == '')
+                ? 'color: red'
+                : 'color:#000'
+            "
+          ></div>
         </div>
         <div class="box_div">
           <div
@@ -324,12 +526,16 @@
             :key="index"
             :class="[
               activeIndex10 == item.score ? 'box_options_on' : '',
-              'box_options',
+              'box_options'
             ]"
             @click="chooseLevel(item.score, 10)"
           >
-            <img :src="require('../assets/img/'+item.img)" alt="" class="box_img" />
-            
+            <img
+              :src="require('../assets/img/' + item.img)"
+              alt=""
+              class="box_img"
+            />
+
             <em class="box_em">{{ item.text }}</em>
           </div>
         </div>
@@ -340,12 +546,29 @@
           v-if="causeFlag10"
           v-model="inputVal10"
         />
-         <div class="errortip" v-if="(emptyFlag && optionVal10=='') || (emptyFlag && (causeFlag10 && inputVal10 == ''))">{{queTip}}</div>
+        <div
+          class="errortip"
+          v-if="
+            (emptyFlag && optionVal10 == '') ||
+              (emptyFlag && causeFlag10 && inputVal10 == '')
+          "
+        >
+          {{ queTip }}
+        </div>
       </div>
       <div class="question_box">
         <div :class="[lanIdx == 1 ? 'box_title' : 'box_title3']">
           <span class="box_num">11</span>
-          <div class="box_text" v-html="dataList.SD11" :style="(emptyFlag && optionVal11=='') || (emptyFlag && (causeFlag11 && inputVal11 == '')) ? 'color: red' : 'color:#000'"></div>
+          <div
+            class="box_text"
+            v-html="dataList.SD11"
+            :style="
+              (emptyFlag && optionVal11 == '') ||
+              (emptyFlag && causeFlag11 && inputVal11 == '')
+                ? 'color: red'
+                : 'color:#000'
+            "
+          ></div>
         </div>
         <div class="box_div">
           <div
@@ -353,12 +576,16 @@
             :key="index"
             :class="[
               activeIndex11 == item.score ? 'box_options_on' : '',
-              'box_options',
+              'box_options'
             ]"
             @click="chooseLevel(item.score, 11)"
           >
-            <img :src="require('../assets/img/'+item.img)" alt="" class="box_img" />
-            
+            <img
+              :src="require('../assets/img/' + item.img)"
+              alt=""
+              class="box_img"
+            />
+
             <em class="box_em">{{ item.text }}</em>
           </div>
         </div>
@@ -369,12 +596,29 @@
           v-if="causeFlag11"
           v-model="inputVal11"
         />
-         <div class="errortip" v-if="(emptyFlag && optionVal11=='') || (emptyFlag && (causeFlag11 && inputVal11 == ''))">{{queTip}}</div>
+        <div
+          class="errortip"
+          v-if="
+            (emptyFlag && optionVal11 == '') ||
+              (emptyFlag && causeFlag11 && inputVal11 == '')
+          "
+        >
+          {{ queTip }}
+        </div>
       </div>
       <div class="question_box">
         <div :class="[lanIdx == 1 ? 'box_title' : 'box_title3']">
           <span class="box_num">12</span>
-          <div class="box_text" v-html="dataList.SD12" :style="(emptyFlag && optionVal12=='') || (emptyFlag && (causeFlag12 && inputVal12 == '')) ? 'color: red' : 'color:#000'"></div>
+          <div
+            class="box_text"
+            v-html="dataList.SD12"
+            :style="
+              (emptyFlag && optionVal12 == '') ||
+              (emptyFlag && causeFlag12 && inputVal12 == '')
+                ? 'color: red'
+                : 'color:#000'
+            "
+          ></div>
         </div>
         <div class="box_div">
           <div
@@ -382,12 +626,16 @@
             :key="index"
             :class="[
               activeIndex12 == item.score ? 'box_options_on' : '',
-              'box_options',
+              'box_options'
             ]"
             @click="chooseLevel(item.score, 12)"
           >
-            <img :src="require('../assets/img/'+item.img)" alt="" class="box_img" />
-            
+            <img
+              :src="require('../assets/img/' + item.img)"
+              alt=""
+              class="box_img"
+            />
+
             <em class="box_em">{{ item.text }}</em>
           </div>
         </div>
@@ -398,12 +646,29 @@
           v-if="causeFlag12"
           v-model="inputVal12"
         />
-         <div class="errortip" v-if="(emptyFlag && optionVal12=='') || (emptyFlag && (causeFlag12 && inputVal12 == ''))">{{queTip}}</div>
+        <div
+          class="errortip"
+          v-if="
+            (emptyFlag && optionVal12 == '') ||
+              (emptyFlag && causeFlag12 && inputVal12 == '')
+          "
+        >
+          {{ queTip }}
+        </div>
       </div>
       <div class="question_box">
         <div :class="[lanIdx == 1 ? 'box_title' : 'box_title3']">
           <span class="box_num">13</span>
-          <div class="box_text" v-html="dataList.SD13" :style="(emptyFlag && optionVal13=='') || (emptyFlag && (causeFlag13 && inputVal13 == '')) ? 'color: red' : 'color:#000'"></div>
+          <div
+            class="box_text"
+            v-html="dataList.SD13"
+            :style="
+              (emptyFlag && optionVal13 == '') ||
+              (emptyFlag && causeFlag13 && inputVal13 == '')
+                ? 'color: red'
+                : 'color:#000'
+            "
+          ></div>
         </div>
         <div class="box_div">
           <div
@@ -411,12 +676,16 @@
             :key="index"
             :class="[
               activeIndex13 == item.score ? 'box_options_on' : '',
-              'box_options',
+              'box_options'
             ]"
             @click="chooseLevel(item.score, 13)"
           >
-            <img :src="require('../assets/img/'+item.img)" alt="" class="box_img" />
-            
+            <img
+              :src="require('../assets/img/' + item.img)"
+              alt=""
+              class="box_img"
+            />
+
             <em class="box_em">{{ item.text }}</em>
           </div>
         </div>
@@ -427,12 +696,29 @@
           v-if="causeFlag13"
           v-model="inputVal13"
         />
-         <div class="errortip" v-if="(emptyFlag && optionVal13=='') || (emptyFlag && (causeFlag13 && inputVal13 == ''))">{{queTip}}</div>
+        <div
+          class="errortip"
+          v-if="
+            (emptyFlag && optionVal13 == '') ||
+              (emptyFlag && causeFlag13 && inputVal13 == '')
+          "
+        >
+          {{ queTip }}
+        </div>
       </div>
       <div class="question_box">
         <div :class="[lanIdx == 1 ? 'box_title' : 'box_title3']">
           <span class="box_num">14</span>
-          <div class="box_text" v-html="dataList.SD14" :style="(emptyFlag && optionVal14=='') || (emptyFlag && (causeFlag14 && inputVal14 == '')) ? 'color: red' : 'color:#000'"></div>
+          <div
+            class="box_text"
+            v-html="dataList.SD14"
+            :style="
+              (emptyFlag && optionVal14 == '') ||
+              (emptyFlag && causeFlag14 && inputVal14 == '')
+                ? 'color: red'
+                : 'color:#000'
+            "
+          ></div>
         </div>
         <div class="box_div">
           <div
@@ -440,12 +726,16 @@
             :key="index"
             :class="[
               activeIndex14 == item.score ? 'box_options_on' : '',
-              'box_options',
+              'box_options'
             ]"
             @click="chooseLevel(item.score, 14)"
           >
-            <img :src="require('../assets/img/'+item.img)" alt="" class="box_img" />
-            
+            <img
+              :src="require('../assets/img/' + item.img)"
+              alt=""
+              class="box_img"
+            />
+
             <em class="box_em">{{ item.text }}</em>
           </div>
         </div>
@@ -456,12 +746,30 @@
           v-if="causeFlag14"
           v-model="inputVal14"
         />
-         <div class="errortip" v-if="(emptyFlag && optionVal14=='') || (emptyFlag && (causeFlag14 && inputVal14 == ''))">{{queTip}}</div>
+        <div
+          class="errortip"
+          v-if="
+            (emptyFlag && optionVal14 == '') ||
+              (emptyFlag && causeFlag14 && inputVal14 == '')
+          "
+        >
+          {{ queTip }}
+        </div>
       </div>
       <div class="question_box">
         <div :class="[lanIdx == 1 ? 'box_title' : 'box_title4']">
           <span class="box_num">15</span>
-          <div class="box_text" :style="(emptyFlag && recognizedMsg15=='') || (emptyFlag && improvedMsg15=='') ? 'color: red' : 'color:#000'">{{ dataList.SD15 }}</div>
+          <div
+            class="box_text"
+            :style="
+              (emptyFlag && recognizedMsg15 == '') ||
+              (emptyFlag && improvedMsg15 == '')
+                ? 'color: red'
+                : 'color:#000'
+            "
+          >
+            {{ dataList.SD15 }}
+          </div>
         </div>
         <div class="box_div_textarea">
           <div class="message_tip">{{ dataList.answer9 }}</div>
@@ -470,7 +778,7 @@
             rows="2"
             autosize
             type="textarea"
-            :placeholder="dataList.answer12"
+            :placeholder="dataList.answer20"
           />
           <div class="message_tip">{{ dataList.answer10 }}</div>
           <van-field
@@ -478,16 +786,34 @@
             rows="2"
             autosize
             type="textarea"
-            :placeholder="dataList.answer12"
+            :placeholder="dataList.answer20"
           />
         </div>
-           <div class="errortip" v-if="(emptyFlag && recognizedMsg15=='') || (emptyFlag && improvedMsg15=='')" style="margin-top:0.05rem">{{queTip}}</div>
-
+        <div
+          class="errortip"
+          v-if="
+            (emptyFlag && recognizedMsg15 == '') ||
+              (emptyFlag && improvedMsg15 == '')
+          "
+          style="margin-top:0.05rem"
+        >
+          {{ queTip }}
+        </div>
       </div>
       <div class="question_box">
         <div :class="[lanIdx == 1 ? 'box_title' : 'box_title3']">
           <span class="box_num">16</span>
-          <div class="box_text" :style="(emptyFlag && optionVal16=='') || (emptyFlag && (causeFlag16 && inputVal16 == '')) ? 'color: red' : 'color:#000'">{{ dataList.SD16 }}</div>
+          <div
+            class="box_text"
+            :style="
+              (emptyFlag && optionVal16 == '') ||
+              (emptyFlag && causeFlag16 && inputVal16 == '')
+                ? 'color: red'
+                : 'color:#000'
+            "
+          >
+            {{ dataList.SD16 }}
+          </div>
         </div>
         <div class="box_div">
           <div
@@ -495,12 +821,16 @@
             :key="index"
             :class="[
               activeIndex16 == item.score ? 'box_options_on' : '',
-              'box_options',
+              'box_options'
             ]"
             @click="chooseLevel(item.score, 16)"
           >
-            <img :src="require('../assets/img/'+item.img)" alt="" class="box_img" />
-            
+            <img
+              :src="require('../assets/img/' + item.img)"
+              alt=""
+              class="box_img"
+            />
+
             <em class="box_em">{{ item.text }}</em>
           </div>
         </div>
@@ -511,12 +841,27 @@
           v-if="causeFlag16"
           v-model="inputVal16"
         />
-         <div class="errortip" v-if="(emptyFlag && optionVal16=='') || (emptyFlag && (causeFlag16 && inputVal16 == ''))">{{queTip}}</div>
+        <div
+          class="errortip"
+          v-if="
+            (emptyFlag && optionVal16 == '') ||
+              (emptyFlag && causeFlag16 && inputVal16 == '')
+          "
+        >
+          {{ queTip }}
+        </div>
       </div>
       <div class="question_box">
         <div class="box_title">
           <span class="box_num">17</span>
-          <div class="box_text" :style="(emptyFlag && radioValue17=='')? 'color: red' : 'color:#000'">{{ dataList.SD17 }}</div>
+          <div
+            class="box_text"
+            :style="
+              emptyFlag && radioValue17 == '' ? 'color: red' : 'color:#000'
+            "
+          >
+            {{ dataList.SD17 }}
+          </div>
         </div>
         <van-radio-group
           v-model="radioValue17"
@@ -530,12 +875,24 @@
             >{{ item.text }}</van-radio
           >
         </van-radio-group>
-         <div class="errortip" v-if="emptyFlag && radioValue17==''">{{queTip}}</div>
+        <div class="errortip" v-if="emptyFlag && radioValue17 == ''">
+          {{ queTip }}
+        </div>
       </div>
       <div class="question_box">
         <div :class="[lanIdx == 1 ? 'box_title' : 'box_title3']">
           <span class="box_num">18</span>
-          <div class="box_text" :style="(emptyFlag && optionVal18=='') || (emptyFlag && (causeFlag18 && inputVal18 == ''))? 'color: red' : 'color:#000'">{{ dataList.SD18 }}</div>
+          <div
+            class="box_text"
+            :style="
+              (emptyFlag && optionVal18 == '') ||
+              (emptyFlag && causeFlag18 && inputVal18 == '')
+                ? 'color: red'
+                : 'color:#000'
+            "
+          >
+            {{ dataList.SD18 }}
+          </div>
         </div>
         <van-checkbox-group
           v-model="result18"
@@ -553,16 +910,34 @@
         <input
           type="text"
           class="box_dec"
-          :placeholder="dataList.answer12"
+          :placeholder="dataList.answer20"
           v-if="causeFlag18"
           v-model="inputVal18"
         />
-         <div class="errortip" v-if="(emptyFlag && optionVal18=='') || (emptyFlag && (causeFlag18 && inputVal18 == ''))">{{queTip}}</div>
+        <div
+          class="errortip"
+          v-if="
+            (emptyFlag && optionVal18 == '') ||
+              (emptyFlag && causeFlag18 && inputVal18 == '')
+          "
+        >
+          {{ queTip }}
+        </div>
       </div>
       <div class="question_box">
         <div :class="[lanIdx == 1 ? 'box_title' : 'box_title4']">
           <span class="box_num">19</span>
-          <div class="box_text" :style="(emptyFlag && optionVal19=='') || (emptyFlag && (causeFlag19 && inputVal19 == ''))? 'color: red' : 'color:#000'">{{ dataList.SD19 }}</div>
+          <div
+            class="box_text"
+            :style="
+              (emptyFlag && optionVal19 == '') ||
+              (emptyFlag && causeFlag19 && inputVal19 == '')
+                ? 'color: red'
+                : 'color:#000'
+            "
+          >
+            {{ dataList.SD19 }}
+          </div>
         </div>
         <van-checkbox-group
           v-model="result19"
@@ -580,11 +955,19 @@
         <input
           type="text"
           class="box_dec"
-          :placeholder="dataList.answer12"
+          :placeholder="dataList.answer20"
           v-if="causeFlag19"
           v-model="inputVal19"
         />
-         <div class="errortip" v-if="(emptyFlag && optionVal19=='') || (emptyFlag && (causeFlag19 && inputVal19 == ''))">{{queTip}}</div>
+        <div
+          class="errortip"
+          v-if="
+            (emptyFlag && optionVal19 == '') ||
+              (emptyFlag && causeFlag19 && inputVal19 == '')
+          "
+        >
+          {{ queTip }}
+        </div>
       </div>
       <div class="question_box question_box_nobor">
         <div class="box_div_textarea box_div_textarea2">
@@ -593,12 +976,11 @@
           <van-field v-model="message20" rows="2" autosize type="textarea" />
         </div>
       </div>
-    
-    <span class="circle circle1"></span>
+
+      <!-- <span class="circle circle1"></span>
     <span class="circle circle2"></span>
     <span class="circle circle3"></span>
-    <span class="circle circle4"></span>
-    
+    <span class="circle circle4"></span> -->
     </div>
     <div class="bottom_btn">
       <div
@@ -610,7 +992,6 @@
         @click="nextStep"
       ></div>
     </div>
-
   </div>
 </template>
 <script>
@@ -624,8 +1005,8 @@ export default {
       lanIdx: "",
       title: "",
       dialogText: "",
-      confirmTxt:"",
-      queTip:'',
+      confirmTxt: "",
+      queTip: "",
       result1: [],
       result18: [],
       result19: [],
@@ -707,7 +1088,7 @@ export default {
       optionVal16: "",
       optionVal18: "",
       optionVal19: "",
-      emptyFlag:false,
+      emptyFlag: false
     };
   },
   created() {
@@ -716,19 +1097,17 @@ export default {
       this.dataList = list.cn;
       this.title = list.cnTitle1;
       this.dialogText = list.cnDialog;
-      this.confirmTxt = list.cnConfirm
-      this.queTip = list.cnQueTip
+      this.confirmTxt = list.cnConfirm;
+      this.queTip = list.cnQueTip;
     } else if (this.$route.query.idx == 2) {
       this.dataList = list.en;
       this.title = list.enTitle1;
       this.dialogText = list.enDialog;
-      this.confirmTxt = list.enConfirm
-       this.queTip = list.enQueTip
+      this.confirmTxt = list.enConfirm;
+      this.queTip = list.enQueTip;
     }
-
-   
   },
- 
+
   methods: {
     lastStep() {
       this.$router.go(-1);
@@ -759,10 +1138,10 @@ export default {
         this.optionVal18 == "" ||
         this.optionVal19 == ""
       ) {
-        this.emptyFlag = true
+        this.emptyFlag = true;
         this.$dialog.alert({
           message: this.dialogText,
-          confirmButtonText:this.confirmTxt
+          confirmButtonText: this.confirmTxt
         });
         return;
       }
@@ -786,38 +1165,39 @@ export default {
         (this.causeFlag18 && this.inputVal18 == "") ||
         (this.causeFlag19 && this.inputVal19 == "")
       ) {
-        this.emptyFlag = true
+        this.emptyFlag = true;
         this.$dialog.alert({
           message: this.dialogText,
-          confirmButtonText:this.confirmTxt
+          confirmButtonText: this.confirmTxt
         });
         return;
       }
 
-var val1 = this.optionVal1 + "" + this.inputVal1,
-          val2 = this.optionVal2 + "" + this.inputVal2,
-          val3 = this.optionVal3 + "" + this.inputVal3,
-          val4 = this.radioValue4 +"," +this.optionVal4 + "" + this.inputVal4,
-          val5 =  this.radioValue5 +
-        "" +
-        this.radioVal5 +
-        "," +
-        this.optionVal5 +
-        "" +
-        this.inputVal5,
-          val6 = this.radioValue6 +"," +this.optionVal6 + "" + this.inputVal6,
-          val7 = this.optionVal7 + "" + this.inputVal7,
-          val8 = this.optionVal8 + "" + this.inputVal8,
-          val9 = this.optionVal9 + "" + this.inputVal9,
-          val10 = this.optionVal10 + "" + this.inputVal10,
-          val11 = this.optionVal11 + "" + this.inputVal11,
-          val12 = this.optionVal12 + "" + this.inputVal12,
-          val13 = this.optionVal13 + "" + this.inputVal13,
-          val14 = this.optionVal14 + "" + this.inputVal14,
-          val15 = this.recognizedMsg15 + "," + this.improvedMsg15,
-          val16 = this.optionVal16 + "" + this.inputVal16,
-          val18 = this.optionVal18 + "" + this.inputVal18,
-          val19 = this.optionVal19 + "" + this.inputVal19
+      var val1 = this.optionVal1 + "" + this.inputVal1,
+        val2 = this.optionVal2 + "" + this.inputVal2,
+        val3 = this.optionVal3 + "" + this.inputVal3,
+        val4 = this.radioValue4 + "," + this.optionVal4 + "" + this.inputVal4,
+        val5 =
+          this.radioValue5 +
+          "" +
+          this.radioVal5 +
+          "," +
+          this.optionVal5 +
+          "" +
+          this.inputVal5,
+        val6 = this.radioValue6 + "," + this.optionVal6 + "" + this.inputVal6,
+        val7 = this.optionVal7 + "" + this.inputVal7,
+        val8 = this.optionVal8 + "" + this.inputVal8,
+        val9 = this.optionVal9 + "" + this.inputVal9,
+        val10 = this.optionVal10 + "" + this.inputVal10,
+        val11 = this.optionVal11 + "" + this.inputVal11,
+        val12 = this.optionVal12 + "" + this.inputVal12,
+        val13 = this.optionVal13 + "" + this.inputVal13,
+        val14 = this.optionVal14 + "" + this.inputVal14,
+        val15 = this.recognizedMsg15 + "," + this.improvedMsg15,
+        val16 = this.optionVal16 + "" + this.inputVal16,
+        val18 = this.optionVal18 + "" + this.inputVal18,
+        val19 = this.optionVal19 + "" + this.inputVal19;
       var str =
         val1 +
         "-" +
@@ -862,15 +1242,15 @@ var val1 = this.optionVal1 + "" + this.inputVal1,
       this.$ajax
         .post("http://qa.travbao.com/goabraod/trav/writeAnswer.do", {
           qAnswers: str,
-          spType: 1,
+          spType: 1
         })
-        .then((res) => {
+        .then(res => {
           if (res.data.code == 0) {
             var spId = res.data.data.spId;
           }
           this.$router.push({
             path: "/personalInfo",
-            query: { spId: spId, idx: this.lanIdx },
+            query: { spId: spId, idx: this.lanIdx }
           });
         });
     },
@@ -878,12 +1258,12 @@ var val1 = this.optionVal1 + "" + this.inputVal1,
       var arr = "result" + idx;
       var onflag = "causeFlag" + idx;
       var opval = "optionVal" + idx;
-       var iptval = "inputVal" + idx
+      var iptval = "inputVal" + idx;
       if (this[arr].indexOf(option) != -1) {
         this[onflag] = true;
       } else {
         this[onflag] = false;
-        this[iptval] = ''
+        this[iptval] = "";
       }
       this[opval] = this[arr].join(",");
     },
@@ -898,7 +1278,7 @@ var val1 = this.optionVal1 + "" + this.inputVal1,
       var onindex = "activeIndex" + num;
       var onflag = "causeFlag" + num;
       var opval = "optionVal" + num;
-      var iptval = "inputVal" + num
+      var iptval = "inputVal" + num;
       this[onindex] = idx;
       this[opval] = idx;
       if (idx == 0) {
@@ -908,12 +1288,10 @@ var val1 = this.optionVal1 + "" + this.inputVal1,
         this[onflag] = true;
       } else {
         this[onflag] = false;
-        this[iptval] = ''
+        this[iptval] = "";
       }
-    },
-    
-  },
-  
+    }
+  }
 };
 </script>
 <style>
@@ -921,22 +1299,20 @@ var val1 = this.optionVal1 + "" + this.inputVal1,
 #question_wrap {
   width: 100%;
   height: 100%;
-  background: #fff;
+  background: #f3f3f3 url(../assets/img/bg3.png) no-repeat top center;
+  padding-top: 0.5rem;
 }
-.top_img {
-  width: 100%;
-  height: 0.5rem;
-}
+
 .question_content {
-  width: 92%;
+  width: 95%;
   box-sizing: border-box;
-  margin: 0.18rem auto 0;
-  border: 0.01rem solid #00569c;
+  margin: 0 auto;
+  border: 0.04rem solid #195693;
   position: relative;
   padding-bottom: 0.1rem;
 }
 .question_title {
-  width: 2.62rem;
+  /* width: 2.62rem;
   height: 0.36rem;
   position: absolute;
   top: -0.18rem;
@@ -945,11 +1321,12 @@ var val1 = this.optionVal1 + "" + this.inputVal1,
   background: url(../assets/img/icon4.png) no-repeat center;
   background-size: 100%;
   z-index: 2;
+ 
+  color: #fff;*/
   font-size: 0.2rem;
-  color: #fff;
   font-weight: bold;
   text-align: center;
-  line-height: 0.36rem;
+  line-height: 0.4rem;
 }
 
 .question_box {
@@ -1022,9 +1399,9 @@ var val1 = this.optionVal1 + "" + this.inputVal1,
   width: 0.18rem;
   height: 0.18rem;
 }
-.box_checkbox_group .van-checkbox{
--webkit-align-items: stretch;
-    align-items: stretch;
+.box_checkbox_group .van-checkbox {
+  -webkit-align-items: stretch;
+  align-items: stretch;
 }
 .box_checkbox_group .van-checkbox--horizontal,
 .box_checkbox_group .van-radio--horizontal {
@@ -1067,7 +1444,7 @@ var val1 = this.optionVal1 + "" + this.inputVal1,
   text-indent: 0.1rem;
 }
 .text_underline {
-      text-decoration: underline;
+  text-decoration: underline;
 }
 .box_div {
   width: 3.3rem;
@@ -1185,38 +1562,36 @@ var val1 = this.optionVal1 + "" + this.inputVal1,
   color: #00569c;
   font-size: 0.14rem;
 }
-.box_div_textarea .van-cell::after{
-  border-bottom:none;
+.box_div_textarea .van-cell::after {
+  border-bottom: none;
 }
-.circle{
-  width:0.12rem;
-  height:0.12rem;
+.circle {
+  width: 0.12rem;
+  height: 0.12rem;
   background: url(../assets/img/circle.png) no-repeat center;
   background-size: 100%;
   position: absolute;
- 
 }
-.circle.circle1{
- left:-0.06rem;
-  top:-0.06rem;
+.circle.circle1 {
+  left: -0.06rem;
+  top: -0.06rem;
 }
-.circle.circle2{
-  top:-0.06rem;
+.circle.circle2 {
+  top: -0.06rem;
   right: -0.06rem;
 }
-.circle.circle3{
-  bottom:-0.06rem;
-  right: -0.06rem;
-}
-.circle.circle4{
+.circle.circle3 {
   bottom: -0.06rem;
-  left:-0.06rem;
+  right: -0.06rem;
 }
-.errortip{
-      width: 3rem;
-    margin: 0 auto;
-  color:red;
-font-size: 0.14rem;
+.circle.circle4 {
+  bottom: -0.06rem;
+  left: -0.06rem;
+}
+.errortip {
+  width: 3rem;
+  margin: 0 auto;
+  color: red;
+  font-size: 0.14rem;
 }
 </style>
-
