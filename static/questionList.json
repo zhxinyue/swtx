@@ -1,50 +1,35 @@
 {
-  "cnArea": {
-    "title": "贵司与四维图新合作的领域是：",
-    "list": ["核心地图", "高精度地图", "核心地图+高精度地图"]
-  },
-  "enArea": {
-    "title": "In which areas that your company have cooperated with NavInfo?",
-    "list": ["SD Map", "HD Map", "SD Map+HD Map"]
-  },
-  "cnTitle1": "调查内容",
-  "enTitle1": "SD Map",
-  "cnTitle2": "高精度地图",
-  "enTitle2": "HD Map",
+
   "cnDialog": "您还没有完整填写，请继续完成！",
   "enDialog": "It has not been completed yet, please continue.",
   "cnPerTitle": "个人信息填写",
   "enPerTitle": "Personal Information",
-  "cnPerTip": "感谢您的反馈！请留下您的联系方式，我们会 为您寄送精美礼品哦~",
+  "cnPerTip": "感谢您的反馈！请留下您的联系方式，我们会为您寄送精美礼品哦~",
   "enPerTip": "Thanks for your feedback! If possible, please leave your information, thank you again~",
   "cnTel": "请填写正确手机号码",
   "enTel": "Please enter phone number in correct format",
   "cnPerlist": {
-    "suCompany": "公司名称",
-    "suBumen": "部门名称",
-    "suName": "姓名",
-    "suTelephone": "手机号码",
-    "suAddress": "邮寄地址"
+    "userCompany": "公司名称",
+    "userDepartment": "部门名称",
+    "userName": "姓名",
+    "userTelephone": "手机号码",
+    "userMailingAddress": "邮寄地址"
   },
   "enPerlist": {
-    "suCompany": "Company",
-    "suBumen": "Dept.",
-    "suName": "Name",
-    "suTelephone": "Phone No.",
-    "suAddress": "Address"
+    "userCompany": "Company",
+    "userDepartment": "Dept.",
+    "userName": "Name",
+    "userTelephone": "Phone No.",
+    "userMailingAddress": "Address"
   },
   "cnThanks1": "您已提交成功，再次感谢您的反馈！",
   "cnThanks2": "我们会委托快递小哥将礼品寄送到您的手中",
   "enThanks1": "You have submitted successfully",
   "enThanks2": "thank you again for your feedback!",
-  "cnBtn": "开始问卷＞＞",
-  "enBtn": "Begin＞＞",
   "cnErrorMsg": "不可以重复提交问卷",
   "enErrorMsg": "It is not allowed to submit the questionnaire repeatedly",
   "cnConfirm": "确认",
   "enConfirm": "Continue",
-  "cnSelect": "请选择合作领域",
-  "enSelect": "Please choose the cooperate area",
   "cnQueTip": "此题为必答题",
   "enQueTip": "",
   "cn": {
@@ -123,27 +108,33 @@
     "answer2": [{
       "img": "imgicon1.png",
       "score": "5",
-      "text": "非常满意"
+      "text": "5",
+      "flag": false
     }, {
       "img": "imgicon2.png",
       "score": "4",
-      "text": "满意"
+      "text": "4",
+      "flag": false
     }, {
       "img": "imgicon3.png",
       "score": "3",
-      "text": "一般"
+      "text": "3",
+      "flag": false
     }, {
       "img": "imgicon4.png",
       "score": "2",
-      "text": "不满意"
+      "text": "2",
+      "flag": false
     }, {
       "img": "imgicon5.png",
       "score": "1",
-      "text": "非常不满意"
+      "text": "1",
+      "flag": false
     }, {
       "img": "imgicon6.png",
       "score": "?",
-      "text": "不清楚"
+      "text": "不清楚",
+      "flag": false
     }],
     "answer3": [{
       "name": "A",
@@ -193,8 +184,59 @@
       "text": "J.其他"
     }],
     "answer5": [{
-      "name": "A",
-      "text": "A.待定"
+      "score": "",
+      "text": "产品品质",
+      "iptVal": "",
+      "iptFlag": false,
+      "acindex": 20
+    }, {
+      "score": "",
+      "text": "产品丰富度",
+      "iptVal": "",
+      "iptFlag": false,
+      "acindex": 20
+    }, {
+      "score": "",
+      "text": "品牌知名度",
+      "iptVal": "",
+      "iptFlag": false,
+      "acindex": 20
+    }, {
+      "score": "",
+      "text": "品牌知名度",
+      "iptVal": "",
+      "iptFlag": false,
+      "acindex": 20
+    }, {
+      "score": "",
+      "text": "定制化能力",
+      "iptVal": "",
+      "iptFlag": false,
+      "acindex": 20
+    }, {
+      "score": "",
+      "text": "价格",
+      "iptVal": "",
+      "iptFlag": false,
+      "acindex": 20
+    }, {
+      "score": "",
+      "text": "项目人员配合度",
+      "iptVal": "",
+      "iptFlag": false,
+      "acindex": 20
+    }, {
+      "score": "",
+      "text": "项目人员专业度",
+      "iptVal": "",
+      "iptFlag": false,
+      "acindex": 20
+    }, {
+      "score": "",
+      "text": "售后服务支持",
+      "iptVal": "",
+      "iptFlag": false,
+      "acindex": 20
     }],
     "answer6": [{
       "name": "A",
@@ -204,8 +246,23 @@
       "text": "B.发生过"
     }],
     "answer7": [{
-      "name": "A",
-      "text": "A.待定"
+      "score": "",
+      "text": "沟通主动性",
+      "iptVal": "",
+      "iptFlag": false,
+      "acindex": 20
+    }, {
+      "score": "",
+      "text": "需求响应及时性",
+      "iptVal": "",
+      "iptFlag": false,
+      "acindex": 20
+    }, {
+      "score": "",
+      "text": "解决问题专业度",
+      "iptVal": "",
+      "iptFlag": false,
+      "acindex": 20
     }],
     "answer8": [{
       "name": "A",
@@ -432,28 +489,77 @@
     }],
     "answer16": [{
       "name": "A",
-      "text": "A.专业公众号"
+      "text": "A.专业公众号",
+      "place": "专业公众号(非必填)",
+      "iptVal": ""
     }, {
       "name": "B",
-      "text": "B.专业杂志、期刊"
+      "text": "B.专业杂志、期刊",
+      "place": "专业杂志、期刊(非必填)",
+      "iptVal": ""
     }, {
       "name": "C",
-      "text": "C.企业直播课程"
+      "text": "C.企业直播课程",
+      "place": "企业直播课程(非必填)",
+      "iptVal": ""
     }, {
       "name": "D",
       "text": "D.新闻资讯类平台"
+     
     }, {
+      "name": "D-a",
+      "text": "a.今日头条",
+      "pad":"1"
+    }, {
+      "name": "D-b",
+      "text": "b.腾讯新闻",
+      "pad":"1"
+    },{
+      "name": "D-c",
+      "text": "c.一点资讯",
+      "pad":"1"
+    },{
+      "name": "D-d",
+      "text": "d.其他",
+      "pad":"1"
+    },{
       "name": "E",
       "text": "E.主流社交平台"
+     
+    },  {
+      "name": "E-a",
+      "text": "a.微博",
+      "pad":"1"
     }, {
+      "name": "E-b",
+      "text": "b.知乎",
+      "pad":"1"
+    },{
+      "name": "E-c",
+      "text": "c.B站Bilibili",
+      "pad":"1"
+    },{
+      "name": "E-d",
+      "text": "d.视频号",
+      "pad":"1"
+    },{
+      "name": "E-e",
+      "text": "e.抖音",
+      "pad":"1"
+    },{
+      "name": "E-f",
+      "text": "f.其他",
+      "pad":"1"
+    },{
       "name": "F",
       "text": "F.其他"
     }],
-    "answer11": "值得认可：",
-    "answer111": "需要改进：",
-    "answer1111": "原因&合作项目",
-    "answer20": "请输入"
- 
+
+    "answer20": "请输入",
+    "answer21": "值得认可：",
+    "answer22": "需要改进：",
+    "answer23": "原因&合作项目"
+
 
 
   },
@@ -603,8 +709,59 @@
       "text": "J.Others"
     }],
     "answer5": [{
-      "name": "A",
-      "text": "A.待定"
+      "score": "",
+      "text": "Product quality",
+      "iptVal": "",
+      "iptFlag": false,
+      "acindex": 20
+    }, {
+      "score": "",
+      "text": "Product diversity",
+      "iptVal": "",
+      "iptFlag": false,
+      "acindex": 20
+    }, {
+      "score": "",
+      "text": "Brand awareness",
+      "iptVal": "",
+      "iptFlag": false,
+      "acindex": 20
+    }, {
+      "score": "",
+      "text": "Technology and R & D capability",
+      "iptVal": "",
+      "iptFlag": false,
+      "acindex": 20
+    }, {
+      "score": "",
+      "text": "Customization capabilities",
+      "iptVal": "",
+      "iptFlag": false,
+      "acindex": 20
+    }, {
+      "score": "",
+      "text": "Price",
+      "iptVal": "",
+      "iptFlag": false,
+      "acindex": 20
+    }, {
+      "score": "",
+      "text": "Personnel cooperation",
+      "iptVal": "",
+      "iptFlag": false,
+      "acindex": 20
+    }, {
+      "score": "",
+      "text": "Personnel professionalism",
+      "iptVal": "",
+      "iptFlag": false,
+      "acindex": 20
+    }, {
+      "score": "",
+      "text": "After-sales service",
+      "iptVal": "",
+      "iptFlag": false,
+      "acindex": 20
     }],
     "answer6": [{
       "name": "A",
@@ -614,8 +771,23 @@
       "text": "B.happened"
     }],
     "answer7": [{
-      "name": "A",
-      "text": "A.待定"
+      "score": "",
+      "text": "Communication Initiative",
+      "iptVal": "",
+      "iptFlag": false,
+      "acindex": 20
+    }, {
+      "score": "",
+      "text": "Timeliness of demand response",
+      "iptVal": "",
+      "iptFlag": false,
+      "acindex": 20
+    }, {
+      "score": "",
+      "text": "Problem-solving professionalism",
+      "iptVal": "",
+      "iptFlag": false,
+      "acindex": 20
     }],
     "answer8": [{
       "name": "A",
@@ -842,27 +1014,38 @@
     }],
     "answer16": [{
       "name": "A",
-      "text": "A.Official Accounts"
+      "text": "A.Official Accounts",
+      "place": "Official Accounts(no required)",
+      "iptVal": ""
     }, {
       "name": "B",
-      "text": "B.Professional magazines and periodicals"
+      "text": "B.Professional magazines and periodicals",
+      "place": "Professional magazines and periodicals(no required)",
+      "iptVal": ""
     }, {
       "name": "C",
-      "text": "C.Online classes held by enterprise"
+      "text": "C.Online classes held by enterprise",
+      "place": "Online classes held by enterprise(no required)",
+      "iptVal": ""
     }, {
       "name": "D",
-      "text": "D.News information platform"
+      "text": "D.News information platform",
+      "place": "News information platform",
+      "iptVal": ""
     }, {
       "name": "E",
-      "text": "E.Social platforms"
+      "text": "E.Social platforms",
+      "place": "Social platforms",
+      "iptVal": ""
     }, {
       "name": "F",
       "text": "F.Others"
     }],
-    "answer11": "Being recognized：",
-    "answer111": "To be improved：",
-    "answer1111": "Reasons & Cooperation projects",
-    "answer20": "Please type..."
+
+    "answer20": "Please type...",
+    "answer21": "Being recognized：",
+    "answer22": "To be improved：",
+    "answer23": "Reasons & Cooperation projects"
 
   }
 }

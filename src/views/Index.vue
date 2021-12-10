@@ -18,10 +18,6 @@ export default {
   methods: {
     nextStep(idx) {
       this.$router.push({ path: "/question1", query: { idx: idx } });
-      //  this.$router.push({
-      //   path: "/question" + this.page,
-      //   query: { idx: this.$route.query.idx},
-      // });
     },
   },
 };
@@ -35,9 +31,8 @@ export default {
   left:0;
   width: 100%;
   height:100vh;
-  background: url(../assets/img/bg.png) no-repeat;
+  background: #F3F3F3 url(../assets/img/bg.png) no-repeat;
   background-size: 100% 6.67rem;
-  background-color: #F3F3F3;
 }
 .index_btn {
   width: 70%;

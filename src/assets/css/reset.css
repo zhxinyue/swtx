@@ -73,19 +73,19 @@ body,input{
     font-family:"PingFangSC-Regular,'Roboto', Verdana, 'Helvetica Neue', 'Helvetica', 'Hiragino Sans GB', 'Microsoft YaHei', 'Source Han Sans CN', 'WenQuanYi Micro Hei', Arial, sans-serif";
 }
 input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
-    color: #00569C;
+    color: #999;
 }
 
 input:-moz-placeholder, textarea:-moz-placeholder {
-    color: #00569C;
+    color: #999;
 }
 
 input::-moz-placeholder, textarea::-moz-placeholder {
-    color:#00569C;
+    color:#999;
 }
 
 input:-ms-input-placeholder, textarea:-ms-input-placeholder {
-    color:#00569C;
+    color:#999;
 }
 img{
     display: block;

@@ -1,24 +1,18 @@
 <template>
   <div id="question_wrap" class="question1">
-    <!-- <img src="../assets/img/icon3.png" alt="" class="top_img" /> -->
     <div class="question_content">
-      <div class="question_title">{{ title }}</div>
       <div class="question_box">
-        <div :class="[lanIdx == 1 ? 'box_title' : 'box_title3']">
-          <span class="box_num">01</span>
-          <div
-            class="box_text"
-            :style="
-              (emptyFlag && optionVal1 == '') ||
-              (emptyFlag && causeFlag1 && inputVal1 == '')
-                ? 'color: red'
-                : 'color:#000'
-            "
-          >
-            {{ dataList.SD1 }}
-          </div>
+        <div
+          class="box_text"
+          :style="
+            (emptyFlag && optionVal1 == '') ||
+            (emptyFlag && causeFlag1 && inputVal1 == '')
+              ? 'color: red'
+              : 'color:#195693'
+          "
+        >
+          01. {{ dataList.SD1 }}
         </div>
-
         <van-checkbox-group
           v-model="result1"
           class="box_checkbox_group"
@@ -50,18 +44,16 @@
         </div>
       </div>
       <div class="question_box">
-        <div class="box_title">
-          <span class="box_num">02</span>
-          <div
-            class="box_text"
-            v-html="dataList.SD2"
-            :style="
-              (emptyFlag && optionVal2 == '') ||
-              (emptyFlag && causeFlag2 && inputVal2 == '')
-                ? 'color: red'
-                : 'color:#000'
-            "
-          ></div>
+        <div
+          class="box_text"
+          :style="
+            (emptyFlag && activeVal2 == '') ||
+            (emptyFlag && causeFlag2 && inputVal2 == '')
+              ? 'color: red'
+              : 'color:#195693'
+          "
+        >
+          02. {{ dataList.SD2 }}
         </div>
         <div class="box_div">
           <div
@@ -86,13 +78,13 @@
           type="text"
           class="box_dec"
           v-model="inputVal2"
-          :placeholder="dataList.answer11"
+          :placeholder="dataList.answer23"
           v-if="causeFlag2"
         />
         <div
           class="errortip"
           v-if="
-            (emptyFlag && optionVal2 == '') ||
+            (emptyFlag && activeVal2 == '') ||
               (emptyFlag && causeFlag2 && inputVal2 == '')
           "
         >
@@ -100,43 +92,35 @@
         </div>
       </div>
       <div class="question_box">
-        <div class="box_title">
-          <span class="box_num">03</span>
-          <div
-            class="box_text"
-            v-html="dataList.SD3"
-            :style="
-              (emptyFlag && optionVal3 == '') ||
-              (emptyFlag && causeFlag3 && inputVal3 == '')
-                ? 'color: red'
-                : 'color:#000'
-            "
-          ></div>
+        <div
+          class="box_text"
+          :style="
+            (emptyFlag && optionVal3 == '') ||
+            (emptyFlag && causeFlag3 && inputVal3 == '')
+              ? 'color: red'
+              : 'color:#195693'
+          "
+        >
+          03. {{ dataList.SD3 }}
         </div>
-        <div class="box_div">
-          <div
-            v-for="(item, index) in dataList.answer2"
+        <van-radio-group
+          v-model="optionVal3"
+          direction="horizontal"
+          class="box_checkbox_group"
+          @change="radioChange(3, 'D')"
+        >
+          <van-radio
+            v-for="(item, index) in dataList.answer3"
             :key="index"
-            :class="[
-              activeIndex3 == item.score ? 'box_options_on' : '',
-              'box_options'
-            ]"
-            @click="chooseLevel(item.score, 3)"
+            :name="item.name"
+            >{{ item.text }}</van-radio
           >
-            <img
-              :src="require('../assets/img/' + item.img)"
-              alt=""
-              class="box_img"
-            />
-
-            <em class="box_em">{{ item.text }}</em>
-          </div>
-        </div>
+        </van-radio-group>
         <input
           type="text"
           class="box_dec"
           v-model="inputVal3"
-          :placeholder="dataList.answer11"
+          :placeholder="dataList.answer20"
           v-if="causeFlag3"
         />
         <div
@@ -149,65 +133,43 @@
           {{ queTip }}
         </div>
       </div>
+
       <div class="question_box">
-        <div :class="[lanIdx == 1 ? 'box_title2' : 'box_title4']">
-          <span class="box_num">04</span>
-          <div
-            class="box_text"
-            v-html="dataList.SD4"
-            :style="
-              (emptyFlag && radioValue4 == '') ||
-              (emptyFlag && optionVal4 == '') ||
-              (emptyFlag && causeFlag4 && inputVal4 == '')
-                ? 'color: red'
-                : 'color:#000'
-            "
-          ></div>
-        </div>
-        <van-radio-group
-          v-model="radioValue4"
-          direction="horizontal"
-          class="box_checkbox_group"
+        <div
+          class="box_text"
+          :style="
+            (emptyFlag && optionVal4 == '') ||
+            (emptyFlag && causeFlag4 && inputVal4 == '')
+              ? 'color: red'
+              : 'color:#195693'
+          "
         >
-          <van-radio
-            v-for="(item, index) in dataList.answer13"
+          04. {{ dataList.SD4 }}
+        </div>
+        <van-checkbox-group
+          v-model="result4"
+          class="box_checkbox_group"
+          direction="horizontal"
+          @change="checkboxChange(4, 'J')"
+        >
+          <van-checkbox
+            v-for="(item, index) in dataList.answer4"
             :key="index"
             :name="item.name"
-            >{{ item.text }}</van-radio
+            >{{ item.text }}</van-checkbox
           >
-        </van-radio-group>
-        <div class="box_div">
-          <div
-            v-for="(item, index) in dataList.answer2"
-            :key="index"
-            :class="[
-              activeIndex4 == item.score ? 'box_options_on' : '',
-              'box_options'
-            ]"
-            @click="chooseLevel(item.score, 4)"
-          >
-            <img
-              :src="require('../assets/img/' + item.img)"
-              alt=""
-              class="box_img"
-            />
-
-            <em class="box_em">{{ item.text }}</em>
-          </div>
-        </div>
-
+        </van-checkbox-group>
         <input
           type="text"
           class="box_dec"
           v-model="inputVal4"
-          :placeholder="dataList.answer11"
+          :placeholder="dataList.answer20"
           v-if="causeFlag4"
         />
         <div
           class="errortip"
           v-if="
-            (emptyFlag && radioValue4 == '') ||
-              (emptyFlag && optionVal4 == '') ||
+            (emptyFlag && optionVal4 == '') ||
               (emptyFlag && causeFlag4 && inputVal4 == '')
           "
         >
@@ -215,111 +177,85 @@
         </div>
       </div>
       <div class="question_box">
-        <div :class="[lanIdx == 1 ? 'box_title' : 'box_title4']">
-          <span class="box_num">05</span>
-          <div
-            class="box_text"
-            v-html="dataList.SD5"
-            :style="
-              (emptyFlag && radioValue5 == '') ||
-              (emptyFlag && optionVal5 == '') ||
-              (emptyFlag && causeFlag5 && inputVal5 == '') ||
-              (emptyFlag && radioFlag5 && radioVal5 == '')
-                ? 'color: red'
-                : 'color:#000'
-            "
-          ></div>
-        </div>
-        <van-radio-group
-          v-model="radioValue5"
-          direction="horizontal"
-          class="box_checkbox_group"
-          @change="radioChange()"
-        >
-          <van-radio
-            v-for="(item, index) in dataList.answer4"
-            :key="index"
-            :name="item.name"
-            >{{ item.text }}</van-radio
-          >
-        </van-radio-group>
-        <input
-          type="text"
-          class="box_dec"
-          :placeholder="dataList.answer20"
-          v-if="radioFlag5"
-          v-model="radioVal5"
-        />
-
-        <div class="box_div">
-          <div
-            v-for="(item, index) in dataList.answer2"
-            :key="index"
-            :class="[
-              activeIndex5 == item.score ? 'box_options_on' : '',
-              'box_options'
-            ]"
-            @click="chooseLevel(item.score, 5)"
-          >
-            <img
-              :src="require('../assets/img/' + item.img)"
-              alt=""
-              class="box_img"
-            />
-
-            <em class="box_em">{{ item.text }}</em>
-          </div>
-        </div>
-        <input
-          type="text"
-          v-model="inputVal5"
-          class="box_dec"
-          :placeholder="dataList.answer11"
-          v-if="causeFlag5"
-        />
         <div
-          class="errortip"
-          v-if="
-            (emptyFlag && radioValue5 == '') ||
-              (emptyFlag && optionVal5 == '') ||
-              (emptyFlag && causeFlag5 && inputVal5 == '') ||
-              (emptyFlag && radioFlag5 && radioVal5 == '')
-          "
+          class="box_text"
+          :style="causeFlag5 ? 'color: red' : 'color:#195693'"
         >
-          {{ queTip }}
+          05. {{ dataList.SD5 }}
+        </div>
+        <table border="1" class="tab_class">
+          <tr>
+            <th></th>
+            <th v-for="(item, index) in dataList.answer2" :key="index">
+              <img
+                :src="require('../assets/img/' + item.img)"
+                alt=""
+                class="box_img"
+              />
+
+              <em class="box_em">{{ item.text }}</em>
+            </th>
+          </tr>
+          <tr v-for="(item, index) in dataList.answer5" :key="index">
+            <td>{{ item.text }}</td>
+            <td
+              v-for="(itm, idx) in dataList.answer2"
+              :key="idx"
+              @click="
+                chooseLevelTab(item.text, itm.score, index, idx, 'answer5')
+              "
+            >
+              <img
+                src="../assets/img/icon7.png"
+                alt=""
+                class="icon7_img"
+                v-if="item.acindex == idx"
+              />
+            </td>
+          </tr>
+        </table>
+
+        <div style="padding-top:0.1rem">
+          <input
+            v-for="(item, index) in dataList.answer5"
+            :key="index"
+            type="text"
+            class="box_dec"
+            :placeholder="item.text"
+            v-if="item.iptFlag"
+            v-model="item.iptVal"
+          />
         </div>
       </div>
       <div class="question_box">
-        <div :class="[lanIdx == 1 ? 'box_title' : 'box_title3']">
-          <span class="box_num">06</span>
+        <div class="box_title">
           <div
             class="box_text"
             :style="
-              (emptyFlag && radioValue6 == '') ||
               (emptyFlag && optionVal6 == '') ||
+              (emptyFlag && causeFlag6B && activeVal6 == '') ||
               (emptyFlag && causeFlag6 && inputVal6 == '')
                 ? 'color: red'
-                : 'color:#000'
+                : 'color:#195693'
             "
           >
-            {{ dataList.SD6 }}
+            06. {{ dataList.SD6 }}
           </div>
         </div>
         <van-radio-group
-          v-model="radioValue6"
+          v-model="optionVal6"
           direction="horizontal"
           class="box_checkbox_group"
+          @change="radioChange(6, 'B', 'causeFlag6B')"
         >
           <van-radio
-            v-for="(item, index) in dataList.answer5"
+            v-for="(item, index) in dataList.answer6"
             :key="index"
             :name="item.name"
-            :style="index == 2 ? 'width: 60%' : ''"
             >{{ item.text }}</van-radio
           >
         </van-radio-group>
-
-        <div class="box_div">
+        <div class="box_div" v-if="causeFlag6B">
           <div
             v-for="(item, index) in dataList.answer2"
             :key="index"
@@ -341,15 +277,15 @@
         <input
           type="text"
           class="box_dec"
-          :placeholder="dataList.answer11"
-          v-if="causeFlag6"
           v-model="inputVal6"
+          :placeholder="dataList.answer23"
+          v-if="causeFlag6"
         />
         <div
           class="errortip"
           v-if="
-            (emptyFlag && radioValue6 == '') ||
-              (emptyFlag && optionVal6 == '') ||
+            (emptyFlag && optionVal6 == '') ||
+              (emptyFlag && causeFlag6B && activeVal6 == '') ||
               (emptyFlag && causeFlag6 && inputVal6 == '')
           "
         >
@@ -357,92 +293,87 @@
         </div>
       </div>
       <div class="question_box">
-        <div :class="[lanIdx == 1 ? 'box_title' : 'box_title3']">
-          <span class="box_num">07</span>
-          <div
-            class="box_text"
-            v-html="dataList.SD7"
-            :style="
-              (emptyFlag && optionVal7 == '') ||
-              (emptyFlag && causeFlag7 && inputVal7 == '')
-                ? 'color: red'
-                : 'color:#000'
-            "
-          ></div>
-        </div>
-        <div class="box_div">
-          <div
-            v-for="(item, index) in dataList.answer2"
-            :key="index"
-            :class="[
-              activeIndex7 == item.score ? 'box_options_on' : '',
-              'box_options'
-            ]"
-            @click="chooseLevel(item.score, 7)"
-          >
-            <img
-              :src="require('../assets/img/' + item.img)"
-              alt=""
-              class="box_img"
-            />
-
-            <em class="box_em">{{ item.text }}</em>
-          </div>
-        </div>
-        <input
-          type="text"
-          class="box_dec"
-          :placeholder="dataList.answer11"
-          v-if="causeFlag7"
-          v-model="inputVal7"
-        />
         <div
-          class="errortip"
-          v-if="
-            (emptyFlag && optionVal7 == '') ||
-              (emptyFlag && causeFlag7 && inputVal7 == '')
-          "
+          class="box_text"
+          :style="causeFlag7 ? 'color: red' : 'color:#195693'"
         >
-          {{ queTip }}
+          07. {{ dataList.SD7 }}
+        </div>
+        <table border="1" class="tab_class">
+          <tr>
+            <th></th>
+            <th v-for="(item, index) in dataList.answer2" :key="index">
+              <img
+                :src="require('../assets/img/' + item.img)"
+                alt=""
+                class="box_img"
+              />
+
+              <em class="box_em">{{ item.text }}</em>
+            </th>
+          </tr>
+          <tr v-for="(item, index) in dataList.answer7" :key="index">
+            <td>{{ item.text }}</td>
+            <td
+              v-for="(itm, idx) in dataList.answer2"
+              :key="idx"
+              @click="
+                chooseLevelTab(item.text, itm.score, index, idx, 'answer7')
+              "
+            >
+              <img
+                src="../assets/img/icon7.png"
+                alt=""
+                class="icon7_img"
+                v-if="item.acindex == idx"
+              />
+            </td>
+          </tr>
+        </table>
+
+        <div style="padding-top:0.1rem">
+          <input
+            v-for="(item, index) in dataList.answer7"
+            :key="index"
+            type="text"
+            class="box_dec"
+            :placeholder="item.text"
+            v-if="item.iptFlag"
+            v-model="item.iptVal"
+          />
         </div>
       </div>
       <div class="question_box">
-        <div :class="[lanIdx == 1 ? 'box_title' : 'box_title2']">
-          <span class="box_num">08</span>
-          <div
-            class="box_text"
-            v-html="dataList.SD8"
-            :style="
-              (emptyFlag && optionVal8 == '') ||
-              (emptyFlag && causeFlag8 && inputVal8 == '')
-                ? 'color: red'
-                : 'color:#000'
-            "
-          ></div>
+        <div
+          class="box_text"
+          :style="
+            (emptyFlag && optionVal8 == '') ||
+            (emptyFlag && causeFlag8 && inputVal8 == '')
+              ? 'color: red'
+              : 'color:#195693'
+          "
+        >
+          08. {{ dataList.SD8 }}
         </div>
-        <div class="box_div">
-          <div
-            v-for="(item, index) in dataList.answer2"
+        <van-checkbox-group
+          v-model="result8"
+          :min="3"
+          :max="3"
+          class="box_checkbox_group"
+          direction="horizontal"
+          @change="checkboxChange(8, 'G')"
+        >
+          <van-checkbox
+            v-for="(item, index) in dataList.answer8"
             :key="index"
-            :class="[
-              activeIndex8 == item.score ? 'box_options_on' : '',
-              'box_options'
-            ]"
-            @click="chooseLevel(item.score, 8)"
+            :name="item.name"
+            >{{ item.text }}</van-checkbox
           >
-            <img
-              :src="require('../assets/img/' + item.img)"
-              alt=""
-              class="box_img"
-            />
-
-            <em class="box_em">{{ item.text }}</em>
-          </div>
-        </div>
+        </van-checkbox-group>
         <input
           type="text"
           class="box_dec"
-          :placeholder="dataList.answer11"
+          :placeholder="dataList.answer20"
           v-if="causeFlag8"
           v-model="inputVal8"
         />
@@ -457,42 +388,36 @@
         </div>
       </div>
       <div class="question_box">
-        <div :class="[lanIdx == 1 ? 'box_title' : 'box_title3']">
-          <span class="box_num">09</span>
-          <div
-            class="box_text"
-            v-html="dataList.SD9"
-            :style="
-              (emptyFlag && optionVal9 == '') ||
-              (emptyFlag && causeFlag9 && inputVal9 == '')
-                ? 'color: red'
-                : 'color:#000'
-            "
-          ></div>
+        <div
+          class="box_text"
+          :style="
+            (emptyFlag && optionVal9 == '') ||
+            (emptyFlag && causeFlag9 && inputVal9 == '')
+              ? 'color: red'
+              : 'color:#195693'
+          "
+        >
+          09. {{ dataList.SD9 }}
         </div>
-        <div class="box_div">
-          <div
-            v-for="(item, index) in dataList.answer2"
+        <van-checkbox-group
+          v-model="result9"
+          :min="3"
+          :max="3"
+          class="box_checkbox_group"
+          direction="horizontal"
+          @change="checkboxChange(9, 'I')"
+        >
+          <van-checkbox
+            v-for="(item, index) in dataList.answer9"
             :key="index"
-            :class="[
-              activeIndex9 == item.score ? 'box_options_on' : '',
-              'box_options'
-            ]"
-            @click="chooseLevel(item.score, 9)"
+            :name="item.name"
+            >{{ item.text }}</van-checkbox
           >
-            <img
-              :src="require('../assets/img/' + item.img)"
-              alt=""
-              class="box_img"
-            />
-
-            <em class="box_em">{{ item.text }}</em>
-          </div>
-        </div>
+        </van-checkbox-group>
         <input
           type="text"
           class="box_dec"
-          :placeholder="dataList.answer11"
+          :placeholder="dataList.answer20"
           v-if="causeFlag9"
           v-model="inputVal9"
         />
@@ -507,44 +432,36 @@
         </div>
       </div>
       <div class="question_box">
-        <div :class="[lanIdx == 1 ? 'box_title' : 'box_title3']">
-          <span class="box_num">10</span>
-          <div
-            class="box_text"
-            v-html="dataList.SD10"
-            :style="
-              (emptyFlag && optionVal10 == '') ||
-              (emptyFlag && causeFlag10 && inputVal10 == '')
-                ? 'color: red'
-                : 'color:#000'
-            "
-          ></div>
+        <div
+          class="box_text"
+          :style="
+            (emptyFlag && optionVal10 == '') ||
+            (emptyFlag && causeFlag10 && inputVal10 == '')
+              ? 'color: red'
+              : 'color:#195693'
+          "
+        >
+          10. {{ dataList.SD10 }}
         </div>
-        <div class="box_div">
-          <div
-            v-for="(item, index) in dataList.answer2"
+        <van-radio-group
+          v-model="optionVal10"
+          direction="horizontal"
+          class="box_checkbox_group"
+          @change="radioChange(10, 'F')"
+        >
+          <van-radio
+            v-for="(item, index) in dataList.answer10"
             :key="index"
-            :class="[
-              activeIndex10 == item.score ? 'box_options_on' : '',
-              'box_options'
-            ]"
-            @click="chooseLevel(item.score, 10)"
+            :name="item.name"
+            >{{ item.text }}</van-radio
           >
-            <img
-              :src="require('../assets/img/' + item.img)"
-              alt=""
-              class="box_img"
-            />
-
-            <em class="box_em">{{ item.text }}</em>
-          </div>
-        </div>
+        </van-radio-group>
         <input
           type="text"
           class="box_dec"
-          :placeholder="dataList.answer11"
-          v-if="causeFlag10"
           v-model="inputVal10"
+          :placeholder="dataList.answer20"
+          v-if="causeFlag10"
         />
         <div
           class="errortip"
@@ -557,144 +474,102 @@
         </div>
       </div>
       <div class="question_box">
-        <div :class="[lanIdx == 1 ? 'box_title' : 'box_title3']">
-          <span class="box_num">11</span>
-          <div
-            class="box_text"
-            v-html="dataList.SD11"
-            :style="
-              (emptyFlag && optionVal11 == '') ||
-              (emptyFlag && causeFlag11 && inputVal11 == '')
-                ? 'color: red'
-                : 'color:#000'
-            "
-          ></div>
+        <div
+          class="box_text"
+          :style="
+            (emptyFlag && recognizedMsg11 == '') ||
+            (emptyFlag && improvedMsg11 == '')
+              ? 'color: red'
+              : 'color:#195693'
+          "
+        >
+          11. {{ dataList.SD11 }}
         </div>
-        <div class="box_div">
-          <div
-            v-for="(item, index) in dataList.answer2"
-            :key="index"
-            :class="[
-              activeIndex11 == item.score ? 'box_options_on' : '',
-              'box_options'
-            ]"
-            @click="chooseLevel(item.score, 11)"
-          >
-            <img
-              :src="require('../assets/img/' + item.img)"
-              alt=""
-              class="box_img"
-            />
-
-            <em class="box_em">{{ item.text }}</em>
-          </div>
+        <div class="box_div_textarea">
+          <div class="message_tip">{{ dataList.answer21 }}</div>
+          <van-field
+            v-model="recognizedMsg11"
+            rows="2"
+            autosize
+            type="textarea"
+            :placeholder="dataList.answer20"
+          />
+          <div class="message_tip">{{ dataList.answer22 }}</div>
+          <van-field
+            v-model="improvedMsg11"
+            rows="2"
+            autosize
+            type="textarea"
+            :placeholder="dataList.answer20"
+          />
         </div>
-        <input
-          type="text"
-          class="box_dec"
-          :placeholder="dataList.answer11"
-          v-if="causeFlag11"
-          v-model="inputVal11"
-        />
         <div
           class="errortip"
           v-if="
-            (emptyFlag && optionVal11 == '') ||
-              (emptyFlag && causeFlag11 && inputVal11 == '')
+            (emptyFlag && recognizedMsg11 == '') ||
+              (emptyFlag && improvedMsg11 == '')
           "
+          style="margin-top:0.05rem"
         >
           {{ queTip }}
         </div>
       </div>
       <div class="question_box">
-        <div :class="[lanIdx == 1 ? 'box_title' : 'box_title3']">
-          <span class="box_num">12</span>
-          <div
-            class="box_text"
-            v-html="dataList.SD12"
-            :style="
-              (emptyFlag && optionVal12 == '') ||
-              (emptyFlag && causeFlag12 && inputVal12 == '')
-                ? 'color: red'
-                : 'color:#000'
-            "
-          ></div>
-        </div>
-        <div class="box_div">
-          <div
-            v-for="(item, index) in dataList.answer2"
-            :key="index"
-            :class="[
-              activeIndex12 == item.score ? 'box_options_on' : '',
-              'box_options'
-            ]"
-            @click="chooseLevel(item.score, 12)"
-          >
-            <img
-              :src="require('../assets/img/' + item.img)"
-              alt=""
-              class="box_img"
-            />
-
-            <em class="box_em">{{ item.text }}</em>
-          </div>
-        </div>
-        <input
-          type="text"
-          class="box_dec"
-          :placeholder="dataList.answer11"
-          v-if="causeFlag12"
-          v-model="inputVal12"
-        />
         <div
-          class="errortip"
-          v-if="
-            (emptyFlag && optionVal12 == '') ||
-              (emptyFlag && causeFlag12 && inputVal12 == '')
+          class="box_text"
+          :style="
+            emptyFlag && optionVal12 == '' ? 'color: red' : 'color:#195693'
           "
         >
+          12. {{ dataList.SD12 }}
+        </div>
+        <van-radio-group
+          v-model="optionVal12"
+          direction="horizontal"
+          class="box_checkbox_group"
+        >
+          <van-radio
+            v-for="(item, index) in dataList.answer12"
+            :key="index"
+            :name="item.name"
+            >{{ item.text }}</van-radio
+          >
+        </van-radio-group>
+        <div class="errortip" v-if="emptyFlag && optionVal12 == ''">
           {{ queTip }}
         </div>
       </div>
       <div class="question_box">
-        <div :class="[lanIdx == 1 ? 'box_title' : 'box_title3']">
-          <span class="box_num">13</span>
-          <div
-            class="box_text"
-            v-html="dataList.SD13"
-            :style="
-              (emptyFlag && optionVal13 == '') ||
-              (emptyFlag && causeFlag13 && inputVal13 == '')
-                ? 'color: red'
-                : 'color:#000'
-            "
-          ></div>
+        <div
+          class="box_text"
+          :style="
+            (emptyFlag && optionVal13 == '') ||
+            (emptyFlag && causeFlag13 && inputVal13 == '')
+              ? 'color: red'
+              : 'color:#195693'
+          "
+        >
+          13. {{ dataList.SD13 }}
         </div>
-        <div class="box_div">
-          <div
-            v-for="(item, index) in dataList.answer2"
+        <van-checkbox-group
+          v-model="result13"
+          class="box_checkbox_group"
+          direction="horizontal"
+          @change="checkboxChange(13, 'L')"
+        >
+          <van-checkbox
+            v-for="(item, index) in dataList.answer13"
             :key="index"
-            :class="[
-              activeIndex13 == item.score ? 'box_options_on' : '',
-              'box_options'
-            ]"
-            @click="chooseLevel(item.score, 13)"
+            :name="item.name"
+            >{{ item.text }}</van-checkbox
           >
-            <img
-              :src="require('../assets/img/' + item.img)"
-              alt=""
-              class="box_img"
-            />
-
-            <em class="box_em">{{ item.text }}</em>
-          </div>
-        </div>
+        </van-checkbox-group>
         <input
           type="text"
           class="box_dec"
-          :placeholder="dataList.answer11"
-          v-if="causeFlag13"
           v-model="inputVal13"
+          :placeholder="dataList.answer20"
+          v-if="causeFlag13"
         />
         <div
           class="errortip"
@@ -707,42 +582,34 @@
         </div>
       </div>
       <div class="question_box">
-        <div :class="[lanIdx == 1 ? 'box_title' : 'box_title3']">
-          <span class="box_num">14</span>
-          <div
-            class="box_text"
-            v-html="dataList.SD14"
-            :style="
-              (emptyFlag && optionVal14 == '') ||
-              (emptyFlag && causeFlag14 && inputVal14 == '')
-                ? 'color: red'
-                : 'color:#000'
-            "
-          ></div>
+        <div
+          class="box_text"
+          :style="
+            (emptyFlag && optionVal14 == '') ||
+            (emptyFlag && causeFlag14 && inputVal14 == '')
+              ? 'color: red'
+              : 'color:#195693'
+          "
+        >
+          14. {{ dataList.SD14 }}
         </div>
-        <div class="box_div">
-          <div
-            v-for="(item, index) in dataList.answer2"
+        <van-checkbox-group
+          v-model="result14"
+          class="box_checkbox_group"
+          direction="horizontal"
+          @change="checkboxChange(14, 'O')"
+        >
+          <van-checkbox
+            v-for="(item, index) in dataList.answer14"
             :key="index"
-            :class="[
-              activeIndex14 == item.score ? 'box_options_on' : '',
-              'box_options'
-            ]"
-            @click="chooseLevel(item.score, 14)"
+            :name="item.name"
+            >{{ item.text }}</van-checkbox
           >
-            <img
-              :src="require('../assets/img/' + item.img)"
-              alt=""
-              class="box_img"
-            />
-
-            <em class="box_em">{{ item.text }}</em>
-          </div>
-        </div>
+        </van-checkbox-group>
         <input
           type="text"
           class="box_dec"
-          :placeholder="dataList.answer11"
+          :placeholder="dataList.answer20"
           v-if="causeFlag14"
           v-model="inputVal14"
         />
@@ -757,89 +624,175 @@
         </div>
       </div>
       <div class="question_box">
-        <div :class="[lanIdx == 1 ? 'box_title' : 'box_title4']">
-          <span class="box_num">15</span>
-          <div
-            class="box_text"
-            :style="
-              (emptyFlag && recognizedMsg15 == '') ||
-              (emptyFlag && improvedMsg15 == '')
-                ? 'color: red'
-                : 'color:#000'
-            "
+        <div
+          class="box_text"
+          :style="
+            (emptyFlag && optionVal15 == '') ||
+            (emptyFlag && causeFlag15 && inputVal15 == '')
+              ? 'color: red'
+              : 'color:#195693'
+          "
+        >
+          15. {{ dataList.SD15 }}
+        </div>
+        <van-checkbox-group
+          v-model="result15"
+          class="box_checkbox_group"
+          direction="horizontal"
+          @change="checkboxChange(15, 'R')"
+        >
+          <van-checkbox
+            v-for="(item, index) in dataList.answer15"
+            :key="index"
+            :name="item.name"
+            >{{ item.text }}</van-checkbox
           >
-            {{ dataList.SD15 }}
-          </div>
-        </div>
-        <div class="box_div_textarea">
-          <div class="message_tip">{{ dataList.answer9 }}</div>
-          <van-field
-            v-model="recognizedMsg15"
-            rows="2"
-            autosize
-            type="textarea"
-            :placeholder="dataList.answer20"
-          />
-          <div class="message_tip">{{ dataList.answer10 }}</div>
-          <van-field
-            v-model="improvedMsg15"
-            rows="2"
-            autosize
-            type="textarea"
-            :placeholder="dataList.answer20"
-          />
-        </div>
+        </van-checkbox-group>
+        <input
+          type="text"
+          class="box_dec"
+          v-model="inputVal15"
+          :placeholder="dataList.answer20"
+          v-if="causeFlag15"
+        />
         <div
           class="errortip"
           v-if="
-            (emptyFlag && recognizedMsg15 == '') ||
-              (emptyFlag && improvedMsg15 == '')
+            (emptyFlag && optionVal15 == '') ||
+              (emptyFlag && causeFlag15 && inputVal15 == '')
           "
-          style="margin-top:0.05rem"
         >
           {{ queTip }}
         </div>
       </div>
       <div class="question_box">
-        <div :class="[lanIdx == 1 ? 'box_title' : 'box_title3']">
-          <span class="box_num">16</span>
-          <div
-            class="box_text"
-            :style="
-              (emptyFlag && optionVal16 == '') ||
-              (emptyFlag && causeFlag16 && inputVal16 == '')
-                ? 'color: red'
-                : 'color:#000'
-            "
-          >
-            {{ dataList.SD16 }}
-          </div>
+        <div
+          class="box_text"
+          :style="
+            (emptyFlag && optionVal16 == '') ||
+            (emptyFlag && causeFlag16 && inputVal16 == '') ||
+            (emptyFlag && causeFlag16D && inputVal16D == '') ||
+            (emptyFlag && causeFlag16E && inputVal16E == '')
+              ? 'color: red'
+              : 'color:#195693'
+          "
+        >
+          16. {{ dataList.SD16 }}
         </div>
-        <div class="box_div">
-          <div
-            v-for="(item, index) in dataList.answer2"
+        <van-checkbox-group
+          v-model="result16"
+          class="box_checkbox_group box_checkbox_group2"
+          direction="horizontal"
+          @change="checkboxChange(16, 'F')"
+        >
+          <van-checkbox
+            v-for="(item, index) in dataList.answer16"
             :key="index"
-            :class="[
-              activeIndex16 == item.score ? 'box_options_on' : '',
-              'box_options'
-            ]"
-            @click="chooseLevel(item.score, 16)"
-          >
-            <img
-              :src="require('../assets/img/' + item.img)"
-              alt=""
-              class="box_img"
-            />
+            :name="item.name"
+            :style="item.pad ? 'padding-left:0.2rem' : ''"
+            >{{ item.text }}
+          </van-checkbox>
 
-            <em class="box_em">{{ item.text }}</em>
-          </div>
-        </div>
+          <!-- <van-checkbox name="B">B.专业杂志、期刊</van-checkbox>
+          <van-checkbox name="C">C.企业直播课程</van-checkbox>
+          <van-checkbox name="D">D.新闻资讯类平台</van-checkbox>
+          <van-checkbox name="a" style="padding-left:0.2rem"
+            >a.今日头条</van-checkbox
+          >
+          <van-checkbox name="b" style="padding-left:0.2rem"
+            >b.腾讯新闻</van-checkbox
+          >
+          <van-checkbox name="c" style="padding-left:0.2rem"
+            >c.一点资讯</van-checkbox
+          >
+          <van-checkbox name="d" style="padding-left:0.2rem"
+            >d.其他</van-checkbox
+          >
+          <van-checkbox name="E">E.主流社交平台</van-checkbox>
+          <van-checkbox name="a" style="padding-left:0.2rem"
+            >a.微博</van-checkbox
+          >
+          <van-checkbox name="b" style="padding-left:0.2rem"
+            >b.知乎</van-checkbox
+          >
+          <van-checkbox name="c" style="padding-left:0.2rem"
+            >c.B站Bilibili</van-checkbox
+          >
+          <van-checkbox name="d" style="padding-left:0.2rem"
+            >d.视频号</van-checkbox
+          >
+          <van-checkbox name="d" style="padding-left:0.2rem"
+            >e.抖音</van-checkbox
+          >
+          <van-checkbox name="d" style="padding-left:0.2rem"
+            >f.其他</van-checkbox
+          >
+          <van-checkbox name="F">F.其他</van-checkbox> -->
+        </van-checkbox-group>
+
+        <!-- <van-checkbox-group
+          v-model="result16"
+          class="box_checkbox_group box_checkbox_group2"
+          direction="horizontal"
+          @change="checkboxChange(16, 'F')"
+        >
+          <van-checkbox
+            v-for="(item, index) in dataList.answer16"
+            :key="index"
+            :name="item.name"
+            
+           v-if="index!=3"
+            >{{ item.text}}
+           
+            </van-checkbox
+          >
+           <van-checkbox-group
+            v-else
+          v-model="result16D"
+          class="box_checkbox_group"
+          direction="horizontal"
+          style="padding-left:0.2rem"
+          @change="checkboxChange('16D', 'd')"
+        >
+          <van-checkbox
+            v-for="(it, idx) in dataList.answer16[3].children"
+            :key="idx"
+            :name="it.name"
+            >{{ it.text }}
+            
+            </van-checkbox
+          >
+        </van-checkbox-group>
+        </van-checkbox-group> -->
+        <input
+          v-for="(item, index) in dataList.answer16"
+          type="text"
+          class="box_dec"
+          v-model="item.iptVal"
+          :placeholder="item.place"
+          v-if="item.place"
+        />
         <input
           type="text"
           class="box_dec"
-          :placeholder="dataList.answer11"
-          v-if="causeFlag16"
+          v-model="inputVal16D"
+          :placeholder="place16D"
+          v-if="causeFlag16D"
+        />
+        <input
+          type="text"
+          class="box_dec"
+          v-model="inputVal16E"
+          :placeholder="place16E"
+          v-if="causeFlag16E"
+        />
+
+        <input
+          type="text"
+          class="box_dec"
           v-model="inputVal16"
+          :placeholder="dataList.answer20"
+          v-if="causeFlag16"
         />
         <div
           class="errortip"
@@ -851,136 +804,12 @@
           {{ queTip }}
         </div>
       </div>
-      <div class="question_box">
-        <div class="box_title">
-          <span class="box_num">17</span>
-          <div
-            class="box_text"
-            :style="
-              emptyFlag && radioValue17 == '' ? 'color: red' : 'color:#000'
-            "
-          >
-            {{ dataList.SD17 }}
-          </div>
-        </div>
-        <van-radio-group
-          v-model="radioValue17"
-          direction="horizontal"
-          class="box_checkbox_group"
-        >
-          <van-radio
-            v-for="(item, index) in dataList.answer6"
-            :key="index"
-            :name="item.name"
-            >{{ item.text }}</van-radio
-          >
-        </van-radio-group>
-        <div class="errortip" v-if="emptyFlag && radioValue17 == ''">
-          {{ queTip }}
-        </div>
-      </div>
-      <div class="question_box">
-        <div :class="[lanIdx == 1 ? 'box_title' : 'box_title3']">
-          <span class="box_num">18</span>
-          <div
-            class="box_text"
-            :style="
-              (emptyFlag && optionVal18 == '') ||
-              (emptyFlag && causeFlag18 && inputVal18 == '')
-                ? 'color: red'
-                : 'color:#000'
-            "
-          >
-            {{ dataList.SD18 }}
-          </div>
-        </div>
-        <van-checkbox-group
-          v-model="result18"
-          class="box_checkbox_group"
-          direction="horizontal"
-          @change="checkboxChange(18, 'M')"
-        >
-          <van-checkbox
-            v-for="(item, index) in dataList.answer7"
-            :key="index"
-            :name="item.name"
-            >{{ item.text }}</van-checkbox
-          >
-        </van-checkbox-group>
-        <input
-          type="text"
-          class="box_dec"
-          :placeholder="dataList.answer20"
-          v-if="causeFlag18"
-          v-model="inputVal18"
-        />
-        <div
-          class="errortip"
-          v-if="
-            (emptyFlag && optionVal18 == '') ||
-              (emptyFlag && causeFlag18 && inputVal18 == '')
-          "
-        >
-          {{ queTip }}
-        </div>
-      </div>
-      <div class="question_box">
-        <div :class="[lanIdx == 1 ? 'box_title' : 'box_title4']">
-          <span class="box_num">19</span>
-          <div
-            class="box_text"
-            :style="
-              (emptyFlag && optionVal19 == '') ||
-              (emptyFlag && causeFlag19 && inputVal19 == '')
-                ? 'color: red'
-                : 'color:#000'
-            "
-          >
-            {{ dataList.SD19 }}
-          </div>
-        </div>
-        <van-checkbox-group
-          v-model="result19"
-          class="box_checkbox_group"
-          direction="horizontal"
-          @change="checkboxChange(19, 'S')"
-        >
-          <van-checkbox
-            v-for="(item, index) in dataList.answer8"
-            :key="index"
-            :name="item.name"
-            >{{ item.text }}</van-checkbox
-          >
-        </van-checkbox-group>
-        <input
-          type="text"
-          class="box_dec"
-          :placeholder="dataList.answer20"
-          v-if="causeFlag19"
-          v-model="inputVal19"
-        />
-        <div
-          class="errortip"
-          v-if="
-            (emptyFlag && optionVal19 == '') ||
-              (emptyFlag && causeFlag19 && inputVal19 == '')
-          "
-        >
-          {{ queTip }}
-        </div>
-      </div>
       <div class="question_box question_box_nobor">
         <div class="box_div_textarea box_div_textarea2">
-          <span class="left_num">20</span>
-          <div class="box_tip">{{ dataList.SD20 }}</div>
-          <van-field v-model="message20" rows="2" autosize type="textarea" />
+          <div class="box_tip">17.{{ dataList.SD17 }}</div>
+          <van-field v-model="message17" rows="2" autosize type="textarea" />
         </div>
       </div>
-
-      <!-- <span class="circle circle1"></span>
-    <span class="circle circle2"></span>
-    <span class="circle circle3"></span>
-    <span class="circle circle4"></span> -->
     </div>
     <div class="bottom_btn">
       <div
@@ -1003,108 +832,101 @@ export default {
     return {
       dataList: [],
       lanIdx: "",
-      title: "",
       dialogText: "",
       confirmTxt: "",
       queTip: "",
       result1: [],
-      result18: [],
-      result19: [],
-      message20: "",
-      activeIcon: require("../assets/img/icon7.png"),
-      inactiveIcon: require("../assets/img/icon6.png"),
-      radioValue4: "",
-      radioValue5: "",
-      radioValue6: "",
-      radioValue17: "",
-      recognizedMsg15: "",
-      improvedMsg15: "",
-      activeIndex2: 6,
-      activeIndex3: 6,
-      activeIndex4: 6,
-      activeIndex5: 6,
-      activeIndex6: 6,
-      activeIndex7: 6,
-      activeIndex8: 6,
-      activeIndex9: 6,
-      activeIndex10: 6,
-      activeIndex11: 6,
-      activeIndex12: 6,
-      activeIndex13: 6,
-      activeIndex14: 6,
-      activeIndex16: 6,
       causeFlag1: false,
-      causeFlag2: false,
-      causeFlag3: false,
-      causeFlag4: false,
-      causeFlag5: false,
-      radioFlag5: false,
-      causeFlag6: false,
-      causeFlag7: false,
-      causeFlag8: false,
-      causeFlag9: false,
-      causeFlag10: false,
-      causeFlag11: false,
-      causeFlag12: false,
-      causeFlag13: false,
-      causeFlag14: false,
-      causeFlag16: false,
-      causeFlag18: false,
-      causeFlag19: false,
       inputVal1: "",
-      inputVal2: "",
-      inputVal3: "",
-      inputVal4: "",
-      radioVal5: "",
-      inputVal5: "",
-      inputVal6: "",
-      inputVal7: "",
-      inputVal8: "",
-      inputVal9: "",
-      inputVal10: "",
-      inputVal11: "",
-      inputVal12: "",
-      inputVal13: "",
-      inputVal14: "",
-      inputVal16: "",
-      inputVal18: "",
-      inputVal19: "",
       optionVal1: "",
-      optionVal2: "",
+      activeIndex2: 6,
+      causeFlag2: false,
+      inputVal2: "",
+      activeVal2: "",
+      causeFlag3: false,
+      inputVal3: "",
       optionVal3: "",
+      result4: [],
+      causeFlag4: false,
+      inputVal4: "",
       optionVal4: "",
       optionVal5: "",
-      question5: "",
+      causeFlag5: false,
+      causeFlag6B: false,
+      causeFlag6: false,
+      inputVal6: "",
       optionVal6: "",
+      activeIndex6: 6,
+      activeVal6: "",
       optionVal7: "",
+      causeFlag7: false,
+      result8: [],
+      causeFlag8: false,
+      inputVal8: "",
       optionVal8: "",
+      result9: [],
+      causeFlag9: false,
+      inputVal9: "",
       optionVal9: "",
+      causeFlag10: false,
+      inputVal10: "",
       optionVal10: "",
-      optionVal11: "",
+      recognizedMsg11: "",
+      improvedMsg11: "",
       optionVal12: "",
+      result13: [],
+      causeFlag13: false,
+      inputVal13: "",
       optionVal13: "",
+      result14: [],
+      causeFlag14: false,
+      inputVal14: "",
       optionVal14: "",
+      result15: [],
+      causeFlag15: false,
+      inputVal15: "",
       optionVal15: "",
+      result16: [],
+      causeFlag16: false,
+      causeFlag16D: false,
+      causeFlag16E: false,
+      place16D: "",
+      place16E: "",
+      result16D: [],
+      inputVal16: "",
+      inputVal16D: "",
+      inputVal16E: "",
       optionVal16: "",
-      optionVal18: "",
-      optionVal19: "",
-      emptyFlag: false
+      message17: "",
+      activeIcon: require("../assets/img/icon7.png"),
+      inactiveIcon: require("../assets/img/icon6.png"),
+      emptyFlag: false,
+      tdIcon0: true,
+      tdIcon1: true,
+      tdIcon2: false,
+      tdIcon3: false,
+      tdIcon4: false,
+      tdIcon5: true,
+      indexArr5: [],
+      indexArr2: []
     };
   },
   created() {
     this.lanIdx = this.$route.query.idx;
     if (this.$route.query.idx == 1) {
       this.dataList = list.cn;
-      this.title = list.cnTitle1;
       this.dialogText = list.cnDialog;
       this.confirmTxt = list.cnConfirm;
       this.queTip = list.cnQueTip;
+      this.place16D = "新闻资讯类平台";
+      this.place16E = "主流社交平台";
     } else if (this.$route.query.idx == 2) {
       this.dataList = list.en;
-      this.title = list.enTitle1;
       this.dialogText = list.enDialog;
       this.confirmTxt = list.enConfirm;
       this.queTip = list.enQueTip;
+      this.place16D = "News information platform";
+      this.place16E = "Social platforms";
     }
   },
 
@@ -1113,30 +935,114 @@ export default {
       this.$router.go(-1);
     },
     nextStep() {
+      var ans6 = "";
+
+      console.log("result16", this.result16);
+      if (
+        (this.result16.indexOf("D") != -1 &&
+          this.result16.indexOf("D-a") == -1 &&
+          this.result16.indexOf("D-b") == -1 &&
+          this.result16.indexOf("D-c") == -1 &&
+          this.result16.indexOf("D-d") == -1) ||
+        (this.result16.indexOf("E") != -1 &&
+          this.result16.indexOf("E-a") == -1 &&
+          this.result16.indexOf("E-b") == -1 &&
+          this.result16.indexOf("E-c") == -1 &&
+          this.result16.indexOf("E-d") == -1 &&
+          this.result16.indexOf("E-e") == -1 &&
+          this.result16.indexOf("E-f") == -1)
+      ) {
+        this.causeFlag16 = true;
+        // ans6 =
+      }
+      this.causeFlag16 = false;
+
+      console.log("optionVal16", this.optionVal16);
+      if (this.result16) {
+      }
+
+      console.log("optionVal6", this.optionVal6);
+      let optVal6 = "";
+      if (this.causeFlag6B && !this.causeFlag6) {
+        optVal6 = this.optionVal6 + "-" + this.activeVal6;
+      }
+      if (this.causeFlag6) {
+        optVal6 =
+          this.optionVal6 + "-" + this.activeVal6 + "-" + this.inputVal6;
+      }
+
+      // (val6 = this.optionVal6 += this.causeFlag6
+      //   ? "-" + this.activeVal6 + "-" + this.inputVal6
+      //   : this.causeFlag6B
+      //   ? "-" + this.activeVal6
+      //   : ""),
+      console.log(optVal6);
+      console.log("optionVal6", this.optionVal6);
+
+      // this.$router.push({
+      //   path: "/personalInfo",
+      //   query: { idx: this.lanIdx }
+      // });
+      // return;
+      let ans5Flag = false;
+      let ans5Flagval = false;
+      let optVal5 = "";
+      let optVal7 = "";
+      ans5Flag = this.dataList.answer5.find(item => item.score == "");
+      ans5Flagval = this.dataList.answer5.find(item => {
+        return item.iptFlag == true && item.iptVal == "";
+      });
+      console.log("ans5Flag", ans5Flag);
+      console.log("ans5Flagval", ans5Flagval);
+      if (ans5Flag || ans5Flagval) {
+        this.causeFlag5 = true;
+      } else {
+        this.causeFlag5 = false;
+      }
+      if (!ans5Flag && !ans5Flagval) {
+        this.dataList.answer5.map(item => {
+          optVal5 += item.score += item.iptFlag ? "-" + item.iptVal : "";
+        });
+      }
+      let ans7Flag = false;
+      let ans7Flagval = false;
+      ans7Flag = this.dataList.answer7.find(item => item.score == "");
+      ans7Flagval = this.dataList.answer7.find(item => {
+        return item.iptFlag == true && item.iptVal == "";
+      });
+      if (ans7Flag || ans7Flagval) {
+        this.causeFlag7 = true;
+      } else {
+        this.causeFlag7 = false;
+      }
+      if (!ans7Flag && !ans7Flagval) {
+        this.dataList.answer7.map(item => {
+          optVal7 += item.score += item.iptFlag ? "-" + item.iptVal : "";
+        });
+      }
+      console.log("result16", this.result16);
+      // this.dataList.answer16.map(item => {
+      //    this.optionVal16+=
+      //   });
+
       if (
         this.optionVal1 == "" ||
-        this.optionVal2 == "" ||
+        this.activeVal2 == "" ||
         this.optionVal3 == "" ||
         this.optionVal4 == "" ||
-        this.radioValue4 == "" ||
-        this.radioValue5 == "" ||
-        this.optionVal5 == "" ||
-        this.radioValue6 == "" ||
+        optVal5 == "" ||
         this.optionVal6 == "" ||
-        this.optionVal7 == "" ||
+        optVal7 == "" ||
         this.optionVal8 == "" ||
         this.optionVal9 == "" ||
         this.optionVal10 == "" ||
-        this.optionVal11 == "" ||
+        this.recognizedMsg11 == "" ||
+        this.improvedMsg11 == "" ||
         this.optionVal12 == "" ||
         this.optionVal13 == "" ||
         this.optionVal14 == "" ||
-        this.recognizedMsg15 == "" ||
-        this.improvedMsg15 == "" ||
-        this.optionVal16 == "" ||
-        this.radioValue17 == "" ||
-        this.optionVal18 == "" ||
-        this.optionVal19 == ""
+        this.optionVal15 == "" ||
+        this.optionVal16 == ""
       ) {
         this.emptyFlag = true;
         this.$dialog.alert({
@@ -1152,18 +1058,18 @@ export default {
         (this.causeFlag4 && this.inputVal4 == "") ||
         (this.radioFlag5 && this.radioVal5 == "") ||
         (this.causeFlag5 && this.inputVal5 == "") ||
+        (this.causeFlag6B && this.activeVal6 == "") ||
         (this.causeFlag6 && this.inputVal6 == "") ||
         (this.causeFlag7 && this.inputVal7 == "") ||
         (this.causeFlag8 && this.inputVal8 == "") ||
         (this.causeFlag9 && this.inputVal9 == "") ||
         (this.causeFlag10 && this.inputVal10 == "") ||
-        (this.causeFlag11 && this.inputVal11 == "") ||
-        (this.causeFlag12 && this.inputVal12 == "") ||
         (this.causeFlag13 && this.inputVal13 == "") ||
         (this.causeFlag14 && this.inputVal14 == "") ||
+        (this.causeFlag15 && this.inputVal15 == "") ||
         (this.causeFlag16 && this.inputVal16 == "") ||
-        (this.causeFlag18 && this.inputVal18 == "") ||
-        (this.causeFlag19 && this.inputVal19 == "")
+        (this.causeFlag16D && this.inputVal16D == "") ||
+        (this.causeFlag16E && this.inputVal16E == "")
       ) {
         this.emptyFlag = true;
         this.$dialog.alert({
@@ -1173,74 +1079,61 @@ export default {
         return;
       }
 
-      var val1 = this.optionVal1 + "" + this.inputVal1,
-        val2 = this.optionVal2 + "" + this.inputVal2,
-        val3 = this.optionVal3 + "" + this.inputVal3,
-        val4 = this.radioValue4 + "," + this.optionVal4 + "" + this.inputVal4,
-        val5 =
-          this.radioValue5 +
-          "" +
-          this.radioVal5 +
-          "," +
-          this.optionVal5 +
-          "" +
-          this.inputVal5,
-        val6 = this.radioValue6 + "," + this.optionVal6 + "" + this.inputVal6,
-        val7 = this.optionVal7 + "" + this.inputVal7,
-        val8 = this.optionVal8 + "" + this.inputVal8,
-        val9 = this.optionVal9 + "" + this.inputVal9,
-        val10 = this.optionVal10 + "" + this.inputVal10,
-        val11 = this.optionVal11 + "" + this.inputVal11,
-        val12 = this.optionVal12 + "" + this.inputVal12,
-        val13 = this.optionVal13 + "" + this.inputVal13,
-        val14 = this.optionVal14 + "" + this.inputVal14,
-        val15 = this.recognizedMsg15 + "," + this.improvedMsg15,
-        val16 = this.optionVal16 + "" + this.inputVal16,
-        val18 = this.optionVal18 + "" + this.inputVal18,
-        val19 = this.optionVal19 + "" + this.inputVal19;
-      var str =
-        val1 +
-        "-" +
-        val2 +
-        "-" +
-        val3 +
-        "-" +
-        val4 +
-        "-" +
-        val5 +
-        "-" +
-        val6 +
-        "-" +
-        val7 +
-        "-" +
-        val8 +
-        "-" +
-        val9 +
-        "-" +
-        val10 +
-        "-" +
-        val11 +
-        "-" +
-        val12 +
-        "-" +
-        val13 +
-        "-" +
-        val14 +
-        "-" +
-        val15 +
-        "-" +
-        val16 +
-        "-" +
-        this.radioValue17 +
-        "-" +
-        val18 +
-        "-" +
-        val19 +
-        "-" +
-        this.message20;
-      console.log(str);
+      var val1 = (this.optionVal1 += this.causeFlag1
+          ? "-" + this.inputVal1
+          : ""),
+        val2 = (this.activeVal2 += this.causeFlag2 ? "-" + this.inputVal2 : ""),
+        val3 = (this.optionVal3 += this.causeFlag3 ? "-" + this.inputVal3 : ""),
+        val4 = (this.optionVal4 += this.causeFlag4 ? "-" + this.inputVal4 : ""),
+        val5 = optVal5,
+        val6 = optVal6,
+        val7 = optVal7,
+        val8 = (this.optionVal8 += this.causeFlag8 ? "-" + this.inputVal8 : ""),
+        val9 = (this.optionVal9 += this.causeFlag9 ? "-" + this.inputVal9 : ""),
+        val10 = (this.optionVal10 += this.causeFlag10
+          ? "-" + this.inputVal10
+          : ""),
+        val11 = this.recognizedMsg11 + "-" + this.improvedMsg11,
+        val12 = this.optionVal12,
+        val13 = (this.optionVal13 += this.causeFlag13
+          ? "-" + this.inputVal13
+          : ""),
+        val14 = (this.optionVal14 += this.causeFlag14
+          ? "-" + this.inputVal14
+          : ""),
+        val15 = (this.optionVal15 += this.causeFlag15
+          ? "-" + this.inputVal15
+          : ""),
+        val16 = this.optionVal16,
+        val17 = this.message17;
+      var arr = [
+        val1,
+        val2,
+        val3,
+        val4,
+        val5,
+        val6,
+        val7,
+        val8,
+        val9,
+        val10,
+        val11,
+        val12,
+        val13,
+        val14,
+        val15,
+        val16,
+        val17
+      ];
+      console.log(arr);
+      return;
+      this.$router.push({
+        path: "/personalInfo",
+        query: { idx: this.lanIdx, result: JSON.stringify(arr) }
+      });
+      return;
       this.$ajax
-        .post("http://qa.travbao.com/goabraod/trav/writeAnswer.do", {
+        .post("http://qa.travbao.com/goabraod/news/QuestionnaireResult.do", {
           qAnswers: str,
           spType: 1
         })
@@ -1265,19 +1158,65 @@ export default {
         this[onflag] = false;
         this[iptval] = "";
       }
-      this[opval] = this[arr].join(",");
+      if (idx == "16") {
+        if (
+          this[arr].indexOf("D") == -1 &&
+          (this[arr].indexOf("D-a") != -1 ||
+            this[arr].indexOf("D-b") != -1 ||
+            this[arr].indexOf("D-c") != -1 ||
+            this[arr].indexOf("D-d") != -1)
+        ) {
+          this[arr].push("D");
+        }
+        if (
+          this[arr].indexOf("E") == -1 &&
+          (this[arr].indexOf("E-a") != -1 ||
+            this[arr].indexOf("E-b") != -1 ||
+            this[arr].indexOf("E-c") != -1 ||
+            this[arr].indexOf("E-d") != -1 ||
+            this[arr].indexOf("E-e") != -1 ||
+            this[arr].indexOf("E-f") != -1)
+        ) {
+          this[arr].push("E");
+        }
+        if (this[arr].indexOf("D") != -1 && this[arr].indexOf("D-d") != -1) {
+          this.causeFlag16D = true;
+        } else {
+          this.causeFlag16D = false;
+        }
+        if (this[arr].indexOf("E") != -1 && this[arr].indexOf("E-f") != -1) {
+          this.causeFlag16E = true;
+        } else {
+          this.causeFlag16E = false;
+        }
+        console.log("answer16", this.dataList.answer16);
+        console.log("result16", this.result16);
+      }
+      this[opval] = this[arr].join("");
     },
-    radioChange() {
-      if (this.radioValue5 == "D") {
-        this.radioFlag5 = true;
+    radioChange(idx, option, flag) {
+      var onflag = "causeFlag" + idx;
+      var opval = "optionVal" + idx;
+      var iptval = "inputVal" + idx;
+
+      if (this[opval] == option) {
+        if (flag) {
+          this[flag] = true;
+          this[iptval] = "";
+          this.activeIndex6 = 6;
+          return;
+        }
+        this[onflag] = true;
       } else {
-        this.radioFlag5 = false;
+        this[onflag] = false;
+        this[iptval] = "";
+        this[flag] = false;
       }
     },
     chooseLevel(idx, num) {
       var onindex = "activeIndex" + num;
       var onflag = "causeFlag" + num;
-      var opval = "optionVal" + num;
+      var opval = "activeVal" + num;
       var iptval = "inputVal" + num;
       this[onindex] = idx;
       this[opval] = idx;
@@ -1290,6 +1229,16 @@ export default {
         this[onflag] = false;
         this[iptval] = "";
       }
+    },
+    chooseLevelTab(text, score, ansIndex, ans2Index, ansName) {
+      this.dataList[ansName][ansIndex].acindex = ans2Index;
+      this.dataList[ansName][ansIndex].score = score;
+      if (score == 3 || score == 2 || score == 1) {
+        this.dataList[ansName][ansIndex].iptFlag = true;
+        this.dataList[ansName][ansIndex].iptVal = "";
+      } else {
+        this.dataList[ansName][ansIndex].iptFlag = false;
+      }
     }
   }
 };
@@ -1300,35 +1249,17 @@ export default {
   width: 100%;
   height: 100%;
   background: #f3f3f3 url(../assets/img/bg3.png) no-repeat top center;
+  background-size: 100% 100%;
   padding-top: 0.5rem;
 }
-
 .question_content {
   width: 95%;
   box-sizing: border-box;
   margin: 0 auto;
-  border: 0.04rem solid #195693;
+  border: 0.03rem solid #195693;
   position: relative;
   padding-bottom: 0.1rem;
 }
-.question_title {
-  /* width: 2.62rem;
-  height: 0.36rem;
-  position: absolute;
-  top: -0.18rem;
-  left: 50%;
-  transform: translateX(-50%);
-  background: url(../assets/img/icon4.png) no-repeat center;
-  background-size: 100%;
-  z-index: 2;
- 
-  color: #fff;*/
-  font-size: 0.2rem;
-  font-weight: bold;
-  text-align: center;
-  line-height: 0.4rem;
-}
-
 .question_box {
   padding: 0.1rem 0 0.15rem;
   border-bottom: 0.01rem dashed #00569c;
@@ -1336,59 +1267,11 @@ export default {
 .question_box.question_box_nobor {
   border: none;
 }
-.box_title {
-  width: 3.3rem;
-  height: 0.74rem;
-  background: url(../assets/img/icon5.png) no-repeat 0.01rem center;
-  background-size: 3.15rem 100%;
-  margin: 0.1rem auto;
-  position: relative;
-}
-.box_title2 {
-  width: 3.3rem;
-  height: 0.94rem;
-  background: url(../assets/img/icon10.png) no-repeat 0.01rem center;
-  background-size: 3.15rem 100%;
-  margin: 0.1rem auto;
-  position: relative;
-}
-.box_title3 {
-  width: 3.3rem;
-  height: 1rem;
-  background: url(../assets/img/icon17.png) no-repeat 0.01rem center;
-  background-size: 3.15rem 100%;
-  margin: 0.1rem auto;
-  position: relative;
-}
-.box_title4 {
-  width: 3.3rem;
-  height: 1.3rem;
-  background: url(../assets/img/icon18.png) no-repeat 0.01rem center;
-  background-size: 3.15rem 100%;
-  margin: 0.1rem auto;
-  position: relative;
-}
-
-.box_num {
-  position: absolute;
-  left: 0.03rem;
-  top: 0.03rem;
-  width: 0.22rem;
-  height: 0.22rem;
-  border-radius: 50%;
-  text-align: center;
-  line-height: 0.22rem;
-  font-size: 0.12rem;
-  color: #fff;
-  font-weight: bold;
-}
 .box_text {
-  position: absolute;
-  left: 0.28rem;
-  top: 0.26rem;
   width: 2.8rem;
   font-size: 0.14rem;
-  color: #000;
+  margin: 0.1rem auto;
+  color: #195693;
   line-height: 0.2rem;
 }
 .box_checkbox_group {
@@ -1408,7 +1291,10 @@ export default {
   width: 50%;
   margin: 0 0 0.12rem;
 }
-
+.box_checkbox_group2 .van-checkbox--horizontal,
+.box_checkbox_group2 .van-radio--horizontal {
+  width: 100%;
+}
 .box_checkbox_group .van-checkbox__icon .van-icon,
 .box_checkbox_group .van-radio__icon .van-icon {
   width: 0.18rem;
@@ -1473,17 +1359,17 @@ export default {
 
   line-height: 0.15rem;
 }
-.box_i {
-  padding: 0.1rem 0;
-}
+
 .box_div_textarea {
   width: 3rem;
   min-height: 1.5rem;
   height: auto;
-  background: url(../assets/img/icon11.png) no-repeat center;
-  background-size: 100% 100%;
   margin: 0 auto;
   padding-top: 0.2rem;
+  border: 0.01rem solid #195693;
+  border-radius: 0.04rem;
+  background: #fff;
+  box-shadow: 0.05rem 0.05rem 0.05rem #f8f0d5;
 }
 .box_div_textarea .van-cell {
   background: none;
@@ -1497,20 +1383,7 @@ export default {
   margin-top: 0.1rem;
   position: relative;
 }
-.left_num {
-  position: absolute;
-  left: -0.12rem;
-  top: -0.12rem;
-  width: 0.27rem;
-  height: 0.25rem;
-  background: url(../assets/img/icon16.png) no-repeat center;
-  background-size: 100% 100%;
-  text-align: center;
-  line-height: 0.26rem;
-  font-size: 0.12rem;
-  color: #fff;
-  font-weight: bold;
-}
+
 .box_tip {
   padding-left: 0.15rem;
   color: #00569c;
@@ -1524,28 +1397,28 @@ export default {
 
 .question1 .left_btn {
   width: 1.25rem;
-  height: 0.45rem;
+  height: 0.36rem;
   float: left;
   background: url(../assets/img/last.png) no-repeat center;
   background-size: 100% 100%;
 }
 .question1 .left_btn1 {
   width: 1.25rem;
-  height: 0.45rem;
+  height: 0.36rem;
   float: left;
   background: url(../assets/img/last1.png) no-repeat center;
   background-size: 100% 100%;
 }
 .question1 .right_btn {
   width: 1.25rem;
-  height: 0.45rem;
+  height: 0.36rem;
   float: right;
   background: url(../assets/img/next.png) no-repeat center;
   background-size: 100% 100%;
 }
 .question1 .right_btn1 {
   width: 1.25rem;
-  height: 0.45rem;
+  height: 0.36rem;
   float: right;
   background: url(../assets/img/next1.png) no-repeat center;
   background-size: 100% 100%;
@@ -1565,33 +1438,30 @@ export default {
 .box_div_textarea .van-cell::after {
   border-bottom: none;
 }
-.circle {
-  width: 0.12rem;
-  height: 0.12rem;
-  background: url(../assets/img/circle.png) no-repeat center;
-  background-size: 100%;
-  position: absolute;
-}
-.circle.circle1 {
-  left: -0.06rem;
-  top: -0.06rem;
-}
-.circle.circle2 {
-  top: -0.06rem;
-  right: -0.06rem;
-}
-.circle.circle3 {
-  bottom: -0.06rem;
-  right: -0.06rem;
-}
-.circle.circle4 {
-  bottom: -0.06rem;
-  left: -0.06rem;
-}
+
 .errortip {
   width: 3rem;
   margin: 0 auto;
   color: red;
   font-size: 0.14rem;
+}
+.icon7_img {
+  width: 0.19rem;
+  height: 0.19rem;
+  margin: auto;
+  display: block;
+}
+.tab_class {
+  border: 0.01rem solid #195693;
+  margin: 0 auto;
+  background: #fff;
+}
+.tab_class td {
+  height: 0.3rem;
+}
+.p-check {
+  font-size: 0.13rem;
+  padding-bottom: 0.1rem;
+  padding-left: 0.24rem;
 }
 </style>

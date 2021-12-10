@@ -1,51 +1,51 @@
 <template>
-  <div id="thanks_wrap" :class="[lanIdx==1?'cnbg':'enbg']">
+  <div id="thanks_wrap">
+    <img src="../assets/img/icon19.png" alt="" class="img_gift" />
+    <p class="p_tip">{{ Thanks1 }}</p>
+    <p class="p_tip">{{ Thanks2 }}</p>
   </div>
 </template>
 <script>
+import list from "../../static/questionList.json";
 export default {
   name: "Thanks",
   data() {
     return {
-      lanIdx:''
+      Thanks1: "",
+      Thanks2: ""
     };
   },
-  created(){
-    this.lanIdx = this.$route.query.idx
-
+  created() {
+    if (this.$route.query.idx == 1) {
+      this.Thanks1 = list.cnThanks1;
+      this.Thanks2 = list.cnThanks2;
+    } else if (this.$route.query.idx == 2) {
+      this.Thanks1 = list.enThanks1;
+      this.Thanks2 = list.enThanks2;
+    }
   }
 };
 </script>
 <style>
 @import url("../assets/css/reset.css");
-#thanks_wrap{
-    position: fixed;
-    left:0;
-    top:0;
-    width:100%;
-    height:100vh;
-    background-color: #229eff;
+#thanks_wrap {
+  width: 100%;
+  height: 100vh;
+  background: #f3f3f3 url(../assets/img/bg4.png) no-repeat;
+  background-size: 100% 100%;
+  padding-top: 1rem;
 }
-.cnbg{
-  background: url(../assets/img/cnthanks.jpg) no-repeat top center;
-  background-size: 100% 6.67rem;
+.img_gift {
+  display: block;
+  width: 0.78rem;
+  height: 0.81rem;
+  margin: 0 auto 0.3rem;
 }
-.enbg{
-  background: url(../assets/img/enthanks.jpg) no-repeat top center;
-  background-size: 100% 6.67rem;
+.p_tip {
+  font-size: 0.18rem;
+  text-align: center;
+  font-weight: bold;
+  color: #1a5a9c;
+  margin-bottom: 0.18rem;
 }
-.duihao_img{
-display: block;
-width:0.42rem;
-height:0.4rem;
-margin: 1rem auto 0.3rem;
-}
-.thanks_tip{
-    color:#fff;
-    font-size: 0.18rem;
-    text-align: center;
-    line-height:0.3rem;
-}
-
 </style>
-
