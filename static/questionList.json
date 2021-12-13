@@ -39,7 +39,8 @@
     "SD4": "在与四维图新的合作中，您最看中公司产品的哪些方面？（可多选）",
     "SD5": "您对四维图新产品及服务的评价是？（5分为非常满意，1分为非常不满意）",
     "SD6": "在过去一年的项目合作中，是否发生过对贵司影响重大的产品品质问题？ （单选）",
-    "SD7": "在合作中，您对四维图新对应团队人员的满意程度如何？",
+    "SD6B": "您对问题的解决结果是否满意？（5分为非常满意，1分为非常不满意）",
+    "SD7": "在合作中，您对四维图新对应团队人员的满意程度如何？（5分为非常满意，1分为非常不满意）",
     "SD8": "在智能驾驶系统研发过程中，您认为最重要的3个方面是：（选3个）",
     "SD9": "您认为下一代智能驾驶平台亮点定义中最重要的三项是：（选3个）",
     "SD10": "贵司对下一代高平台智能驾驶系统算力方向的计划是：（单选）",
@@ -558,7 +559,7 @@
     "answer20": "请输入",
     "answer21": "值得认可：",
     "answer22": "需要改进：",
-    "answer23": "原因&合作项目"
+    "answer23": "请填写原因&合作项目"
 
 
 
@@ -570,7 +571,8 @@
     "SD4": "In your cooperation with Navinfo, which of the following aspects do you think is the most important? (Multiple choice)  ",
     "SD5": "How satisfied are you with the following product/service of NavInfo? （‘5’ means ‘very satisfied’ and ‘1’ means ‘Very dissatisfied’）",
     "SD6": "In the past year’s cooperation with NavInfo, were there any serious product quality issues that caused major impacts to your company?",
-    "SD7": "During the cooperation, how satisfied are you with the project team of NavInfo?",
+    "SD6B": "How satisfied are you with the solution of the problem?（‘5’ means ‘very satisfied’ and ‘1’ means ‘Very dissatisfied’）",
+    "SD7": "During the cooperation, how satisfied are you with the project team of NavInfo?（‘5’ means ‘very satisfied’ and ‘1’ means ‘Very dissatisfied’）",
     "SD8": "During the development of the autonomous driving system, which of the following aspects do you think is the most important? (Choose 3 options)",
     "SD9": "For the next-generation autonomous driving platform, which of the following highlights do you think is the most important? (Choose 3 options)",
     "SD10": "For the next generation of high-platform autonomous driving systems, what is your company’s plan for computing power? (Single choice)",
@@ -639,23 +641,23 @@
     "answer2": [{
       "img": "imgicon1.png",
       "score": "5",
-      "text": "Very satisfied"
+      "text": "5"
     }, {
       "img": "imgicon2.png",
       "score": "4",
-      "text": "Satisfied"
+      "text": "4"
     }, {
       "img": "imgicon3.png",
       "score": "3",
-      "text": "Neutral"
+      "text": "3"
     }, {
       "img": "imgicon4.png",
       "score": "2",
-      "text": "Dissatisfied"
+      "text": "2"
     }, {
       "img": "imgicon5.png",
       "score": "1",
-      "text": "Very dissatisfied"
+      "text": "1"
     }, {
       "img": "imgicon6.png",
       "score": "?",

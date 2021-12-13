@@ -215,7 +215,8 @@
           </tr>
         </table>
 
-        <div style="padding-top:0.1rem">
+        <div>
+          <p class="p-tip" v-if="answer5IptFlag">{{ dataList.answer23 }}</p>
           <input
             v-for="(item, index) in dataList.answer5"
             :key="index"
@@ -255,7 +256,21 @@
             >{{ item.text }}</van-radio
           >
         </van-radio-group>
-        <div class="box_div" v-if="causeFlag6B">
+        <div v-if="causeFlag6B">
+          <div
+            class="box_text"
+            :style="
+              (emptyFlag && optionVal6 == '') ||
+              (emptyFlag && causeFlag6B && activeVal6 == '') ||
+              (emptyFlag && causeFlag6 && inputVal6 == '')
+                ? 'color: red'
+                : 'color:#195693'
+            "
+          >
+            {{ dataList.SD6B }}
+          </div>
+        </div>
+        <div class="box_div">
           <div
             v-for="(item, index) in dataList.answer2"
             :key="index"
@@ -331,7 +346,8 @@
           </tr>
         </table>
 
-        <div style="padding-top:0.1rem">
+        <div>
+          <p class="p-tip" v-if="answer7IptFlag">{{ dataList.answer23 }}</p>
           <input
             v-for="(item, index) in dataList.answer7"
             :key="index"
@@ -852,6 +868,7 @@ export default {
       optionVal4: "",
       optionVal5: "",
       causeFlag5: false,
+      answer5IptFlag: false,
       causeFlag6B: false,
       causeFlag6: false,
       inputVal6: "",
@@ -860,6 +877,7 @@ export default {
       activeVal6: "",
       optionVal7: "",
       causeFlag7: false,
+      answer7IptFlag: false,
       result8: [],
       causeFlag8: false,
       inputVal8: "",
@@ -929,7 +947,13 @@ export default {
       this.place16E = "Social platforms";
     }
   },
-
+  beforeRouteLeave(to, from, next) {
+    if (to.name == "Index") {
+      this.$store.commit("noKeepAlive", "Question1");
+      this.$store.commit("noKeepAlive", "PersonalInfo");
+    }
+    next();
+  },
   methods: {
     lastStep() {
       this.$router.go(-1);
@@ -1126,7 +1150,7 @@ export default {
         val17
       ];
       console.log(arr);
-      return;
+      // return;
       this.$router.push({
         path: "/personalInfo",
         query: { idx: this.lanIdx, result: JSON.stringify(arr) }
@@ -1233,11 +1257,14 @@ export default {
     chooseLevelTab(text, score, ansIndex, ans2Index, ansName) {
       this.dataList[ansName][ansIndex].acindex = ans2Index;
       this.dataList[ansName][ansIndex].score = score;
+      var iptFlag = ansName + "IptFlag";
       if (score == 3 || score == 2 || score == 1) {
         this.dataList[ansName][ansIndex].iptFlag = true;
         this.dataList[ansName][ansIndex].iptVal = "";
+        this[iptFlag] = true;
       } else {
         this.dataList[ansName][ansIndex].iptFlag = false;
+        this[iptFlag] = false;
       }
     }
   }
@@ -1463,5 +1490,11 @@ export default {
   font-size: 0.13rem;
   padding-bottom: 0.1rem;
   padding-left: 0.24rem;
+}
+.p-tip {
+  width: 3rem;
+  color: rgb(25, 86, 147);
+  margin: 0.1rem auto;
+  font-size: 0.14rem;
 }
 </style>
