@@ -107,6 +107,141 @@
       "text": "R.其他"
     }],
     "answer2": [{
+      "score": "",
+      "name": "A",
+      "text": "导航地图",
+      "ansFlag":false,
+      "iptVal": "",
+      "iptFlag": false,
+      "acindex": 20
+    }, {
+      "score": "",
+      "name": "B",
+      "text": "导航软件",
+      "ansFlag":false,
+      "iptVal": "",
+      "iptFlag": false,
+      "acindex": 20
+    }, {
+      "score": "",
+      "name": "C",
+      "text": "ADAS地图",
+      "ansFlag":false,
+      "iptVal": "",
+      "iptFlag": false,
+      "acindex": 20
+    },  {
+      "score": "",
+      "name": "D",
+      "text": "高精度地图",
+      "ansFlag":false,
+      "iptVal": "",
+      "iptFlag": false,
+      "acindex": 20
+    }, {
+      "score": "",
+      "name": "E",
+      "text": "高精度地图引擎",
+      "ansFlag":false,
+      "iptVal": "",
+      "iptFlag": false,
+      "acindex": 20
+    }, {
+      "score": "",
+      "name": "F",
+      "text": "乘用车智能网联",
+      "ansFlag":false,
+      "iptVal": "",
+      "iptFlag": false,
+      "acindex": 20
+    }, {
+      "score": "",
+      "name": "G",
+      "text": "商用车智能网联",
+      "iptVal": "",
+      "iptFlag": false,
+      "acindex": 20
+    }, {
+      "score": "",
+      "name": "H",
+      "text": "新能源汽车智能出行解决方案",
+      "ansFlag":false,
+      "iptVal": "",
+      "iptFlag": false,
+      "acindex": 20
+    }, {
+      "score": "",
+      "name": "I",
+      "text": "动态交通信息",
+      "ansFlag":false,
+      "iptVal": "",
+      "iptFlag": false,
+      "acindex": 20
+    }, {
+      "score": "",
+      "name": "J",
+      "text": "位置大数据平台",
+      "ansFlag":false,
+      "iptVal": "",
+      "iptFlag": false,
+      "acindex": 20
+    }, {
+      "score": "",
+      "name": "K",
+      "text": "自动驾驶解决方案",
+      "ansFlag":false,
+      "iptVal": "",
+      "iptFlag": false,
+      "acindex": 20
+    }, {
+      "score": "",
+      "name": "L",
+      "text": "自动代客泊车解决方案",
+      "ansFlag":false,
+      "iptVal": "",
+      "iptFlag": false,
+      "acindex": 20
+    }, {
+      "score": "",
+      "name": "M",
+      "text": "数据合规服务",
+      "ansFlag":false,
+      "iptVal": "",
+      "iptFlag": false,
+      "acindex": 20
+    }, {
+      "score": "",
+      "name": "N",
+      "text": "V2X解决方案",
+      "ansFlag":false,
+      "iptVal": "",
+      "iptFlag": false,
+      "acindex": 20
+    }, {
+      "score": "",
+      "name": "O",
+      "text": "高精度定位",
+      "iptVal": "",
+      "iptFlag": false,
+      "acindex": 20
+    }, {
+      "score": "",
+      "name": "P",
+      "text": "语音产品及服务",
+      "ansFlag":false,
+      "iptVal": "",
+      "iptFlag": false,
+      "acindex": 20
+    }, {
+      "score": "",
+      "name": "Q",
+      "text": "芯片",
+      "ansFlag":false,
+      "iptVal": "",
+      "iptFlag": false,
+      "acindex": 20
+    }],
+    "answer24": [{
       "img": "imgicon1.png",
       "score": "5",
       "text": "5",
@@ -639,6 +774,141 @@
       "text": "R.Others"
     }],
     "answer2": [{
+      "score": "",
+      "name": "A",
+      "text": "SD map",
+      "ansFlag":false,
+      "iptVal": "",
+      "iptFlag": false,
+      "acindex": 20
+    }, {
+      "score": "",
+      "name": "B",
+      "text": "SD map",
+      "ansFlag":false,
+      "iptVal": "",
+      "iptFlag": false,
+      "acindex": 20
+    }, {
+      "score": "",
+      "name": "C",
+      "text": "ADAS map",
+      "ansFlag":false,
+      "iptVal": "",
+      "iptFlag": false,
+      "acindex": 20
+    },  {
+      "score": "",
+      "name": "D",
+      "text": "HD map",
+      "ansFlag":false,
+      "iptVal": "",
+      "iptFlag": false,
+      "acindex": 20
+    }, {
+      "score": "",
+      "name": "E",
+      "text": "HD map engine",
+      "ansFlag":false,
+      "iptVal": "",
+      "iptFlag": false,
+      "acindex": 20
+    }, {
+      "score": "",
+      "name": "F",
+      "text": "Passenger vehicle connected vehicle service",
+      "ansFlag":false,
+      "iptVal": "",
+      "iptFlag": false,
+      "acindex": 20
+    }, {
+      "score": "",
+      "name": "G",
+      "text": "Commercial vehicle connected vehicle service",
+      "iptVal": "",
+      "iptFlag": false,
+      "acindex": 20
+    }, {
+      "score": "",
+      "name": "H",
+      "text": "EV smart mobility solution -- EV charger",
+      "ansFlag":false,
+      "iptVal": "",
+      "iptFlag": false,
+      "acindex": 20
+    }, {
+      "score": "",
+      "name": "I",
+      "text": "Dynamic traffic information",
+      "ansFlag":false,
+      "iptVal": "",
+      "iptFlag": false,
+      "acindex": 20
+    }, {
+      "score": "",
+      "name": "J",
+      "text": "Location big data platform",
+      "ansFlag":false,
+      "iptVal": "",
+      "iptFlag": false,
+      "acindex": 20
+    }, {
+      "score": "",
+      "name": "K",
+      "text": "Autonomous driving system solution",
+      "ansFlag":false,
+      "iptVal": "",
+      "iptFlag": false,
+      "acindex": 20
+    }, {
+      "score": "",
+      "name": "L",
+      "text": "Automatic valet parking solution",
+      "ansFlag":false,
+      "iptVal": "",
+      "iptFlag": false,
+      "acindex": 20
+    }, {
+      "score": "",
+      "name": "M",
+      "text": "Data compliance service",
+      "ansFlag":false,
+      "iptVal": "",
+      "iptFlag": false,
+      "acindex": 20
+    }, {
+      "score": "",
+      "name": "N",
+      "text": "V2X solution",
+      "ansFlag":false,
+      "iptVal": "",
+      "iptFlag": false,
+      "acindex": 20
+    }, {
+      "score": "",
+      "name": "O",
+      "text": "HD-GNSS",
+      "iptVal": "",
+      "iptFlag": false,
+      "acindex": 20
+    }, {
+      "score": "",
+      "name": "P",
+      "text": "Voice product and service",
+      "ansFlag":false,
+      "iptVal": "",
+      "iptFlag": false,
+      "acindex": 20
+    }, {
+      "score": "",
+      "name": "Q",
+      "text": "Automotive chips",
+      "ansFlag":false,
+      "iptVal": "",
+      "iptFlag": false,
+      "acindex": 20
+    }],
+    "answer24": [{
       "img": "imgicon1.png",
       "score": "5",
       "text": "5"

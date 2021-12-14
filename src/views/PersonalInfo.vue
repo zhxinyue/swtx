@@ -203,7 +203,7 @@ export default {
   height: auto;
   background: #f3f3f3 url(../assets/img/bg5.png) no-repeat;
   background-size: 100%;
-  padding: 0.4rem 0;
+  padding: 0.3rem 0;
 }
 
 .personal_content {
@@ -227,7 +227,7 @@ export default {
   display: block;
   width: 0.24rem;
   height: 0.36rem;
-  margin: 0.3rem auto 0.1rem;
+  margin: 0.2rem auto 0.1rem;
 }
 .personal_tip {
   color: #0b50a2;
@@ -243,12 +243,12 @@ export default {
 
 .personal_box {
   width: 3rem;
-  margin: 0.2rem auto 0;
+  margin: 0.1rem auto 0;
 }
 .input_title {
   font-size: 0.16rem;
   color: #000000;
-  margin-bottom: 0.15rem;
+  margin-bottom: 0.1rem;
 }
 .img_pos {
   width: 0.19rem;

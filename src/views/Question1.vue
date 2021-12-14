@@ -46,51 +46,60 @@
       <div class="question_box">
         <div
           class="box_text"
-          :style="
-            (emptyFlag && activeVal2 == '') ||
-            (emptyFlag && causeFlag2 && inputVal2 == '')
-              ? 'color: red'
-              : 'color:#195693'
-          "
+          :style="causeFlag2 ? 'color: red' : 'color:#195693'"
         >
-          02. {{ dataList.SD2 }}
+          02. {{ dataList.SD5 }}
         </div>
-        <div class="box_div">
-          <div
+        <table border="1" class="tab_class" v-if="nullans2">
+          <tr>
+            <th></th>
+            <th v-for="(item, index) in dataList.answer24" :key="index">
+              <img
+                :src="require('../assets/img/' + item.img)"
+                alt=""
+                class="box_img"
+              />
+
+              <em class="box_em">{{ item.text }}</em>
+            </th>
+          </tr>
+          <tr
             v-for="(item, index) in dataList.answer2"
             :key="index"
-            :class="[
-              activeIndex2 == item.score ? 'box_options_on' : '',
-              'box_options'
-            ]"
-            @click="chooseLevel(item.score, 2)"
+            v-if="item.ansFlag"
           >
-            <img
-              :src="require('../assets/img/' + item.img)"
-              alt=""
-              class="box_img"
-            />
+            <td class="td1-style">{{ item.text }}</td>
+            <td
+              v-for="(itm, idx) in dataList.answer24"
+              :key="idx"
+              @click="
+                chooseLevelTab(item.text, itm.score, index, idx, 'answer2')
+              "
+            >
+              <img
+                src="../assets/img/icon7.png"
+                alt=""
+                class="icon7_img"
+                v-if="item.acindex == idx"
+              />
+            </td>
+          </tr>
+        </table>
 
-            <em class="box_em">{{ item.text }}</em>
-          </div>
-        </div>
-        <input
-          type="text"
-          class="box_dec"
-          v-model="inputVal2"
-          :placeholder="dataList.answer23"
-          v-if="causeFlag2"
-        />
-        <div
-          class="errortip"
-          v-if="
-            (emptyFlag && activeVal2 == '') ||
-              (emptyFlag && causeFlag2 && inputVal2 == '')
-          "
-        >
-          {{ queTip }}
+        <div>
+          <p class="p-tip" v-if="answer2IptFlag">{{ dataList.answer23 }}</p>
+          <input
+            v-for="(item, index) in dataList.answer2"
+            :key="index"
+            type="text"
+            class="box_dec"
+            :placeholder="item.text"
+            v-if="item.iptFlag"
+            v-model="item.iptVal"
+          />
         </div>
       </div>
+
       <div class="question_box">
         <div
           class="box_text"
@@ -186,7 +195,7 @@
         <table border="1" class="tab_class">
           <tr>
             <th></th>
-            <th v-for="(item, index) in dataList.answer2" :key="index">
+            <th v-for="(item, index) in dataList.answer24" :key="index">
               <img
                 :src="require('../assets/img/' + item.img)"
                 alt=""
@@ -197,9 +206,9 @@
             </th>
           </tr>
           <tr v-for="(item, index) in dataList.answer5" :key="index">
-            <td>{{ item.text }}</td>
+            <td class="td1-style">{{ item.text }}</td>
             <td
-              v-for="(itm, idx) in dataList.answer2"
+              v-for="(itm, idx) in dataList.answer24"
               :key="idx"
               @click="
                 chooseLevelTab(item.text, itm.score, index, idx, 'answer5')
@@ -269,26 +278,27 @@
           >
             {{ dataList.SD6B }}
           </div>
-        </div>
-        <div class="box_div">
-          <div
-            v-for="(item, index) in dataList.answer2"
-            :key="index"
-            :class="[
-              activeIndex6 == item.score ? 'box_options_on' : '',
-              'box_options'
-            ]"
-            @click="chooseLevel(item.score, 6)"
-          >
-            <img
-              :src="require('../assets/img/' + item.img)"
-              alt=""
-              class="box_img"
-            />
+          <div class="box_div">
+            <div
+              v-for="(item, index) in dataList.answer24"
+              :key="index"
+              :class="[
+                activeIndex6 == item.score ? 'box_options_on' : '',
+                'box_options'
+              ]"
+              @click="chooseLevel(item.score, 6)"
+            >
+              <img
+                :src="require('../assets/img/' + item.img)"
+                alt=""
+                class="box_img"
+              />
 
-            <em class="box_em">{{ item.text }}</em>
+              <em class="box_em">{{ item.text }}</em>
+            </div>
           </div>
         </div>
+
         <input
           type="text"
           class="box_dec"
@@ -317,7 +327,7 @@
         <table border="1" class="tab_class">
           <tr>
             <th></th>
-            <th v-for="(item, index) in dataList.answer2" :key="index">
+            <th v-for="(item, index) in dataList.answer24" :key="index">
               <img
                 :src="require('../assets/img/' + item.img)"
                 alt=""
@@ -328,9 +338,9 @@
             </th>
           </tr>
           <tr v-for="(item, index) in dataList.answer7" :key="index">
-            <td>{{ item.text }}</td>
+            <td class="td1-style">{{ item.text }}</td>
             <td
-              v-for="(itm, idx) in dataList.answer2"
+              v-for="(itm, idx) in dataList.answer24"
               :key="idx"
               @click="
                 chooseLevelTab(item.text, itm.score, index, idx, 'answer7')
@@ -708,78 +718,7 @@
             :style="item.pad ? 'padding-left:0.2rem' : ''"
             >{{ item.text }}
           </van-checkbox>
-
-          <!-- <van-checkbox name="B">B.专业杂志、期刊</van-checkbox>
-          <van-checkbox name="C">C.企业直播课程</van-checkbox>
-          <van-checkbox name="D">D.新闻资讯类平台</van-checkbox>
-          <van-checkbox name="a" style="padding-left:0.2rem"
-            >a.今日头条</van-checkbox
-          >
-          <van-checkbox name="b" style="padding-left:0.2rem"
-            >b.腾讯新闻</van-checkbox
-          >
-          <van-checkbox name="c" style="padding-left:0.2rem"
-            >c.一点资讯</van-checkbox
-          >
-          <van-checkbox name="d" style="padding-left:0.2rem"
-            >d.其他</van-checkbox
-          >
-          <van-checkbox name="E">E.主流社交平台</van-checkbox>
-          <van-checkbox name="a" style="padding-left:0.2rem"
-            >a.微博</van-checkbox
-          >
-          <van-checkbox name="b" style="padding-left:0.2rem"
-            >b.知乎</van-checkbox
-          >
-          <van-checkbox name="c" style="padding-left:0.2rem"
-            >c.B站Bilibili</van-checkbox
-          >
-          <van-checkbox name="d" style="padding-left:0.2rem"
-            >d.视频号</van-checkbox
-          >
-          <van-checkbox name="d" style="padding-left:0.2rem"
-            >e.抖音</van-checkbox
-          >
-          <van-checkbox name="d" style="padding-left:0.2rem"
-            >f.其他</van-checkbox
-          >
-          <van-checkbox name="F">F.其他</van-checkbox> -->
         </van-checkbox-group>
-
-        <!-- <van-checkbox-group
-          v-model="result16"
-          class="box_checkbox_group box_checkbox_group2"
-          direction="horizontal"
-          @change="checkboxChange(16, 'F')"
-        >
-          <van-checkbox
-            v-for="(item, index) in dataList.answer16"
-            :key="index"
-            :name="item.name"
-            
-           v-if="index!=3"
-            >{{ item.text}}
-           
-            </van-checkbox
-          >
-           <van-checkbox-group
-            v-else
-          v-model="result16D"
-          class="box_checkbox_group"
-          direction="horizontal"
-          style="padding-left:0.2rem"
-          @change="checkboxChange('16D', 'd')"
-        >
-          <van-checkbox
-            v-for="(it, idx) in dataList.answer16[3].children"
-            :key="idx"
-            :name="it.name"
-            >{{ it.text }}
-            
-            </van-checkbox
-          >
-        </van-checkbox-group>
-        </van-checkbox-group> -->
         <input
           v-for="(item, index) in dataList.answer16"
           type="text"
@@ -855,10 +794,11 @@ export default {
       causeFlag1: false,
       inputVal1: "",
       optionVal1: "",
-      activeIndex2: 6,
+      optionVal2: "",
       causeFlag2: false,
-      inputVal2: "",
-      activeVal2: "",
+      answer2IptFlag: false,
+      nullans2: false,
+
       causeFlag3: false,
       inputVal3: "",
       optionVal3: "",
@@ -949,6 +889,8 @@ export default {
   },
   beforeRouteLeave(to, from, next) {
     if (to.name == "Index") {
+      console.log(this.lanIdx);
+      console.log(this.$route.query.idx);
       this.$store.commit("noKeepAlive", "Question1");
       this.$store.commit("noKeepAlive", "PersonalInfo");
     }
@@ -961,7 +903,31 @@ export default {
     nextStep() {
       var ans6 = "";
 
-      console.log("result16", this.result16);
+      var arr16 = this.result16;
+      if (arr16.indexOf("A") != -1 && this.dataList.answer16[0].iptVal != "") {
+        this.optionVal16 = this.optionVal16.replace(
+          "A",
+          "A-" + this.dataList.answer16[0].iptVal
+        );
+      }
+      if (arr16.indexOf("B") != -1 && this.dataList.answer16[1].iptVal != "") {
+        this.optionVal16 = this.optionVal16.replace(
+          "B",
+          "B-" + this.dataList.answer16[1].iptVal
+        );
+      }
+      if (arr16.indexOf("C") != -1 && this.dataList.answer16[2].iptVal != "") {
+        this.optionVal16 = this.optionVal16.replace(
+          "C",
+          "C-" + this.dataList.answer16[2].iptVal
+        );
+      }
+      if (arr16.indexOf("F") != -1 && this.dataList.answer16[5].iptVal != "") {
+        this.optionVal16 = this.optionVal16.replace(
+          "F",
+          "F-" + this.dataList.answer16[5].iptVal
+        );
+      }
       if (
         (this.result16.indexOf("D") != -1 &&
           this.result16.indexOf("D-a") == -1 &&
@@ -977,15 +943,12 @@ export default {
           this.result16.indexOf("E-f") == -1)
       ) {
         this.causeFlag16 = true;
-        // ans6 =
       }
       this.causeFlag16 = false;
 
-      console.log("optionVal16", this.optionVal16);
       if (this.result16) {
       }
 
-      console.log("optionVal6", this.optionVal6);
       let optVal6 = "";
       if (this.causeFlag6B && !this.causeFlag6) {
         optVal6 = this.optionVal6 + "-" + this.activeVal6;
@@ -995,29 +958,35 @@ export default {
           this.optionVal6 + "-" + this.activeVal6 + "-" + this.inputVal6;
       }
 
-      // (val6 = this.optionVal6 += this.causeFlag6
-      //   ? "-" + this.activeVal6 + "-" + this.inputVal6
-      //   : this.causeFlag6B
-      //   ? "-" + this.activeVal6
-      //   : ""),
-      console.log(optVal6);
-      console.log("optionVal6", this.optionVal6);
+      let ans2Flag = false;
+      let ans2Flagval = false;
+      let optVal2 = "";
+      ans2Flag = this.dataList.answer2.find(
+        item => item.score == "" && item.ansFlag == true
+      );
+      ans2Flagval = this.dataList.answer2.find(item => {
+        return item.iptFlag == true && item.iptVal == "";
+      });
 
-      // this.$router.push({
-      //   path: "/personalInfo",
-      //   query: { idx: this.lanIdx }
-      // });
-      // return;
+      if (ans2Flag || ans2Flagval) {
+        this.causeFlag2 = true;
+      } else {
+        this.causeFlag2 = false;
+      }
+      if (!ans2Flag && !ans2Flagval) {
+        this.dataList.answer2.map(item => {
+          optVal2 += item.score += item.iptFlag ? "-" + item.iptVal : "";
+        });
+      }
       let ans5Flag = false;
       let ans5Flagval = false;
       let optVal5 = "";
-      let optVal7 = "";
+
       ans5Flag = this.dataList.answer5.find(item => item.score == "");
       ans5Flagval = this.dataList.answer5.find(item => {
         return item.iptFlag == true && item.iptVal == "";
       });
-      console.log("ans5Flag", ans5Flag);
-      console.log("ans5Flagval", ans5Flagval);
+
       if (ans5Flag || ans5Flagval) {
         this.causeFlag5 = true;
       } else {
@@ -1030,6 +999,7 @@ export default {
       }
       let ans7Flag = false;
       let ans7Flagval = false;
+      let optVal7 = "";
       ans7Flag = this.dataList.answer7.find(item => item.score == "");
       ans7Flagval = this.dataList.answer7.find(item => {
         return item.iptFlag == true && item.iptVal == "";
@@ -1051,7 +1021,7 @@ export default {
 
       if (
         this.optionVal1 == "" ||
-        this.activeVal2 == "" ||
+        optVal2 == "" ||
         this.optionVal3 == "" ||
         this.optionVal4 == "" ||
         optVal5 == "" ||
@@ -1080,7 +1050,6 @@ export default {
         (this.causeFlag2 && this.inputVal2 == "") ||
         (this.causeFlag3 && this.inputVal3 == "") ||
         (this.causeFlag4 && this.inputVal4 == "") ||
-        (this.radioFlag5 && this.radioVal5 == "") ||
         (this.causeFlag5 && this.inputVal5 == "") ||
         (this.causeFlag6B && this.activeVal6 == "") ||
         (this.causeFlag6 && this.inputVal6 == "") ||
@@ -1106,7 +1075,7 @@ export default {
       var val1 = (this.optionVal1 += this.causeFlag1
           ? "-" + this.inputVal1
           : ""),
-        val2 = (this.activeVal2 += this.causeFlag2 ? "-" + this.inputVal2 : ""),
+        val2 = optVal2,
         val3 = (this.optionVal3 += this.causeFlag3 ? "-" + this.inputVal3 : ""),
         val4 = (this.optionVal4 += this.causeFlag4 ? "-" + this.inputVal4 : ""),
         val5 = optVal5,
@@ -1149,13 +1118,10 @@ export default {
         val16,
         val17
       ];
-      console.log(arr);
-      // return;
       this.$router.push({
         path: "/personalInfo",
         query: { idx: this.lanIdx, result: JSON.stringify(arr) }
       });
-      return;
       this.$ajax
         .post("http://qa.travbao.com/goabraod/news/QuestionnaireResult.do", {
           qAnswers: str,
@@ -1216,6 +1182,18 @@ export default {
         console.log("answer16", this.dataList.answer16);
         console.log("result16", this.result16);
       }
+      if (idx == 1) {
+        this.dataList.answer2.map(item => {
+          item.ansFlag = false;
+          this[arr].map(itm => {
+            if (item.name == itm) {
+              item.ansFlag = true;
+            }
+          });
+          return item;
+        });
+      }
+      this.nullans2 = this.dataList.answer2.find(item => item.ansFlag == true);
       this[opval] = this[arr].join("");
     },
     radioChange(idx, option, flag) {
@@ -1261,11 +1239,10 @@ export default {
       if (score == 3 || score == 2 || score == 1) {
         this.dataList[ansName][ansIndex].iptFlag = true;
         this.dataList[ansName][ansIndex].iptVal = "";
-        this[iptFlag] = true;
       } else {
         this.dataList[ansName][ansIndex].iptFlag = false;
-        this[iptFlag] = false;
       }
+      this[iptFlag] = this.dataList[ansName].find(item => item.iptFlag == true);
     }
   }
 };
@@ -1309,7 +1286,8 @@ export default {
   width: 0.18rem;
   height: 0.18rem;
 }
-.box_checkbox_group .van-checkbox {
+.box_checkbox_group .van-checkbox,
+.box_checkbox_group .van-radio {
   -webkit-align-items: stretch;
   align-items: stretch;
 }
@@ -1496,5 +1474,8 @@ export default {
   color: rgb(25, 86, 147);
   margin: 0.1rem auto;
   font-size: 0.14rem;
+}
+.td1-style {
+  width: 0.8rem;
 }
 </style>
