@@ -98,8 +98,7 @@ export default {
           userName: "",
           userMailingAddress: "",
       telTip: "",
-      confirmTxt: "",
-      lanStr: ""
+      confirmTxt: ""
     };
   },
   created() {
@@ -113,7 +112,6 @@ export default {
       this.telTip = list.cnTel;
       this.errorMsg = list.cnErrorMsg;
       this.confirmTxt = list.cnConfirm;
-      this.lanStr = "C-";
     } else if (this.$route.query.idx == 2) {
       this.dataList = list.enPerlist;
       this.title = list.enPerTitle;
@@ -123,7 +121,6 @@ export default {
       this.telTip = list.enTel;
       this.errorMsg = list.enErrorMsg;
       this.confirmTxt = list.enConfirm;
-      this.lanStr = "E-";
     }
   },
   methods: {
@@ -131,11 +128,7 @@ export default {
       this.$router.go(-1);
     },
     nextStep() {
-      //  this.$router.push({
-      //         path: "/thanks",
-      //         query: { idx: this.$route.query.idx }
-      //       });
-      //       return
+    
       if (
         this.userTelephone == "" ||
         this.userCompany == "" ||
@@ -171,12 +164,6 @@ export default {
           userDepartment:this.userDepartment,
           userName: this.userName,
           userMailingAddress: this.userMailingAddress
-          // suCompany: this.lanStr + this.suCompany,
-          // suBumen: this.suBumen,
-          // suName: this.suName,
-          // suTelephone: this.suTelephone,
-          // suAddress: this.suAddress,
-          // spId: this.$route.query.spId
         })
         .then(res => {
           if (res.data.code == 0) {

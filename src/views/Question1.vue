@@ -694,11 +694,9 @@
       <div class="question_box">
         <div
           class="box_text"
-          :style="
+           :style="
             (emptyFlag && optionVal16 == '') ||
-            (emptyFlag && causeFlag16 && inputVal16 == '') ||
-            (emptyFlag && causeFlag16D && inputVal16D == '') ||
-            (emptyFlag && causeFlag16E && inputVal16E == '')
+            (emptyFlag && causeFlag16)
               ? 'color: red'
               : 'color:#195693'
           "
@@ -715,47 +713,31 @@
             v-for="(item, index) in dataList.answer16"
             :key="index"
             :name="item.name"
-            :style="item.pad ? 'padding-left:0.2rem' : ''"
+            v-if="
+              item.parent == 'D'
+                ? causeFlag16D
+                : item.parent == 'E'
+                ? causeFlag16E
+                : true
+            "
+            :style="
+              item.pad
+                ? 'width:50%;box-sizing:border-box;padding-left:0.2rem'
+                : ''
+            "
             >{{ item.text }}
           </van-checkbox>
         </van-checkbox-group>
         <input
-          v-for="(item, index) in dataList.answer16"
-          type="text"
-          class="box_dec"
-          v-model="item.iptVal"
-          :placeholder="item.place"
-          v-if="item.place"
-        />
-        <input
-          type="text"
-          class="box_dec"
-          v-model="inputVal16D"
-          :placeholder="place16D"
-          v-if="causeFlag16D"
-        />
-        <input
-          type="text"
-          class="box_dec"
-          v-model="inputVal16E"
-          :placeholder="place16E"
-          v-if="causeFlag16E"
-        />
-
-        <input
           type="text"
           class="box_dec"
           v-model="inputVal16"
-          :placeholder="dataList.answer20"
-          v-if="causeFlag16"
+          :placeholder="place16D"
         />
-        <div
-          class="errortip"
-          v-if="
-            (emptyFlag && optionVal16 == '') ||
-              (emptyFlag && causeFlag16 && inputVal16 == '')
-          "
-        >
+       
+        <div class="errortip" v-if="  (emptyFlag && optionVal16 == '') ||
+              (emptyFlag && causeFlag16)">
+             
           {{ queTip }}
         </div>
       </div>
@@ -798,7 +780,6 @@ export default {
       causeFlag2: false,
       answer2IptFlag: false,
       nullans2: false,
-
       causeFlag3: false,
       inputVal3: "",
       optionVal3: "",
@@ -876,21 +857,17 @@ export default {
       this.dialogText = list.cnDialog;
       this.confirmTxt = list.cnConfirm;
       this.queTip = list.cnQueTip;
-      this.place16D = "新闻资讯类平台";
-      this.place16E = "主流社交平台";
+      this.place16D = "请举例您常用的平台（非必填）";
     } else if (this.$route.query.idx == 2) {
       this.dataList = list.en;
       this.dialogText = list.enDialog;
       this.confirmTxt = list.enConfirm;
       this.queTip = list.enQueTip;
-      this.place16D = "News information platform";
-      this.place16E = "Social platforms";
+      this.place16D = "Please give examples";
     }
   },
   beforeRouteLeave(to, from, next) {
     if (to.name == "Index") {
-      console.log(this.lanIdx);
-      console.log(this.$route.query.idx);
       this.$store.commit("noKeepAlive", "Question1");
       this.$store.commit("noKeepAlive", "PersonalInfo");
     }
@@ -901,33 +878,6 @@ export default {
       this.$router.go(-1);
     },
     nextStep() {
-      var ans6 = "";
-
-      var arr16 = this.result16;
-      if (arr16.indexOf("A") != -1 && this.dataList.answer16[0].iptVal != "") {
-        this.optionVal16 = this.optionVal16.replace(
-          "A",
-          "A-" + this.dataList.answer16[0].iptVal
-        );
-      }
-      if (arr16.indexOf("B") != -1 && this.dataList.answer16[1].iptVal != "") {
-        this.optionVal16 = this.optionVal16.replace(
-          "B",
-          "B-" + this.dataList.answer16[1].iptVal
-        );
-      }
-      if (arr16.indexOf("C") != -1 && this.dataList.answer16[2].iptVal != "") {
-        this.optionVal16 = this.optionVal16.replace(
-          "C",
-          "C-" + this.dataList.answer16[2].iptVal
-        );
-      }
-      if (arr16.indexOf("F") != -1 && this.dataList.answer16[5].iptVal != "") {
-        this.optionVal16 = this.optionVal16.replace(
-          "F",
-          "F-" + this.dataList.answer16[5].iptVal
-        );
-      }
       if (
         (this.result16.indexOf("D") != -1 &&
           this.result16.indexOf("D-a") == -1 &&
@@ -942,11 +892,11 @@ export default {
           this.result16.indexOf("E-e") == -1 &&
           this.result16.indexOf("E-f") == -1)
       ) {
+        this.emptyFlag = true;
         this.causeFlag16 = true;
-      }
-      this.causeFlag16 = false;
+      }else{
 
-      if (this.result16) {
+        this.causeFlag16 = false;
       }
 
       let optVal6 = "";
@@ -981,7 +931,6 @@ export default {
       let ans5Flag = false;
       let ans5Flagval = false;
       let optVal5 = "";
-
       ans5Flag = this.dataList.answer5.find(item => item.score == "");
       ans5Flagval = this.dataList.answer5.find(item => {
         return item.iptFlag == true && item.iptVal == "";
@@ -1014,11 +963,6 @@ export default {
           optVal7 += item.score += item.iptFlag ? "-" + item.iptVal : "";
         });
       }
-      console.log("result16", this.result16);
-      // this.dataList.answer16.map(item => {
-      //    this.optionVal16+=
-      //   });
-
       if (
         this.optionVal1 == "" ||
         optVal2 == "" ||
@@ -1060,9 +1004,7 @@ export default {
         (this.causeFlag13 && this.inputVal13 == "") ||
         (this.causeFlag14 && this.inputVal14 == "") ||
         (this.causeFlag15 && this.inputVal15 == "") ||
-        (this.causeFlag16 && this.inputVal16 == "") ||
-        (this.causeFlag16D && this.inputVal16D == "") ||
-        (this.causeFlag16E && this.inputVal16E == "")
+        (this.causeFlag16 )
       ) {
         this.emptyFlag = true;
         this.$dialog.alert({
@@ -1097,7 +1039,8 @@ export default {
         val15 = (this.optionVal15 += this.causeFlag15
           ? "-" + this.inputVal15
           : ""),
-        val16 = this.optionVal16,
+        val16 = (this.optionVal16 +=
+          this.inputVal16 != "" ? "-" + this.inputVal16 : ""),
         val17 = this.message17;
       var arr = [
         val1,
@@ -1118,24 +1061,12 @@ export default {
         val16,
         val17
       ];
+      console.log('arr',arr)
       this.$router.push({
         path: "/personalInfo",
         query: { idx: this.lanIdx, result: JSON.stringify(arr) }
       });
-      this.$ajax
-        .post("http://qa.travbao.com/goabraod/news/QuestionnaireResult.do", {
-          qAnswers: str,
-          spType: 1
-        })
-        .then(res => {
-          if (res.data.code == 0) {
-            var spId = res.data.data.spId;
-          }
-          this.$router.push({
-            path: "/personalInfo",
-            query: { spId: spId, idx: this.lanIdx }
-          });
-        });
+    
     },
     checkboxChange(idx, option) {
       var arr = "result" + idx;
@@ -1149,38 +1080,16 @@ export default {
         this[iptval] = "";
       }
       if (idx == "16") {
-        if (
-          this[arr].indexOf("D") == -1 &&
-          (this[arr].indexOf("D-a") != -1 ||
-            this[arr].indexOf("D-b") != -1 ||
-            this[arr].indexOf("D-c") != -1 ||
-            this[arr].indexOf("D-d") != -1)
-        ) {
-          this[arr].push("D");
-        }
-        if (
-          this[arr].indexOf("E") == -1 &&
-          (this[arr].indexOf("E-a") != -1 ||
-            this[arr].indexOf("E-b") != -1 ||
-            this[arr].indexOf("E-c") != -1 ||
-            this[arr].indexOf("E-d") != -1 ||
-            this[arr].indexOf("E-e") != -1 ||
-            this[arr].indexOf("E-f") != -1)
-        ) {
-          this[arr].push("E");
-        }
-        if (this[arr].indexOf("D") != -1 && this[arr].indexOf("D-d") != -1) {
+        if (this[arr].indexOf("D") != -1 ) {
           this.causeFlag16D = true;
         } else {
           this.causeFlag16D = false;
         }
-        if (this[arr].indexOf("E") != -1 && this[arr].indexOf("E-f") != -1) {
+         if (this[arr].indexOf("E") != -1 ) {
           this.causeFlag16E = true;
         } else {
           this.causeFlag16E = false;
         }
-        console.log("answer16", this.dataList.answer16);
-        console.log("result16", this.result16);
       }
       if (idx == 1) {
         this.dataList.answer2.map(item => {

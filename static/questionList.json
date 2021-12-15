@@ -625,19 +625,13 @@
     }],
     "answer16": [{
       "name": "A",
-      "text": "A.专业公众号",
-      "place": "专业公众号(非必填)",
-      "iptVal": ""
+      "text": "A.专业公众号"
     }, {
       "name": "B",
-      "text": "B.专业杂志、期刊",
-      "place": "专业杂志、期刊(非必填)",
-      "iptVal": ""
+      "text": "B.专业杂志、期刊"
     }, {
       "name": "C",
-      "text": "C.企业直播课程",
-      "place": "企业直播课程(非必填)",
-      "iptVal": ""
+      "text": "C.企业直播课程"
     }, {
       "name": "D",
       "text": "D.新闻资讯类平台"
@@ -645,19 +639,23 @@
     }, {
       "name": "D-a",
       "text": "a.今日头条",
-      "pad":"1"
+      "pad":"1",
+      "parent":"D"
     }, {
       "name": "D-b",
       "text": "b.腾讯新闻",
-      "pad":"1"
+      "pad":"1",
+      "parent":"D"
     },{
       "name": "D-c",
       "text": "c.一点资讯",
-      "pad":"1"
+      "pad":"1",
+      "parent":"D"
     },{
       "name": "D-d",
       "text": "d.其他",
-      "pad":"1"
+      "pad":"1",
+      "parent":"D"
     },{
       "name": "E",
       "text": "E.主流社交平台"
@@ -665,27 +663,33 @@
     },  {
       "name": "E-a",
       "text": "a.微博",
-      "pad":"1"
+      "pad":"1",
+      "parent":"E"
     }, {
       "name": "E-b",
       "text": "b.知乎",
-      "pad":"1"
+      "pad":"1",
+      "parent":"E"
     },{
       "name": "E-c",
       "text": "c.B站Bilibili",
-      "pad":"1"
+      "pad":"1",
+      "parent":"E"
     },{
       "name": "E-d",
       "text": "d.视频号",
-      "pad":"1"
+      "pad":"1",
+      "parent":"E"
     },{
       "name": "E-e",
       "text": "e.抖音",
-      "pad":"1"
+      "pad":"1",
+      " ":"E"
     },{
       "name": "E-f",
       "text": "f.其他",
-      "pad":"1"
+      "pad":"1",
+      "parent":"E"
     },{
       "name": "F",
       "text": "F.其他"
@@ -1286,29 +1290,69 @@
     }],
     "answer16": [{
       "name": "A",
-      "text": "A.Official Accounts",
-      "place": "Official Accounts(no required)",
-      "iptVal": ""
+      "text": "A.Official Accounts"
     }, {
       "name": "B",
-      "text": "B.Professional magazines and periodicals",
-      "place": "Professional magazines and periodicals(no required)",
-      "iptVal": ""
+      "text": "B.Professional magazines and periodicals"
     }, {
       "name": "C",
-      "text": "C.Online classes held by enterprise",
-      "place": "Online classes held by enterprise(no required)",
-      "iptVal": ""
+      "text": "C.Online classes held by enterprise"
     }, {
       "name": "D",
-      "text": "D.News information platform",
-      "place": "News information platform",
-      "iptVal": ""
+      "text": "D.News information platform"
+    },{
+      "name": "D-a",
+      "text": "a.Toutiao",
+      "pad":"1",
+      "parent":"D"
+    }, {
+      "name": "D-b",
+      "text": "b.Tencent News",
+      "pad":"1",
+      "parent":"D"
+    },{
+      "name": "D-c",
+      "text": "c.Yidian",
+      "pad":"1",
+      "parent":"D"
+    },{
+      "name": "D-d",
+      "text": "d.Others",
+      "pad":"1",
+      "parent":"D"
     }, {
       "name": "E",
-      "text": "E.Social platforms",
-      "place": "Social platforms",
-      "iptVal": ""
+      "text": "E.Social platforms"
+    }, {
+      "name": "E-a",
+      "text": "a.Weibo",
+      "pad":"1",
+      "parent":"E"
+    }, {
+      "name": "E-b",
+      "text": "b.Zhihu",
+      "pad":"1",
+      "parent":"E"
+    },{
+      "name": "E-c",
+      "text": "c.Bilibili",
+      "pad":"1",
+      "parent":"E"
+    },{
+      "name": "E-d",
+      "text": "d.WeChat Channel",
+      "pad":"1",
+      "parent":"E"
+    },{
+      "name": "E-e",
+      "text": "e.TikTok",
+      "pad":"1",
+      " ":"E"
+    },{
+      "name": "E-f",
+      "text": "f.Others",
+      "pad":"1",
+      "parent":"E"
     }, {
       "name": "F",
       "text": "F.Others"
