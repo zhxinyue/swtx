@@ -160,7 +160,7 @@ export default {
         .post("http://qa.travbao.com/goabraod/news/QuestionnaireResult.do", {
           resultList: JSON.parse(this.$route.query.result),
           userTelephone: this.userTelephone,
-          userCompany: this.userCompany,
+          userCompany: this.lanIdx==1?'C-'+this.userCompany:'E-'+this.userCompany,
           userDepartment:this.userDepartment,
           userName: this.userName,
           userMailingAddress: this.userMailingAddress
@@ -184,6 +184,8 @@ export default {
 </script>
 <style>
 @import url("../assets/css/reset.css");
+</style>
+<style scope>
 #personal_wrap {
   width: 100%;
   height: 100%;
@@ -193,7 +195,7 @@ export default {
   padding: 0.3rem 0;
 }
 
-.personal_content {
+#personal_wrap .personal_content {
   width: 95%;
   box-sizing: border-box;
   margin: 0 auto;
@@ -202,7 +204,7 @@ export default {
   padding-bottom: 0.2rem;
 }
 
-.personal_title {
+#personal_wrap .personal_title {
   font-size: 0.16rem;
   font-weight: bold;
   text-align: center;
@@ -216,12 +218,13 @@ export default {
   height: 0.36rem;
   margin: 0.2rem auto 0.1rem;
 }
-.personal_tip {
+#personal_wrap .personal_tip {
   color: #0b50a2;
   font-size: 0.15rem;
   line-height: 0.22rem;
-  width: 3rem;
+  /* width: 3rem; */
   margin: 0 auto;
+  padding: 0 0.2rem;
 }
 .heng {
   padding: 0.1rem 0 0;
@@ -229,7 +232,8 @@ export default {
 }
 
 .personal_box {
-  width: 3rem;
+  /* width: 3rem; */
+  padding: 0 0.2rem;
   margin: 0.1rem auto 0;
 }
 .input_title {
@@ -246,9 +250,10 @@ export default {
 }
 
 
-.box_dec {
+#personal_wrap .box_dec {
   display: block;
-  width: 3rem;
+  /* width: 3rem; */
+  width:100%;
   height: 0.34rem;
   line-height: 0.34rem;
   font-size: 0.14rem;
@@ -261,7 +266,7 @@ export default {
   text-indent: 0.1rem;
 }
 
-.bottom_btn {
+#personal_wrap .bottom_btn {
   width: 3rem;
   height: 0.45rem;
   margin: 0.2rem auto;

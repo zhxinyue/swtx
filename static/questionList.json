@@ -42,8 +42,8 @@
     "SD6B": "您对问题的解决结果是否满意？（5分为非常满意，1分为非常不满意）",
     "SD7": "在合作中，您对四维图新对应团队人员的满意程度如何？（5分为非常满意，1分为非常不满意）",
     "SD8": "在智能驾驶系统研发过程中，您认为最重要的3个方面是：（选3个）",
-    "SD9": "您认为下一代智能驾驶平台亮点定义中最重要的三项是：（选3个）",
-    "SD10": "贵司对下一代高平台智能驾驶系统算力方向的计划是：（单选）",
+    "SD9": "您认为下一代智能驾驶系统亮点定义中最重要的三项是？（选3个）",
+    "SD10": "贵司对高算力平台智能驾驶系统在算力方向的计划是：（单选）",
     "SD11": "您认为四维图新的产品和服务在哪些方面值得认可？哪些方面还需要改进？（必填）",
     "SD12": "您是否能够及时收到四维图新最新产品和服务信息？（单选）",
     "SD13": "您是通过以下哪些途径获得四维图新的最新产品和服务信息的？（可多选）",
@@ -339,7 +339,7 @@
       "acindex": 20
     }, {
       "score": "",
-      "text": "品牌知名度",
+      "text": "技术研发能力",
       "iptVal": "",
       "iptFlag": false,
       "acindex": 20
@@ -573,7 +573,7 @@
       "text": "A.导航地图"
     }, {
       "name": "B",
-      "text": "B.导航软件"
+      "text": "B.智能导航产品"
     }, {
       "name": "C",
       "text": "C.ADAS 地图"
@@ -684,7 +684,7 @@
       "name": "E-e",
       "text": "e.抖音",
       "pad":"1",
-      " ":"E"
+      "parent":"E"
     },{
       "name": "E-f",
       "text": "f.其他",
@@ -698,28 +698,29 @@
     "answer20": "请输入",
     "answer21": "值得认可：",
     "answer22": "需要改进：",
-    "answer23": "请填写原因&合作项目"
+    "answer23": "请填写原因&合作项目",
+    "answer25": "3分及以下请填写原因&合作项目"
 
 
 
   },
   "en": {
     "SD1": "With which of the following product/service has your company cooperated with NavInfo? (Multiple choice)",
-    "SD2": "How satisfied are you with the product/service that NavInfo has provided to your company? （‘5’ means ‘very satisfied’ and ‘1’ means ‘Very dissatisfied’）",
+    "SD2": "How satisfied are you with the product/service that NavInfo has provided to your company? （‘5’ means ‘Very satisfied’ and ‘1’ means ‘Very dissatisfied’）",
     "SD3": "What kind of company is NavInfo in your impression? (Single choice)",
-    "SD4": "In your cooperation with Navinfo, which of the following aspects do you think is the most important? (Multiple choice)  ",
-    "SD5": "How satisfied are you with the following product/service of NavInfo? （‘5’ means ‘very satisfied’ and ‘1’ means ‘Very dissatisfied’）",
+    "SD4": "In your cooperation with NavInfo, which of the following aspects do you think is the most important? (Multiple choice)  ",
+    "SD5": "How satisfied are you with the following product/service of NavInfo? （‘5’ means ‘Very satisfied’ and ‘1’ means ‘Very dissatisfied’）",
     "SD6": "In the past year’s cooperation with NavInfo, were there any serious product quality issues that caused major impacts to your company?",
-    "SD6B": "How satisfied are you with the solution of the problem?（‘5’ means ‘very satisfied’ and ‘1’ means ‘Very dissatisfied’）",
-    "SD7": "During the cooperation, how satisfied are you with the project team of NavInfo?（‘5’ means ‘very satisfied’ and ‘1’ means ‘Very dissatisfied’）",
+    "SD6B": "How satisfied are you with the solution of the problem?（‘5’ means ‘Very satisfied’ and ‘1’ means ‘Very dissatisfied’）",
+    "SD7": "During the cooperation, how satisfied are you with the project team of NavInfo?（‘5’ means ‘Very satisfied’ and ‘1’ means ‘Very dissatisfied’）",
     "SD8": "During the development of the autonomous driving system, which of the following aspects do you think is the most important? (Choose 3 options)",
-    "SD9": "For the next-generation autonomous driving platform, which of the following highlights do you think is the most important? (Choose 3 options)",
-    "SD10": "For the next generation of high-platform autonomous driving systems, what is your company’s plan for computing power? (Single choice)",
+    "SD9": "For the next-generation autonomous driving system, which of the following highlights do you think is the most important? (Choose 3 options)",
+    "SD10": "What’s the plan for the high-computing power autonomous driving systems of your company? (Single choice)",
     "SD11": "What aspects of NavInfo product&service do you think deserve being recognized? And what aspects need to be improved?",
     "SD12": "Do you think it is timely to receive the latest product and service information of NavInfo? (Single choice)",
     "SD13": "How do you get the latest product and service information of NavInfo? (Multiple choice)",
     "SD14": "In which of the following ways do you hope to obtain NavInfo's latest product and service information? (Multiple choice)",
-    "SD15": "Which of the following NavInfo products and services do you think would establish potential cooperation with your company in the future? (Multiple choice)",
+    "SD15": "Which of the following NavInfo products and services do you think would be potential cooperation with your company in the future? (Multiple choice)",
     "SD16": "Which platforms do you often use to obtain information about the automotive industry? (Multiple choice)",
     "SD17": "What else would you like to tell us: ",
     "answer1": [{
@@ -961,10 +962,10 @@
       "text": "B.Product diversity"
     }, {
       "name": "C",
-      "text": "C.Company reputation"
+      "text": "C.Brand awareness"
     }, {
       "name": "D",
-      "text": "D.Technology and R & D capability"
+      "text": "D.Technology and R&D capability"
     }, {
       "name": "E",
       "text": "E.Customization capabilities"
@@ -1004,7 +1005,7 @@
       "acindex": 20
     }, {
       "score": "",
-      "text": "Technology and R & D capability",
+      "text": "Technology and R&D capability",
       "iptVal": "",
       "iptFlag": false,
       "acindex": 20
@@ -1044,7 +1045,7 @@
       "text": "A.Never happened"
     }, {
       "name": "B",
-      "text": "B.happened"
+      "text": "B.Happened"
     }],
     "answer7": [{
       "score": "",
@@ -1152,7 +1153,7 @@
     }],
     "answer13": [{
       "name": "A",
-      "text": "A.Push Notifications"
+      "text": "A.Push notifications"
     }, {
       "name": "B",
       "text": "B.Online live streaming of products"
@@ -1176,7 +1177,7 @@
       "text": "H.Professional exhibitions"
     }, {
       "name": "I",
-      "text": "I.NavInfo’s social media platform (Wechat official account/Weibo/ TikTok/ WeChat video channel…)"
+      "text": "I.NavInfo’s social media platform (WeChat official account/Weibo/TikTok/ WeChat video channel…)"
     }, {
       "name": "J",
       "text": "J.Third party media channels"
@@ -1189,7 +1190,7 @@
     }],
     "answer14": [{
       "name": "A",
-      "text": "A.Push Notifications"
+      "text": "A.Push notifications"
     }, {
       "name": "B",
       "text": "B.Online live streaming of products"
@@ -1222,7 +1223,7 @@
       "text": "K.Professional exhibitions"
     }, {
       "name": "L",
-      "text": "L.NavInfo’s social media platform (Wechat official account/Weibo/TikTok/ WeChat video channel…)"
+      "text": "L.NavInfo’s social media platform (WeChat official account/Weibo/TikTok/ WeChat video channel…)"
     }, {
       "name": "M",
       "text": "M.Third party social media channels"
@@ -1238,7 +1239,7 @@
       "text": "A.SD map"
     }, {
       "name": "B",
-      "text": "B.Navigation software"
+      "text": "B.Intelligent navigation product"
     }, {
       "name": "C",
       "text": "C.ADAS map"
@@ -1290,7 +1291,7 @@
     }],
     "answer16": [{
       "name": "A",
-      "text": "A.Official Accounts"
+      "text": "A.Official accounts"
     }, {
       "name": "B",
       "text": "B.Professional magazines and periodicals"
@@ -1347,7 +1348,7 @@
       "name": "E-e",
       "text": "e.TikTok",
       "pad":"1",
-      " ":"E"
+      "parent":"E"
     },{
       "name": "E-f",
       "text": "f.Others",
@@ -1361,7 +1362,8 @@
     "answer20": "Please type...",
     "answer21": "Being recognized：",
     "answer22": "To be improved：",
-    "answer23": "Reasons & Cooperation projects"
+    "answer23": "Reasons & Cooperation projects",
+    "answer25": "Reasons & Cooperation projects（if you scored 3 or less）"
 
   }
 }

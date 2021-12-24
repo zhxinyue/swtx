@@ -26,6 +26,8 @@ export default {
 </script>
 <style>
 @import url("../assets/css/reset.css");
+</style>
+<style scope>
 
 #index_wrap {
   position: fixed;

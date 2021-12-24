@@ -87,7 +87,7 @@
         </table>
 
         <div>
-          <p class="p-tip" v-if="answer2IptFlag">{{ dataList.answer23 }}</p>
+          <p class="p-tip" v-if="answer2IptFlag">{{ dataList.answer25 }}</p>
           <input
             v-for="(item, index) in dataList.answer2"
             :key="index"
@@ -225,7 +225,7 @@
         </table>
 
         <div>
-          <p class="p-tip" v-if="answer5IptFlag">{{ dataList.answer23 }}</p>
+          <p class="p-tip" v-if="answer5IptFlag">{{ dataList.answer25 }}</p>
           <input
             v-for="(item, index) in dataList.answer5"
             :key="index"
@@ -357,7 +357,7 @@
         </table>
 
         <div>
-          <p class="p-tip" v-if="answer7IptFlag">{{ dataList.answer23 }}</p>
+          <p class="p-tip" v-if="answer7IptFlag">{{ dataList.answer25 }}</p>
           <input
             v-for="(item, index) in dataList.answer7"
             :key="index"
@@ -899,7 +899,7 @@ export default {
         this.causeFlag16 = false;
       }
 
-      let optVal6 = "";
+      let optVal6 = this.optionVal6;
       if (this.causeFlag6B && !this.causeFlag6) {
         optVal6 = this.optionVal6 + "-" + this.activeVal6;
       }
@@ -907,7 +907,6 @@ export default {
         optVal6 =
           this.optionVal6 + "-" + this.activeVal6 + "-" + this.inputVal6;
       }
-
       let ans2Flag = false;
       let ans2Flagval = false;
       let optVal2 = "";
@@ -925,9 +924,11 @@ export default {
       }
       if (!ans2Flag && !ans2Flagval) {
         this.dataList.answer2.map(item => {
-          optVal2 += item.score += item.iptFlag ? "-" + item.iptVal : "";
+          console.log('item',item)
+          optVal2 +=  item.iptFlag ?item.score + "-" + item.iptVal : item.score;
         });
       }
+      console.log('optVal2',optVal2)
       let ans5Flag = false;
       let ans5Flagval = false;
       let optVal5 = "";
@@ -943,7 +944,7 @@ export default {
       }
       if (!ans5Flag && !ans5Flagval) {
         this.dataList.answer5.map(item => {
-          optVal5 += item.score += item.iptFlag ? "-" + item.iptVal : "";
+          optVal5 +=  item.iptFlag ? item.score +"-" + item.iptVal : item.score ;
         });
       }
       let ans7Flag = false;
@@ -960,7 +961,7 @@ export default {
       }
       if (!ans7Flag && !ans7Flagval) {
         this.dataList.answer7.map(item => {
-          optVal7 += item.score += item.iptFlag ? "-" + item.iptVal : "";
+          optVal7 +=  item.iptFlag ?item.score + "-" + item.iptVal : item.score ;
         });
       }
       if (
@@ -1013,34 +1014,50 @@ export default {
         });
         return;
       }
-
-      var val1 = (this.optionVal1 += this.causeFlag1
-          ? "-" + this.inputVal1
-          : ""),
-        val2 = optVal2,
-        val3 = (this.optionVal3 += this.causeFlag3 ? "-" + this.inputVal3 : ""),
-        val4 = (this.optionVal4 += this.causeFlag4 ? "-" + this.inputVal4 : ""),
-        val5 = optVal5,
-        val6 = optVal6,
-        val7 = optVal7,
-        val8 = (this.optionVal8 += this.causeFlag8 ? "-" + this.inputVal8 : ""),
-        val9 = (this.optionVal9 += this.causeFlag9 ? "-" + this.inputVal9 : ""),
-        val10 = (this.optionVal10 += this.causeFlag10
-          ? "-" + this.inputVal10
-          : ""),
-        val11 = this.recognizedMsg11 + "-" + this.improvedMsg11,
-        val12 = this.optionVal12,
-        val13 = (this.optionVal13 += this.causeFlag13
-          ? "-" + this.inputVal13
-          : ""),
-        val14 = (this.optionVal14 += this.causeFlag14
-          ? "-" + this.inputVal14
-          : ""),
-        val15 = (this.optionVal15 += this.causeFlag15
-          ? "-" + this.inputVal15
-          : ""),
-        val16 = (this.optionVal16 +=
-          this.inputVal16 != "" ? "-" + this.inputVal16 : ""),
+var val1='',
+val2='',
+val3='',
+val4='',
+val5='',
+val6='',
+val7='',
+val8='',
+val9='',
+val10='',
+val11='',
+val12='',
+val13='',
+val14='',
+val15='',
+val16='',
+val17=''
+       val1 = ( this.causeFlag1
+          ?this.optionVal1+ "-" + this.inputVal1
+          :this.optionVal1)
+        val2 = optVal2
+        val3 = ( this.causeFlag3 ?this.optionVal3 + "-" + this.inputVal3 : this.optionVal3)
+        val4 = ( this.causeFlag4 ? this.optionVal4 +"-" + this.inputVal4 :  this.optionVal4)
+        val5 = optVal5
+        val6 = optVal6
+        val7 = optVal7
+        val8 = ( this.causeFlag8 ?this.optionVal8 + "-" + this.inputVal8 : this.optionVal8)
+        val9 = ( this.causeFlag9 ?this.optionVal9 + "-" + this.inputVal9 : this.optionVal9 )
+        val10 = (this.causeFlag10
+          ? this.optionVal10 +"-" + this.inputVal10
+          : this.optionVal10 )
+        val11 = this.recognizedMsg11 + "-" + this.improvedMsg11
+        val12 = this.optionVal12
+        val13 = (this.causeFlag13
+          ? this.optionVal13 +"-" + this.inputVal13
+          : this.optionVal13 )
+        val14 = (this.causeFlag14
+          ? this.optionVal14 +"-" + this.inputVal14
+          : this.optionVal14 )
+        val15 = (this.causeFlag15
+          ? this.optionVal15 +"-" + this.inputVal15
+          : this.optionVal15 )
+        val16 = (
+          this.inputVal16 != "" ? this.optionVal16 +"-" + this.inputVal16 : this.optionVal16 )
         val17 = this.message17;
       var arr = [
         val1,
@@ -1061,6 +1078,10 @@ export default {
         val16,
         val17
       ];
+     
+          console.log('optionVal1',this.optionVal1)
+           console.log('inputVal1',this.inputVal1)
+      console.log('val1',val1)
       console.log('arr',arr)
       this.$router.push({
         path: "/personalInfo",
@@ -1158,6 +1179,8 @@ export default {
 </script>
 <style>
 @import url("../assets/css/reset.css");
+</style>
+<style scope>
 #question_wrap {
   width: 100%;
   height: 100%;
@@ -1188,7 +1211,7 @@ export default {
   line-height: 0.2rem;
 }
 .box_checkbox_group {
-  width: 3rem;
+  width: 3.1rem;
   margin: 0 auto;
 }
 .img-icon {
