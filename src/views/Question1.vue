@@ -694,9 +694,8 @@
       <div class="question_box">
         <div
           class="box_text"
-           :style="
-            (emptyFlag && optionVal16 == '') ||
-            (emptyFlag && causeFlag16)
+          :style="
+            (emptyFlag && optionVal16 == '') || (emptyFlag && causeFlag16)
               ? 'color: red'
               : 'color:#195693'
           "
@@ -734,10 +733,11 @@
           v-model="inputVal16"
           :placeholder="place16D"
         />
-       
-        <div class="errortip" v-if="  (emptyFlag && optionVal16 == '') ||
-              (emptyFlag && causeFlag16)">
-             
+
+        <div
+          class="errortip"
+          v-if="(emptyFlag && optionVal16 == '') || (emptyFlag && causeFlag16)"
+        >
           {{ queTip }}
         </div>
       </div>
@@ -894,8 +894,7 @@ export default {
       ) {
         this.emptyFlag = true;
         this.causeFlag16 = true;
-      }else{
-
+      } else {
         this.causeFlag16 = false;
       }
 
@@ -922,13 +921,20 @@ export default {
       } else {
         this.causeFlag2 = false;
       }
+      console.log(optVal2);
+      console.log("计算optVal2");
       if (!ans2Flag && !ans2Flagval) {
         this.dataList.answer2.map(item => {
-          console.log('item',item)
-          optVal2 +=  item.iptFlag ?item.score + "-" + item.iptVal : item.score;
+          if (item.ansFlag == true) {
+            optVal2 +=
+              item.iptFlag == true
+                ? item.score + "-" + item.iptVal
+                : item.score;
+          }
         });
       }
-      console.log('optVal2',optVal2)
+      console.log("answer2", this.dataList.answer2);
+      console.log("optVal2", optVal2);
       let ans5Flag = false;
       let ans5Flagval = false;
       let optVal5 = "";
@@ -944,7 +950,7 @@ export default {
       }
       if (!ans5Flag && !ans5Flagval) {
         this.dataList.answer5.map(item => {
-          optVal5 +=  item.iptFlag ? item.score +"-" + item.iptVal : item.score ;
+          optVal5 += item.iptFlag ? item.score + "-" + item.iptVal : item.score;
         });
       }
       let ans7Flag = false;
@@ -961,7 +967,7 @@ export default {
       }
       if (!ans7Flag && !ans7Flagval) {
         this.dataList.answer7.map(item => {
-          optVal7 +=  item.iptFlag ?item.score + "-" + item.iptVal : item.score ;
+          optVal7 += item.iptFlag ? item.score + "-" + item.iptVal : item.score;
         });
       }
       if (
@@ -1005,7 +1011,7 @@ export default {
         (this.causeFlag13 && this.inputVal13 == "") ||
         (this.causeFlag14 && this.inputVal14 == "") ||
         (this.causeFlag15 && this.inputVal15 == "") ||
-        (this.causeFlag16 )
+        this.causeFlag16
       ) {
         this.emptyFlag = true;
         this.$dialog.alert({
@@ -1014,51 +1020,61 @@ export default {
         });
         return;
       }
-var val1='',
-val2='',
-val3='',
-val4='',
-val5='',
-val6='',
-val7='',
-val8='',
-val9='',
-val10='',
-val11='',
-val12='',
-val13='',
-val14='',
-val15='',
-val16='',
-val17=''
-       val1 = ( this.causeFlag1
-          ?this.optionVal1+ "-" + this.inputVal1
-          :this.optionVal1)
-        val2 = optVal2
-        val3 = ( this.causeFlag3 ?this.optionVal3 + "-" + this.inputVal3 : this.optionVal3)
-        val4 = ( this.causeFlag4 ? this.optionVal4 +"-" + this.inputVal4 :  this.optionVal4)
-        val5 = optVal5
-        val6 = optVal6
-        val7 = optVal7
-        val8 = ( this.causeFlag8 ?this.optionVal8 + "-" + this.inputVal8 : this.optionVal8)
-        val9 = ( this.causeFlag9 ?this.optionVal9 + "-" + this.inputVal9 : this.optionVal9 )
-        val10 = (this.causeFlag10
-          ? this.optionVal10 +"-" + this.inputVal10
-          : this.optionVal10 )
-        val11 = this.recognizedMsg11 + "-" + this.improvedMsg11
-        val12 = this.optionVal12
-        val13 = (this.causeFlag13
-          ? this.optionVal13 +"-" + this.inputVal13
-          : this.optionVal13 )
-        val14 = (this.causeFlag14
-          ? this.optionVal14 +"-" + this.inputVal14
-          : this.optionVal14 )
-        val15 = (this.causeFlag15
-          ? this.optionVal15 +"-" + this.inputVal15
-          : this.optionVal15 )
-        val16 = (
-          this.inputVal16 != "" ? this.optionVal16 +"-" + this.inputVal16 : this.optionVal16 )
-        val17 = this.message17;
+      var val1 = "",
+        val2 = "",
+        val3 = "",
+        val4 = "",
+        val5 = "",
+        val6 = "",
+        val7 = "",
+        val8 = "",
+        val9 = "",
+        val10 = "",
+        val11 = "",
+        val12 = "",
+        val13 = "",
+        val14 = "",
+        val15 = "",
+        val16 = "",
+        val17 = "";
+      val1 = this.causeFlag1
+        ? this.optionVal1 + "-" + this.inputVal1
+        : this.optionVal1;
+      val2 = optVal2;
+      val3 = this.causeFlag3
+        ? this.optionVal3 + "-" + this.inputVal3
+        : this.optionVal3;
+      val4 = this.causeFlag4
+        ? this.optionVal4 + "-" + this.inputVal4
+        : this.optionVal4;
+      val5 = optVal5;
+      val6 = optVal6;
+      val7 = optVal7;
+      val8 = this.causeFlag8
+        ? this.optionVal8 + "-" + this.inputVal8
+        : this.optionVal8;
+      val9 = this.causeFlag9
+        ? this.optionVal9 + "-" + this.inputVal9
+        : this.optionVal9;
+      val10 = this.causeFlag10
+        ? this.optionVal10 + "-" + this.inputVal10
+        : this.optionVal10;
+      val11 = this.recognizedMsg11 + "-" + this.improvedMsg11;
+      val12 = this.optionVal12;
+      val13 = this.causeFlag13
+        ? this.optionVal13 + "-" + this.inputVal13
+        : this.optionVal13;
+      val14 = this.causeFlag14
+        ? this.optionVal14 + "-" + this.inputVal14
+        : this.optionVal14;
+      val15 = this.causeFlag15
+        ? this.optionVal15 + "-" + this.inputVal15
+        : this.optionVal15;
+      val16 =
+        this.inputVal16 != ""
+          ? this.optionVal16 + "-" + this.inputVal16
+          : this.optionVal16;
+      val17 = this.message17;
       var arr = [
         val1,
         val2,
@@ -1078,16 +1094,16 @@ val17=''
         val16,
         val17
       ];
-     
-          console.log('optionVal1',this.optionVal1)
-           console.log('inputVal1',this.inputVal1)
-      console.log('val1',val1)
-      console.log('arr',arr)
+
+      console.log("optionVal1", this.optionVal1);
+      console.log("inputVal1", this.inputVal1);
+      console.log("val1", val1);
+      console.log("arr", arr);
+
       this.$router.push({
         path: "/personalInfo",
         query: { idx: this.lanIdx, result: JSON.stringify(arr) }
       });
-    
     },
     checkboxChange(idx, option) {
       var arr = "result" + idx;
@@ -1101,12 +1117,12 @@ val17=''
         this[iptval] = "";
       }
       if (idx == "16") {
-        if (this[arr].indexOf("D") != -1 ) {
+        if (this[arr].indexOf("D") != -1) {
           this.causeFlag16D = true;
         } else {
           this.causeFlag16D = false;
         }
-         if (this[arr].indexOf("E") != -1 ) {
+        if (this[arr].indexOf("E") != -1) {
           this.causeFlag16E = true;
         } else {
           this.causeFlag16E = false;
@@ -1120,7 +1136,7 @@ val17=''
               item.ansFlag = true;
             }
           });
-          return item;
+          // return item;
         });
       }
       this.nullans2 = this.dataList.answer2.find(item => item.ansFlag == true);
