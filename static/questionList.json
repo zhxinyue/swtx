@@ -110,7 +110,7 @@
       "score": "",
       "name": "A",
       "text": "导航地图",
-      "ansFlag":false,
+      "ansFlag": false,
       "iptVal": "",
       "iptFlag": false,
       "acindex": 20
@@ -118,7 +118,7 @@
       "score": "",
       "name": "B",
       "text": "导航软件",
-      "ansFlag":false,
+      "ansFlag": false,
       "iptVal": "",
       "iptFlag": false,
       "acindex": 20
@@ -126,15 +126,15 @@
       "score": "",
       "name": "C",
       "text": "ADAS地图",
-      "ansFlag":false,
+      "ansFlag": false,
       "iptVal": "",
       "iptFlag": false,
       "acindex": 20
-    },  {
+    }, {
       "score": "",
       "name": "D",
       "text": "高精度地图",
-      "ansFlag":false,
+      "ansFlag": false,
       "iptVal": "",
       "iptFlag": false,
       "acindex": 20
@@ -142,7 +142,7 @@
       "score": "",
       "name": "E",
       "text": "高精度地图引擎",
-      "ansFlag":false,
+      "ansFlag": false,
       "iptVal": "",
       "iptFlag": false,
       "acindex": 20
@@ -150,7 +150,7 @@
       "score": "",
       "name": "F",
       "text": "乘用车智能网联",
-      "ansFlag":false,
+      "ansFlag": false,
       "iptVal": "",
       "iptFlag": false,
       "acindex": 20
@@ -165,7 +165,7 @@
       "score": "",
       "name": "H",
       "text": "新能源汽车智能出行解决方案",
-      "ansFlag":false,
+      "ansFlag": false,
       "iptVal": "",
       "iptFlag": false,
       "acindex": 20
@@ -173,7 +173,7 @@
       "score": "",
       "name": "I",
       "text": "动态交通信息",
-      "ansFlag":false,
+      "ansFlag": false,
       "iptVal": "",
       "iptFlag": false,
       "acindex": 20
@@ -181,7 +181,7 @@
       "score": "",
       "name": "J",
       "text": "位置大数据平台",
-      "ansFlag":false,
+      "ansFlag": false,
       "iptVal": "",
       "iptFlag": false,
       "acindex": 20
@@ -189,7 +189,7 @@
       "score": "",
       "name": "K",
       "text": "自动驾驶解决方案",
-      "ansFlag":false,
+      "ansFlag": false,
       "iptVal": "",
       "iptFlag": false,
       "acindex": 20
@@ -197,7 +197,7 @@
       "score": "",
       "name": "L",
       "text": "自动代客泊车解决方案",
-      "ansFlag":false,
+      "ansFlag": false,
       "iptVal": "",
       "iptFlag": false,
       "acindex": 20
@@ -205,7 +205,7 @@
       "score": "",
       "name": "M",
       "text": "数据合规服务",
-      "ansFlag":false,
+      "ansFlag": false,
       "iptVal": "",
       "iptFlag": false,
       "acindex": 20
@@ -213,7 +213,7 @@
       "score": "",
       "name": "N",
       "text": "V2X解决方案",
-      "ansFlag":false,
+      "ansFlag": false,
       "iptVal": "",
       "iptFlag": false,
       "acindex": 20
@@ -228,7 +228,7 @@
       "score": "",
       "name": "P",
       "text": "语音产品及服务",
-      "ansFlag":false,
+      "ansFlag": false,
       "iptVal": "",
       "iptFlag": false,
       "acindex": 20
@@ -236,7 +236,15 @@
       "score": "",
       "name": "Q",
       "text": "芯片",
-      "ansFlag":false,
+      "ansFlag": false,
+      "iptVal": "",
+      "iptFlag": false,
+      "acindex": 20
+    }, {
+      "score": "",
+      "name": "R",
+      "text": "其他",
+      "ansFlag": false,
       "iptVal": "",
       "iptFlag": false,
       "acindex": 20
@@ -635,62 +643,62 @@
     }, {
       "name": "D",
       "text": "D.新闻资讯类平台"
-     
+
     }, {
       "name": "D-a",
       "text": "a.今日头条",
-      "pad":"1",
-      "parent":"D"
+      "pad": "1",
+      "parent": "D"
     }, {
       "name": "D-b",
       "text": "b.腾讯新闻",
-      "pad":"1",
-      "parent":"D"
-    },{
+      "pad": "1",
+      "parent": "D"
+    }, {
       "name": "D-c",
       "text": "c.一点资讯",
-      "pad":"1",
-      "parent":"D"
-    },{
+      "pad": "1",
+      "parent": "D"
+    }, {
       "name": "D-d",
       "text": "d.其他",
-      "pad":"1",
-      "parent":"D"
-    },{
+      "pad": "1",
+      "parent": "D"
+    }, {
       "name": "E",
       "text": "E.主流社交平台"
-     
-    },  {
+
+    }, {
       "name": "E-a",
       "text": "a.微博",
-      "pad":"1",
-      "parent":"E"
+      "pad": "1",
+      "parent": "E"
     }, {
       "name": "E-b",
       "text": "b.知乎",
-      "pad":"1",
-      "parent":"E"
-    },{
+      "pad": "1",
+      "parent": "E"
+    }, {
       "name": "E-c",
       "text": "c.B站Bilibili",
-      "pad":"1",
-      "parent":"E"
-    },{
+      "pad": "1",
+      "parent": "E"
+    }, {
       "name": "E-d",
       "text": "d.视频号",
-      "pad":"1",
-      "parent":"E"
-    },{
+      "pad": "1",
+      "parent": "E"
+    }, {
       "name": "E-e",
       "text": "e.抖音",
-      "pad":"1",
-      "parent":"E"
-    },{
+      "pad": "1",
+      "parent": "E"
+    }, {
       "name": "E-f",
       "text": "f.其他",
-      "pad":"1",
-      "parent":"E"
-    },{
+      "pad": "1",
+      "parent": "E"
+    }, {
       "name": "F",
       "text": "F.其他"
     }],
@@ -782,7 +790,7 @@
       "score": "",
       "name": "A",
       "text": "SD map",
-      "ansFlag":false,
+      "ansFlag": false,
       "iptVal": "",
       "iptFlag": false,
       "acindex": 20
@@ -790,7 +798,7 @@
       "score": "",
       "name": "B",
       "text": "SD map",
-      "ansFlag":false,
+      "ansFlag": false,
       "iptVal": "",
       "iptFlag": false,
       "acindex": 20
@@ -798,15 +806,15 @@
       "score": "",
       "name": "C",
       "text": "ADAS map",
-      "ansFlag":false,
+      "ansFlag": false,
       "iptVal": "",
       "iptFlag": false,
       "acindex": 20
-    },  {
+    }, {
       "score": "",
       "name": "D",
       "text": "HD map",
-      "ansFlag":false,
+      "ansFlag": false,
       "iptVal": "",
       "iptFlag": false,
       "acindex": 20
@@ -814,7 +822,7 @@
       "score": "",
       "name": "E",
       "text": "HD map engine",
-      "ansFlag":false,
+      "ansFlag": false,
       "iptVal": "",
       "iptFlag": false,
       "acindex": 20
@@ -822,7 +830,7 @@
       "score": "",
       "name": "F",
       "text": "Passenger vehicle connected vehicle service",
-      "ansFlag":false,
+      "ansFlag": false,
       "iptVal": "",
       "iptFlag": false,
       "acindex": 20
@@ -837,7 +845,7 @@
       "score": "",
       "name": "H",
       "text": "EV smart mobility solution -- EV charger",
-      "ansFlag":false,
+      "ansFlag": false,
       "iptVal": "",
       "iptFlag": false,
       "acindex": 20
@@ -845,7 +853,7 @@
       "score": "",
       "name": "I",
       "text": "Dynamic traffic information",
-      "ansFlag":false,
+      "ansFlag": false,
       "iptVal": "",
       "iptFlag": false,
       "acindex": 20
@@ -853,7 +861,7 @@
       "score": "",
       "name": "J",
       "text": "Location big data platform",
-      "ansFlag":false,
+      "ansFlag": false,
       "iptVal": "",
       "iptFlag": false,
       "acindex": 20
@@ -861,7 +869,7 @@
       "score": "",
       "name": "K",
       "text": "Autonomous driving system solution",
-      "ansFlag":false,
+      "ansFlag": false,
       "iptVal": "",
       "iptFlag": false,
       "acindex": 20
@@ -869,7 +877,7 @@
       "score": "",
       "name": "L",
       "text": "Automatic valet parking solution",
-      "ansFlag":false,
+      "ansFlag": false,
       "iptVal": "",
       "iptFlag": false,
       "acindex": 20
@@ -877,7 +885,7 @@
       "score": "",
       "name": "M",
       "text": "Data compliance service",
-      "ansFlag":false,
+      "ansFlag": false,
       "iptVal": "",
       "iptFlag": false,
       "acindex": 20
@@ -885,7 +893,7 @@
       "score": "",
       "name": "N",
       "text": "V2X solution",
-      "ansFlag":false,
+      "ansFlag": false,
       "iptVal": "",
       "iptFlag": false,
       "acindex": 20
@@ -900,7 +908,7 @@
       "score": "",
       "name": "P",
       "text": "Voice product and service",
-      "ansFlag":false,
+      "ansFlag": false,
       "iptVal": "",
       "iptFlag": false,
       "acindex": 20
@@ -908,7 +916,15 @@
       "score": "",
       "name": "Q",
       "text": "Automotive chips",
-      "ansFlag":false,
+      "ansFlag": false,
+      "iptVal": "",
+      "iptFlag": false,
+      "acindex": 20
+    }, {
+      "score": "",
+      "name": "R",
+      "text": "Others",
+      "ansFlag": false,
       "iptVal": "",
       "iptFlag": false,
       "acindex": 20
@@ -1301,59 +1317,59 @@
     }, {
       "name": "D",
       "text": "D.News information platform"
-    },{
+    }, {
       "name": "D-a",
       "text": "a.Toutiao",
-      "pad":"1",
-      "parent":"D"
+      "pad": "1",
+      "parent": "D"
     }, {
       "name": "D-b",
       "text": "b.Tencent News",
-      "pad":"1",
-      "parent":"D"
-    },{
+      "pad": "1",
+      "parent": "D"
+    }, {
       "name": "D-c",
       "text": "c.Yidian",
-      "pad":"1",
-      "parent":"D"
-    },{
+      "pad": "1",
+      "parent": "D"
+    }, {
       "name": "D-d",
       "text": "d.Others",
-      "pad":"1",
-      "parent":"D"
+      "pad": "1",
+      "parent": "D"
     }, {
       "name": "E",
       "text": "E.Social platforms"
     }, {
       "name": "E-a",
       "text": "a.Weibo",
-      "pad":"1",
-      "parent":"E"
+      "pad": "1",
+      "parent": "E"
     }, {
       "name": "E-b",
       "text": "b.Zhihu",
-      "pad":"1",
-      "parent":"E"
-    },{
+      "pad": "1",
+      "parent": "E"
+    }, {
       "name": "E-c",
       "text": "c.Bilibili",
-      "pad":"1",
-      "parent":"E"
-    },{
+      "pad": "1",
+      "parent": "E"
+    }, {
       "name": "E-d",
       "text": "d.WeChat Channel",
-      "pad":"1",
-      "parent":"E"
-    },{
+      "pad": "1",
+      "parent": "E"
+    }, {
       "name": "E-e",
       "text": "e.TikTok",
-      "pad":"1",
-      "parent":"E"
-    },{
+      "pad": "1",
+      "parent": "E"
+    }, {
       "name": "E-f",
       "text": "f.Others",
-      "pad":"1",
-      "parent":"E"
+      "pad": "1",
+      "parent": "E"
     }, {
       "name": "F",
       "text": "F.Others"

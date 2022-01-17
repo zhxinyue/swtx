@@ -933,8 +933,7 @@ export default {
           }
         });
       }
-      console.log("answer2", this.dataList.answer2);
-      console.log("optVal2", optVal2);
+
       let ans5Flag = false;
       let ans5Flagval = false;
       let optVal5 = "";
@@ -996,6 +995,7 @@ export default {
         });
         return;
       }
+
       if (
         (this.causeFlag1 && this.inputVal1 == "") ||
         (this.causeFlag2 && this.inputVal2 == "") ||
@@ -1020,6 +1020,7 @@ export default {
         });
         return;
       }
+
       var val1 = "",
         val2 = "",
         val3 = "",
@@ -1136,6 +1137,9 @@ export default {
               item.ansFlag = true;
             }
           });
+          if (item.ansFlag == false) {
+            item.iptFlag = false;
+          }
           // return item;
         });
       }
